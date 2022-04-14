@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="documentation.css">
+    <title>GamS Scholarly Documentation</title>
+</head>
+<body>
+    <h1>Gamification as a Service - Scholarly Documentation</h1>
+    <section>   
+        <h2>1. Introduction</h2>
+        <h3>1.1 Purpose</h3>
+            <p>
+                "Gamification as a Service" is an API that allows applications to easily define, customize and integrate a gamification system onto their own platform. This document will procide an overview of the first release (1.0) of our product.
+            </p>
+        <h3>1.2 Intended Audience</h3> <!--for this document-->
+            <p>
+                The purpose of this document is, probably as an exercise in writing documentation in a scholarly format. It is also intended for those who will review the quality and functionality of our application (i.e. Our teachers), and will most likely count towards the grading of this project. So hopefully we don't mess it up too much.
+            </p>
+        <h3>1.3 Product Scope</h3>
+            <p>
+                The product being developed is an API that allows customers to integrate gamification into their own platforms, be it web or mobile applications. The main benefit of this API is the ease with which one can define the rules that underly such a system. Our application allows the user to specify what metrics are being counted (such as the number of consecutive logins, or number of comments posted), what awards are given (i.e. Badges, Achievements, Credits, etc) and most importantly, it allows the user to customize the rules specifying how these awards are distribuited (what milestones need to be achieved for an award to be granted).
+                The intended target audience are web applications with large numbers of registered users, who look at ways to increase user engagement and retention.
+            </p>
+        <h3></h3>
+    </section>
+    <section>
+        <h2>2. Overall description</h2>
+        <h3>2.1 Product perspective</h3>
+            <p>
+                This application is being developed at the request of our teachers, counting towards the final grade for the "Web Technologies" class. Since there aren't many competitors on the market for this particular idea, it also represents a good case study and entreprenorial exercise.
+            </p>
+            <p>
+                The application consists of 4 main components: a landing webpage, which represents the contact point with the customers. This page describes the product and the team, and offers contact, and Sign Up/Sign in functionalities. A second component is the private account of the user, where they can manage their applications and their rules/achievements/awards. Next, there is the database which stores and delivers all the pertaining to the user's account, as well as the information gathered from the user's integrated platforms. Finally there's the GamS API which binds all of these together and offers the core functionality of our service.
+            </p>
+            <img src="app_schema.drawio.png" alt="application diagram">
+        <h3>2.2 Product Functions</h3>
+            <p>
+                Our API is designed to streamline the process of gamifying a platform. As such, the main functionalities are structured into three simple categories to make the process both easy and highly flexible. 
+                The user can gamify as many Web Applications as they wish. After registering the application, they must decide what they want to measure in order to give out awards. Such measurements (metrics) could be the number of comments posted by someone, or the number of uploads, or anything else the client chooses to. Next, the client is asked to define Achievement categories as well as prizes (which could be points, badges, avatars, etc). Finally, clients can define rules to decide when each of those achievements and prizes is awarded. 
+                <p>
+                    A typical flow for a customer would be as follows:
+                <ol>
+                    <li>Sign Up </li>
+                    <li>Register the Application(s) to be gamified </li>
+                    <li>Specify Metrics (what would be measured)</li>
+                    <li>Define Achievements & Rewards</li>
+                    <li>Set rules for how the rewards are distribuited</li>
+                    <li>Sit back and enjoy their newly gamified application</li>
+                </ol>
+                </p>
+            </p>
+        <h3>2.3 User Classes & Characteristics</h3>
+        <p>
+            We expect a wider range of user classes to be using our application, however we anticipate the following subgroups to show more interest:
+            <dl>
+                <dt>Forums</dt>
+                <dd>Forums are places where a lot of users gather to share their thoughts or seek information. However, it is not easy to encourage active participation. Gamification will serve as a way to increase user engagement using rewards, as well as increase user retention.</dd>
+                <dt>Game Platforms</dt>
+                <dd>Everyone loves a gift, but this seems to hold especially true for gamers. Gamers will work hard towards achieving that one badge, or earn that VIP avatar, or why not, some store credit. This is a massive opportunity to keep them engaged, interested and happy, so we expect a lot of traffic from game platforms.</dd>
+                <dt>Social Media Apps</dt>
+                <dd>Social Media has always, if perhaps not obviously, employed gamification tactics. Take the simple and omnipresent "Like" button; it is an award people would do crazy things to achieve, like posing hanging on top of the building. And with social media applications being massively defined by the traffic they have, employing gammification is a must for every such app, if they wish to stay in the game (pun intended).</dd>
+            </dl>
+        </p>
+
+        <h3>2.4 Operating Environment</h3>
+            <p>
+                The application will be cross-platform integrable. The components will be written and designed in HTML5 + CSS for styling, whilst the API itself will employ NodeJS as the main programming language. For databases we will be using MariaDB.
+            </p>
+        <h3>2.5 Design & Implementation Constraints</h3>
+            <p>
+                The project has a wide range of constraints (not mentioning the fact we can't use frameworks). Regarding the design, the application must be intuitive and easy to use by any user, regardless of their technical capabilities. This comes as a challenge when one aims to pack a lot of functionality, and yet present it as simply as possible.
+                <p>
+                    Another constraint regards data security. In order to issue out awards and achievements, the API must receive information from the client website regarding certain user information. Such information, although not sensitive, must be properly encrpyted and processed to avoid any data leaks.
+                </p>
+            </p>
+        <h3>2.6 User Documentation</h3>
+            <p>
+                Our GamS has been purposedly designed to be intuitive and easy to use. As such, any comprehensive documentation would be redundant. We will however offer a Demo Video, showcasing the main functionalities and how to use them.
+            </p>
+        <h3>2.7 Assumptions & Dependencies</h3>
+            <p>
+                Although our API manages the Gamification System, it is assumed the client will manage how these rewards are displayed on their webpage. As such, it is assumed the customer will be responsible with the display and placement of the awards on their page.
+            </p>        
+    </section>
+    <section>
+        <h2>3. External Interface Requirements</h2>
+        <h3>3.1 User Interfaces</h3>
+            <h4>Landing Page</h4>
+            <p>
+                This is the first page the customer interacts with. It offers information about the team, information about gamification and why to use it, a link towards a Demo video. It also provides a "Contact us" form as well as the Login/Register functionality.
+            </p>
+            <img src="images/homePage.jpg" class="landing_page" alt="Landing Page">
+            <h4>User Account</h4>
+            <p>
+                Once logged in, the user is redirected to a different page. This page will show an overview of the user's application, and offers the following functionalities:
+                <dl>
+                    <dt>Dashboard</dt>
+                    <dd>Will display a few overall statistics across all of the user's registered domains, such as how many user have logged in recently.</dd>
+                    <dt>Manage Apps</dt>
+                    <dd>Here the user can register the applications they wish to gamify.</dd>
+                    <dt>Rewards</dt>
+                    <dd>This is the panel for managing rewards. Rewards can be defined and media (images) can be attached to them.</dd>
+                    <dt>My account</dt>
+                    <dd>Will offer basic account management functionalities, such as change email, change password, etc.</dd>
+                    <dt>Sign Out</dt>
+                    <dd>Will take the user out.</dd>
+                </dl>
+            </p>
+            <img src="images/userAccount.jpg" alt=" User Account page">
+            <h4>Current App Page</h4>
+            <p>
+                When clicking on a certain domain from the "Manage Apps" Menu, the user will be prompted to a new page dedicated to that particular domain. Here the user can define and change all aspects pertaining to that individual application. The functionalities of this page include:
+                <dl>
+                    <dt>Dashboard</dt>
+                    <dd>Will redirect the user back to the User Account homepage.</dd>
+
+                    <dt>Current Domain</dt>
+                    <dd>Similar to the dashboard on the previous page, a few key statistics pertaining to the application will be displayed here.</dd>
+
+                    <dt>Manage Achievements</dt>
+                    <dd>Here the user can define "Achievement Categories" with their corresponding "achievements", or "levels". Achievements can be defines into groups for ease of management.</dd>
+
+                    <dt>Metrics</dt>
+                    <dd>In this section, the client specifies what information they want to track about their clients, in order to issue awards. Such a metric could be number of comments, number of consecutive logins, number of likes received,etc </dd>
+
+                    <dt>Rules</dt>
+                    <dd>In this section, a rule is created for each particular achievement, to determine when it will be given. Rules will depend on the metrics declared above. Such a rule could say for example that the award "Most usefull post" is awarded when the metric "number of likes received" for that user is bigger than 100.</dd>
+
+                    <dt>Leaderboards</dt>
+                    <dd>A future feature that will allow the client to organize timed competitions. It will work somewhat similar to normal achievements, but they will run for a limited time, and can be recurrent. For example, an achievement like "Most liked photo of the day" awarded to the persone who received the highest number of likes on a single photo during the day.</dd>
+
+                    <dt>Site statistics</dt>
+                    <dd>This section will provide a detailed look at how the gamification service is performing on the client's application. It will show information such as how many achievements were awarded within the last "x" days, etc.</dd>
+
+                    <dt>My account</dt>
+                    <dd>Same as in previous page</dd>
+                </dl>
+            </p>
+            <img src="images/currentDomain.jpg" alt="">
+        <h3>3.2 Hardware Interfaces</h3>
+            <p>
+                On the user side, the application will run on any Desktop browser, such as Chrome, Opera, Edge, that supports HTML,CSS and Javascript.
+
+                On the backend, our API services will run on the cloud, and as such some cloud services will be required for the project. The communication protocols (client-served, server-server) used will be TCP.
+            </p>
+        <h3>3.3 Software Interfaces</h3>
+            <p>
+                The API will store and process information in a Database, so a software service such as "AWS Database Services" will be employed. The memory required can be signifficant, as the application permits the users to upload media materials to be issued as or associated with awards.
+            </p>
+            <p>
+                The application will also make use of existing email services (for communication with the client). In addition, such services and software as listed below will be used:
+                <ul>
+                    <li>Google fonts & icons (free license)</li>
+                    <li>CSS stylesheets</li>
+                    <li>NodeJS libraries</li>
+                    <li>Visual Studio Code</li>
+                </ul>
+            </p>
+            <p>
+                Hosting services as well as a registered domain will also be required for the website.
+            </p>
+        <h3>3.4 Communications Interfaces</h3>
+            <p>
+                As mentioned above, for communication with the client, the existing email services will be used.
+            </p>
+            <p>
+                For server-client communication, in order to maintain the safety of information, it is recommended that the HTTPS protocol be used.
+            </p>
+    </section>
+    
+</body>
