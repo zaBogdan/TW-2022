@@ -1,0 +1,58 @@
+.sub-header{
+    height: 40vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(131, 117, 117, 0.7), rgba(134, 126, 126, 0.7)),url('../img/about_us_banner.jpg');
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+}
+
+/* .sub-header h1{
+} */
+
+.about-us{
+    width:80%;
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+.about-us .row{
+    display: flex;
+}
+.about-col{
+    flex-basis: 48%;
+    padding-left: 5vw;
+    padding-right: 1vw;
+}
+
+.about-col img{
+    width:100%;
+}
+.about-col  h1{
+    padding-top: 0;
+}
+.about-col p{
+    padding: 15px 0 25px;
+}
+.red-btn{
+    border: 1px solid #370da0;
+    background: transparent;
+    color: #370da0;
+}
+
+@media(max-width:700px){
+    .about-us .row{
+        flex-direction: column;
+    }
+    .about-col{
+        padding-top: 5vh;
+    }
+    /* Contact us*/
+    .contact-col div h5{
+        font-size: 15px;
+    }
+    .contact-us .row{
+        flex-direction: column;
+    }
+}

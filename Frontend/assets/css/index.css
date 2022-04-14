@@ -1,3 +1,7 @@
+@import url('./whygams.css');
+@import url('./about.css');
+@import url('./contactus.css');
+
 *{
     margin:0;
     padding: 0;
@@ -10,7 +14,7 @@ body{
 .header{
     min-height: 100vh;
     width: 100vw;
-    background-image: url("images/banner2.jpg");
+    background-image: url("../img/banner2.jpg");
     background-size: cover;
     background-position: relative;
 }
@@ -101,71 +105,7 @@ nav img{
 nav .fa{
     display: none;
 }
-/* WHY GAMMIFICATION */
-.why_gamification{
-    margin: auto;
-    text-align: center;
-    padding-top: 100px;
-    min-height: 100vh;
-    width: 100vw;
-    background: linear-gradient(rgba(217, 230, 234, 0.922),rgba(204, 219, 223, 0.747)), url('images/background1.png');
-    /*background-image:url("images/background1.png");*/
-    background-size: cover;
-    background-position: relative;
-}
-.why_gamification h1{
-    font-size:3vw;
-    font-weight: 600;
-}
 
-.why_gamification p{
-    margin-left: 10%;
-    margin-right: 10%;
-    color:#000000;
-    font-size: 1.25vw;
-    font-weight: 300;
-    line-height: 150%;
-    padding: 10px;
-}
-
-.why_row{
-    margin-top: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
-    display: flex;
-    justify-content: space-between;
-}
-.why_column{
-    flex-basis: 31%;
-    max-width: 500px;
-    background: #fff3f3;
-    border-radius: 10px;
-    margin-bottom: 5%;
-    padding: 20px 12px;
-    box-sizing: border-box;
-    text-align: justify;
-    transition: 0.5s;
-}
-.why_column h3{
-    font-size: 1.5vw;
-    text-align: center;
-    font-weight: 600;
-    margin: 10px 0;
-}
-.why_column p{
-    font-size: 1vw;
-}
-.why_column:hover{
-    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
-}
-.why_column img{
-    display: block;
-    width: 30%;
-    height: 30%;
-    border-radius: 50%;
-    margin-left: auto;
-    margin-right: auto;
-}
 /* Features */
 .features{
     margin: auto;
@@ -173,7 +113,7 @@ nav .fa{
     padding-top: 100px;
     min-height: 100vh;
     width: 100vw;
-    background: linear-gradient(rgba(217, 230, 234, 0.922),rgba(204, 219, 223, 0.747)), url('images/background2.jpg');
+    background: linear-gradient(rgba(217, 230, 234, 0.922),rgba(204, 219, 223, 0.747)), url('../img/background2.jpg');
     background-size: cover;
     background-position: relative;
 }
@@ -236,7 +176,7 @@ nav .fa{
     margin:auto;
     padding-top: 100px;
     text-align: center;
-    background: linear-gradient(rgba(217, 230, 234, 0.922),rgba(204, 219, 223, 0.747)), url('images/background3.jpg');
+    background: linear-gradient(rgba(217, 230, 234, 0.922),rgba(204, 219, 223, 0.747)), url('../img/background3.jpg');
 }
 
 .testimonials h1{
@@ -304,7 +244,7 @@ nav .fa{
 .cta{
     margin: 100px auto;
     width: 80%;
-    background-image: linear-gradient(rgba(131, 117, 117, 0.7), rgba(134, 126, 126, 0.7)),url('images/banner1.jpg');
+    background-image: linear-gradient(rgba(131, 117, 117, 0.7), rgba(134, 126, 126, 0.7)),url('../img/banner1.jpg');
     background-position: center;
     background-size: cover;
     border-radius: 10px;
@@ -341,110 +281,6 @@ nav .fa{
     cursor: pointer;
     padding: 13px 0;
 }
-/*About us page*/
-.sub-header{
-    height: 40vh;
-    width: 100%;
-    background-image: linear-gradient(rgba(131, 117, 117, 0.7), rgba(134, 126, 126, 0.7)),url('images/about_us_banner.jpg');
-    background-position: center;
-    background-size: cover;
-    text-align: center;
-    color: #fff;
-}
-
-.sub-header h1{
-}
-
-.about-us{
-    width:80%;
-    margin: auto;
-    padding-top: 80px;
-    padding-bottom: 50px;
-}
-.about-us .row{
-    display: flex;
-}
-.about-col{
-    flex-basis: 48%;
-    padding-left: 5vw;
-    padding-right: 1vw;
-}
-
-.about-col img{
-    width:100%;
-}
-.about-col  h1{
-    padding-top: 0;
-}
-.about-col p{
-    padding: 15px 0 25px;
-}
-.red-btn{
-    border: 1px solid #370da0;
-    background: transparent;
-    color: #370da0;
-}
-
-/* Contact us Page */
-.location{
-    width:80%;
-    margin:auto;
-    padding: 80px 0;
-}
-.location iframe{
-    width: 100%;
-    border-radius: 15%;
-}
-.contact-us{
-    width:80%;
-    margin: auto;
-
-}
-.contact-us .row{
-    display: flex;
-}
-.contact-col{
-    flex-basis: 48%;
-    margin-bottom: 30px;
-}
-
-.contact-col div{
-    display: flex;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.contact-col p{
-    font-weight: 200;
-    font-size: smaller;
-    padding: 0;
-}
-
-.contact-col div .fa{
-    font-size: 28px;
-    color: #370da0;
-    margin: 10px;
-    margin-right: 30px;
-
-}
-
-.contact-col div h5{
-    font-size: 20px;
-    margin-bottom: 5px;
-    color:#370da0;
-    font-weight: 400;
-}
-
-.contact-col input, .contact-col textarea{
-    width: 100%;
-    padding: 15px;
-    margin-bottom:17px;
-    margin-right: 5%;
-    outline: none;
-    border: 1px solid #ccc;
-
-}
-
 /** specs for smaller screens */ 
 @media(max-width:700px){
 
@@ -499,26 +335,6 @@ nav .fa{
     font-size: 1.5vh;
 }
 
-/* Why Gamification */
-
-.why_gamification h1{
-    font-size:5vw;
-}
-.why_gamification p{
-    color:#000000;
-    font-size: 4vw;
-    font-weight: 300;
-    line-height: 200%;
-    padding: 10px;
-}
-
-.why_row{
-    flex-direction: column;
-}
-.why_column h3{
-    font-size: 4vw;
-}
-
 /* Our Features */
 .feature_row{
     flex-direction: column;
@@ -555,19 +371,5 @@ nav .fa{
     font-size: 3vw;
 }
 
-/* About us */
-.about-us .row{
-    flex-direction: column;
-}
-.about-col{
-    padding-top: 5vh;
-}
-/* Contact us*/
-.contact-col div h5{
-    font-size: 15px;
-}
-.contact-us .row{
-    flex-direction: column;
-}
 }
 

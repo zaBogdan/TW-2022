@@ -1,0 +1,84 @@
+.why_gamification{
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(rgba(217, 230, 234, 0.922),rgba(204, 219, 223, 0.747)), url('../img/background1.png');
+    /*background-image:url("../img/background1.png");*/
+    background-size: cover;
+    background-position: relative;
+}
+.why_gamification h1{
+    font-size:3vw;
+    font-weight: 600;
+}
+
+.why_gamification p{
+    margin-left: 10%;
+    margin-right: 10%;
+    color:#000000;
+    font-size: 1.25vw;
+    font-weight: 300;
+    line-height: 150%;
+    padding: 10px;
+}
+
+.why_row{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.why_column{
+    flex-basis: 31%;
+    max-width: 500px;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    text-align: justify;
+    transition: 0.5s;
+}
+.why_column h3{
+    font-size: 1.5vw;
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+.why_column p{
+    font-size: 1vw;
+}
+.why_column:hover{
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+}
+.why_column img{
+    display: block;
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media(max-width:700px){
+    .why_gamification h1{
+        font-size:5vw;
+    }
+    .why_gamification p{
+        color:#000000;
+        font-size: 4vw;
+        font-weight: 300;
+        line-height: 200%;
+        padding: 10px;
+    }
+    
+    .why_row{
+        flex-direction: column;
+    }
+    .why_column h3{
+        font-size: 4vw;
+    }
+}

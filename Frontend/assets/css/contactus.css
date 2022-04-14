@@ -1,0 +1,58 @@
+.location{
+    width:80%;
+    margin:auto;
+    padding: 80px 0;
+}
+.location iframe{
+    width: 100%;
+    border-radius: 15%;
+}
+.contact-us{
+    width:80%;
+    margin: auto;
+
+}
+.contact-us .row{
+    display: flex;
+}
+.contact-col{
+    flex-basis: 48%;
+    margin-bottom: 30px;
+}
+
+.contact-col div{
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.contact-col p{
+    font-weight: 200;
+    font-size: smaller;
+    padding: 0;
+}
+
+.contact-col div .fa{
+    font-size: 28px;
+    color: #370da0;
+    margin: 10px;
+    margin-right: 30px;
+
+}
+
+.contact-col div h5{
+    font-size: 20px;
+    margin-bottom: 5px;
+    color:#370da0;
+    font-weight: 400;
+}
+
+.contact-col input, .contact-col textarea{
+    width: 100%;
+    padding: 15px;
+    margin-bottom:17px;
+    margin-right: 5%;
+    outline: none;
+    border: 1px solid #ccc;
+
+}
