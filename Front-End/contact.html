@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamifyBiz landing page</title>
+    <link rel="stylesheet" href="index_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://use.fontawesome.com/b483488714.js"></script>
+</head>
+<body>
+    <!------Home Page-->
+    <section class="sub-header">
+       <nav>
+        <a href="index.html"><img src="images/logo.png" alt="Company logo" ></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="why_gamification.html">Why gamification</a></li>
+                <li><a href="">Watch demo</a></li>
+                <li><a href="">Change log</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+                <li><a href="">Login/Sign up</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Contact us</h1>
+
+    </section>
+   <!-- Contact us Content-->
+    <section class="location">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5424.326515843765!2d27.56898405520175!3d47.174240060208426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb61af5ef507%3A0x95f1e37c73c23e74!2sAlexandru%20Ioan%20Cuza%20University%20of%20Ia%C8%99i!5e0!3m2!1sen!2sro!4v1649410788629!5m2!1sen!2sro" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <section class="contact-us">
+        <div class="row">
+            <div class="contact-col">
+                    <div>
+                        <i class="fa fa-home"></i>
+                        <span>
+                            <h5>Bulevardul Carol I nr.11</h5>
+                            <p>Iasi, Romania</p>
+                        </span>
+                    </div>
+                    <div>
+                        <i class="fa fa-phone"></i>
+                        <span>
+                            <h5>+40 000 111</h5>
+                            <p>Monday - Friday, 10:00 to 10:01</p>
+                        </span>
+                    </div>
+                    <div>
+                        <i class="fa fa-envelope-o"></i>
+                        <span>
+                            <h5>contact@gamifybiz.com</h5>
+                            <p>Let us know how we can be of assistance!</p>
+                        </span>
+                    </div>
+            </div>
+            <div class="contact-col">
+                
+                <form action="">
+                    <input type="text" placeholder="Enter your name" required>
+                    <input type="email" placeholder="Enter email address" required>
+                    <input type="text" placeholder="Subject" required>
+                    <textarea name="" id="" cols="30" rows="8" placeholder="Message" required></textarea>
+                    <button type="submit" class="get_started_button red-btn">Send message</button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!--Footer-->
+    <section class="footer">
+        <HR></HR>
+        <h4>GamifyBiz</h4>
+        <p>We are a team of 3 experienced developers, with a single goal in mind: pass the "Web Tehnology" subject at university. <br>As such we have put quite a few working hours into this platform, hoping for the best...preparing for the worst.</p>
+
+        <div class="icons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+        </div>
+        <p>Made with a lot of stress, by a team of exhausted people.</p>
+    </section>
+
+<!-----JavaSCript for Menu Buttons---->
+<script>
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right="-200px";
+    }
+</script>
+</body>
+</html>
