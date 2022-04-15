@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamifyBiz - Login</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://use.fontawesome.com/b483488714.js"></script>
+</head>
+<body>
+    <!------Home Page-->
+    <section class="sub-header">
+       <nav>
+        <a href="index.html"><img src="assets/img/logo.png" alt="Company logo" ></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="why_gamification.html">Why gamification</a></li>
+                <li><a href="">Watch demo</a></li>
+                <li><a href="">Change log</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+                <li><a href="login.html">Login/Sign up</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Gamification as a Service</h1>
+
+    </section>
+
+    <section class="login">
+        <h3>Login</h3>
+        <hr />
+        <form action="">
+            <div class="formGroup">
+                <label>Email</label>
+                <input type="email" placeholder="Enter email address" required>
+            </div>
+            <div class="formGroup">
+                <label>Password</label>
+                <input type="password" placeholder="Password" required>
+            </div>
+            <div>
+                <button type="submit" class="btn submit">Login</button>
+                <a href="register.html" class="btn register">Register</a>
+            </div>
+        </form>
+   </section>
+
+    <!--Footer-->
+    <section class="footer">
+        <hr>
+        <h4>GamifyBiz</h4>
+        <p>We are a team of 3 experienced developers, with a single goal in mind: pass the "Web Tehnology" subject at university. <br>As such we have put quite a few working hours into this platform, hoping for the best...preparing for the worst.</p>
+
+        <div class="icons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+        </div>
+        <p>Made with a lot of stress, by a team of exhausted people.</p>
+    </section>
+
+<!-----JavaSCript for Menu Buttons---->
+<script>
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right="-200px";
+    }
+</script>
+</body>
+</html>

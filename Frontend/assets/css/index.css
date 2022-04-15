@@ -1,7 +1,7 @@
 @import url('./whygams.css');
 @import url('./about.css');
 @import url('./contactus.css');
-
+@import url('./signinup.css');
 *{
     margin:0;
     padding: 0;
@@ -281,6 +281,11 @@ nav .fa{
     cursor: pointer;
     padding: 13px 0;
 }
+.red-btn{
+    border: 1px solid #370da0;
+    background: transparent;
+    color: #370da0;
+} 
 /** specs for smaller screens */ 
 @media(max-width:700px){
 

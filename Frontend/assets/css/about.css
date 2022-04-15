@@ -35,11 +35,6 @@
 .about-col p{
     padding: 15px 0 25px;
 }
-.red-btn{
-    border: 1px solid #370da0;
-    background: transparent;
-    color: #370da0;
-}
 
 @media(max-width:700px){
     .about-us .row{
