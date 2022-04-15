@@ -8,6 +8,11 @@
     flex-flow: column;
 }
 
+
+.login.extended {
+    height: 100vh;
+}
+
 .login input {
     padding: 15px 20px;
     margin: 10px 0px;
