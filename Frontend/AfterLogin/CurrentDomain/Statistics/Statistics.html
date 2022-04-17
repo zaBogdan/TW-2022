@@ -64,6 +64,11 @@
     function hideMenu() {
       sidebar.style.left = "-200px";
     }
+    
+       window.addEventListener("resize", function () {
+      if (window.innerWidth > 650) sidebar.style.removeProperty("left");
+    });
+
 
   </script>
   
