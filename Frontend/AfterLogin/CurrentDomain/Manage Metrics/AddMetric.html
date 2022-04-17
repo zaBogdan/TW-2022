@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Gammification</title>
+  <link rel="stylesheet" href="styles2.css">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <script src="https://kit.fontawesome.com/956724cc15.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="nav">
+      <div class="sidebar" id="sidebar">
+        <i class="fa-solid fa-arrow-left" onclick="hideMenu()"></i>
+        <h2><img class="logo" src="/logo.svg" width="60" height="60" alt="logo"></h2>
+        <ul>
+          <li><a href="/Dashboard/Dashboard.html"><i class="fas fa-home"></i>Dashboard</a></li>
+          <li><a href="/Current Domain/Statistics/Statistics.html"><i class="fas fa-globe"></i>Current Domain</a></li>
+          <li><a href="/Current Domain/Manage Achievements/ManageAchievements.html"><i
+                class="fas fa-project-diagram"></i>Manage Achievements</a></li>
+          <li><a href="/Current Domain/Manage Metrics/ManageMetrics.html"><i class="fas fa-boxes"></i>Manage Metrics</a>
+          </li>
+          <li><a href="#"><i class="fas fa-cogs"></i>Rules</a></li>
+          <li><a href="#"><i class="fas fa-list-ol"></i>Leaderboards</a></li>
+        </ul>
+        <div class="social_media">
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+    </div>
+
+
+    <div class="main_content">
+
+      <h1>Manage Metrics</h1>
+      <div class="flex-container ">
+        <div class="flex-item flex-1">
+
+          <h2 style="padding-bottom: 4%;">New Metric:</h2>
+          <h2>Metric name</h2>
+          <input type="text" placeholder="What metric do you want to measure?">
+
+          <h2>Information source</h2>
+          <input type="text" placeholder="Where to get the information from?">
+          <button class="button" style="margin-top: 7%;">Add metric</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!--------JavaScript toggle menu ------>
+
+    <script>
+
+      var sidebar = document.getElementById("sidebar");
+  
+      function showMenu() {
+        sidebar.style.left = "0";
+      }
+      function hideMenu() {
+        sidebar.style.left = "-200px";
+      }
+  
+    </script>
+
+</body>
+
+</html>
