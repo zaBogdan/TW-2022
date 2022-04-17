@@ -156,7 +156,7 @@ body {
   font-size: 40px;
   color: #2e3e3f;
 }
-.button{
+.Addbutton{
   margin-top: 8%;
   width: 30%;
   height: 40px;
@@ -171,7 +171,7 @@ body {
 .Event_list .fas:hover{
   color: #01858f;
 }
-.button:hover{
+.Addbutton:hover{
   background-color:#01858f
 }
 
