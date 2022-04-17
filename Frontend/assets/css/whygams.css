@@ -4,7 +4,7 @@
     padding-top: 100px;
     min-height: 100vh;
     width: 100vw;
-    background: linear-gradient(rgba(217, 230, 234, 0.922),rgba(204, 219, 223, 0.747)), url('../img/background1.png');
+    background: linear-gradient(rgba(161, 211, 226, 0.785),rgba(145, 210, 227, 0.823)), url('../img/background1.png');
     /*background-image:url("../img/background1.png");*/
     background-size: cover;
     background-position: relative;
