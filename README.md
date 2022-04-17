@@ -2,6 +2,6 @@
 
 ### Authors
 
-Lucian Chiriac
-Alin Jufa
-Bogdan Zavadovschi
+Lucian Chiriac <br />
+Alin Jufa  <br />
+Bogdan Zavadovschi  <br />
