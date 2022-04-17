@@ -98,6 +98,11 @@ body {
   color: #acc8c9;
 }
 
+.wrapper .main_content .text{
+  text-align: center;
+  color: #385170;
+}
+
 .main_content h1:first-of-type{
   font-size: 50px;
   padding-bottom: 10px;
