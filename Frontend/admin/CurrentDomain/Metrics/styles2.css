@@ -139,7 +139,7 @@ body {
 }
 
 
-.button{
+.Addbutton{
   margin-bottom: 4%;
   width: 30%;
   min-width:130px;
@@ -152,7 +152,7 @@ body {
 }
 
 
-.button:hover{
+.Addbutton:hover{
   background-color:#01858f;
 }
 .Achievements_list .fas:hover{
