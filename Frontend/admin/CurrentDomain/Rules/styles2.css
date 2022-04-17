@@ -204,7 +204,7 @@ select::-ms-expand {
   padding: 5px;
 }
 
-.button {
+.Addbutton {
   margin-top: 2%;
   width: 200px;
   height: 50px;
@@ -253,7 +253,7 @@ select::-ms-expand {
 }
 
 
-.button:hover {
+.Addbutton:hover {
   background-color: #01858f
 }
 
