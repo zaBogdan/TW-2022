@@ -204,7 +204,7 @@ display: none;
  padding:5px;
 }
 
-.button{
+.Addbutton{
   margin-top: 2%;
   width: 200px;
   height: 50px;
@@ -233,7 +233,7 @@ display: none;
   background-color: white;
 }
 
-.button:hover{
+.Addbutton:hover{
   background-color:#01858f
 }
 
