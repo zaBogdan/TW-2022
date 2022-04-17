@@ -54,7 +54,7 @@ nav img{
     content:'';
     width: 0%;
     height: 2px;
-    background: #f44336;
+    background: #c8e6e6;
     display: block;
     margin: auto;
     transition: 0.5s;
@@ -98,8 +98,8 @@ nav img{
     cursor: pointer; 
 }
 .get_started_button:hover{
-    border: 1px solid #f44336;
-    background: #f44336;
+    border: 1px solid #c8e6e6;
+    background: #c8e6e6;
     transition: 1s;
 }
 nav .fa{
@@ -113,7 +113,7 @@ nav .fa{
     padding-top: 100px;
     min-height: 100vh;
     width: 100vw;
-    background: linear-gradient(rgba(217, 230, 234, 0.922),rgba(204, 219, 223, 0.747)), url('../img/background2.jpg');
+    background: linear-gradient(rgba(122, 164, 177, 0.873),rgba(125, 169, 180, 0.884)), url('../img/background2.jpg');
     background-size: cover;
     background-position: relative;
 }
@@ -176,7 +176,7 @@ nav .fa{
     margin:auto;
     padding-top: 100px;
     text-align: center;
-    background: linear-gradient(rgba(217, 230, 234, 0.922),rgba(204, 219, 223, 0.747)), url('../img/background3.jpg');
+    background: linear-gradient(rgba(217, 230, 234, 0.623),rgba(204, 219, 223, 0.596)), url('../img/background3.jpg');
 }
 
 .testimonials h1{
@@ -244,7 +244,7 @@ nav .fa{
 .cta{
     margin: 100px auto;
     width: 80%;
-    background-image: linear-gradient(rgba(131, 117, 117, 0.7), rgba(134, 126, 126, 0.7)),url('../img/banner1.jpg');
+    background-image: linear-gradient(rgba(109, 119, 122, 0.632), rgba(102, 112, 121, 0.582)),url('../img/banner1.jpg');
     background-position: center;
     background-size: cover;
     border-radius: 10px;
@@ -316,7 +316,7 @@ nav .fa{
 }
 .nav-links{
     position: fixed;
-    background: #f44336;
+    background: #092b2b;
     height: 100vh;
     width: 35%;
     top:0;
