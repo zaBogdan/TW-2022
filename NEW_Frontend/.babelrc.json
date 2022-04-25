@@ -1,0 +1,10 @@
+{
+	"presets": ["es2015", "stage-0", "@babel/preset-typescript"],
+	"plugins": [
+		["@babel/plugin-transform-runtime",{
+			"corejs": 2,
+			"regenerator": true
+        }],
+		"transform-html-import-to-string"
+	]
+}
