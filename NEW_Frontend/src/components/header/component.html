@@ -1,0 +1,20 @@
+<div>
+    <h1>
+        This is my cute header %name%
+    </h1>
+    %for(const d in data)%
+        <p>%d%</p>
+    % endfor %
+
+    % if(env == 'prod') %
+        <p>Production</p>
+    %endif%
+
+    % if(env == 'prod') %
+        <p>Production</p>
+    % elif(env == 'testing') %
+        <p>Testing</p>
+    % if(env == 'prod') %
+        <p>Development</p>
+    %endif%
+</div>

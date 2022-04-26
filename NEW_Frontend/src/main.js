@@ -1,9 +1,22 @@
 import App from './App';
+import { Router } from './core';
 
-module?.hot?.accept();
+
+if (module.hot) {
+  module.hot.accept();
+}
+
+// const app = async () => {
+//   const root = document.getElementById('app');
+//   Render(root, App());
+// };
 
 const app = async () => {
   document.getElementById('app').appendChild(await App());
 };
-// Load app
+window.addEventListener("popstate", Router());
+document.addEventListener("DOMContentLoaded", () => {
+  Router();
+});
+
 app();
