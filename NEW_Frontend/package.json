@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rfd ./dist && rm -rfd ./.cache",
-    "dev": "changeFile=true npm run clean && parcel public/index.html --out-dir dist -p 3000",
+    "dev": "npm run clean && parcel public/index.html --out-dir dist -p 3000",
     "build": "npm run clean && parcel build public/*.html --out-dir dist --public-url ./"
   },
   "author": "",
