@@ -13,6 +13,7 @@ const router = () => {
 
     // console.log(window.location.pathname);
     // console.log(window.location);
+    return 'hello'
 };
 
 export default router;

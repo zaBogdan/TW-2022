@@ -1,38 +1,33 @@
-// import App from './App';
-// import { Router } from './core';
-
-
 if (module.hot) {
   module.hot.accept();
 }
 
-// const app = async () => {
-//   const root = document.getElementById('app');
-//   Render(root, App());
-// };
+import { CreateElement, RenderTemplate } from './core'
+// console.log('All exports:',Data['Router']())
+const helper = () => {
+  return []
+}
 
-// const app = async () => {
-//   document.getElementById('app').appendChild(await App());
-// };
-// window.addEventListener("popstate", Router());
-// document.addEventListener("DOMContentLoaded", () => {
-//   Router();
-// });
+const children = [{name: 'Child'}, ...helper()]
 
-// app();
-
-import { CreateElement, RenderTemplate } from './core';
+console.log('Children: ', children)
 
 const Header = () => (
  `
  <h1>I am the header element</h1>
  `
 )
+const obj = {
+  hello: 1,
+  world: 2
+}
 
 const html = `
   <div id="container" style="color: red">
     Hello world
-    %Header()%
+    <Header-Component title="%title%" data="%obj%">
+      <h1>This is my cute header!</h1>
+    </Header-Component>
     %for(const index in this.links ){%
       <a href="%this.links[index].text%">%this.links[index].text%</a>
     %}%
@@ -41,9 +36,10 @@ const html = `
     </p>
   </div>
 `
-const template = RenderTemplate(html, { name: 'John', links: [{ text: 'google.com' }, { text: 'facebook.com' }], Header });
+const template = RenderTemplate(html, { obj, title: 'Zeact', name: 'John', links: [{ text: 'google.com' },{ text: 'test.com' }, { text: 'facebook.com' }], Header });
 console.log(template);
 console.log(CreateElement(template));
+
 
 
 //https://dev.to/buttercubz/explained-and-created-a-simple-virtual-dom-from-scratch-5765

@@ -20,8 +20,7 @@ const e = (htmlNode: any) : VDOMElement | null => {
     }
     const props: VDOMProps = {};
     const tag = htmlNode.nodeName.toLowerCase();
-
-    
+    console.log(tag.endsWith('-component'))
     Array.from(htmlNode?.attributes).forEach((attr: any) => {
         props[attr.nodeName] = attr.nodeValue;
     })
