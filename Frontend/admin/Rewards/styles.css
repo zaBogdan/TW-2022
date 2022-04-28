@@ -161,7 +161,6 @@ display: none;
   appearance: none;
   display: block;
   width: 100%;
-  max-width: 320px;
   height: 50px;
   float: right;
   margin: 5px 0px;
@@ -230,6 +229,29 @@ display: none;
 .Addbutton:hover{
   background-color:#01858f
 }
+.upload + label {
+  font-weight: 700;
+  color: white;
+  background-color: #2e3e3f;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.upload:focus + label,
+.upload + label:hover {
+  background-color: purple;
+}
+.upload {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+
+
 
 
 @media (max-width: 1060px) {
