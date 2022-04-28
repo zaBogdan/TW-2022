@@ -9,7 +9,6 @@ import Footer from './components/footer'
 //   router.addRoute('/', () => Home());
 //   router.addRoute('/about', () => About());
 // }
-console.log('APP.ts',styles)
 new Footer([
   {
     href: '/',

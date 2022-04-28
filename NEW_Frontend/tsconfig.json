@@ -4,6 +4,7 @@
         "emitDeclarationOnly": true,
         "isolatedModules": true,
         "strict": true,
+        "module": "ESNEXT"
     },
     "exclude": ["node_modules", "build"],
     "include": ["src/**/*"]

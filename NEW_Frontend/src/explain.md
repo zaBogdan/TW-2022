@@ -24,6 +24,15 @@ const ButtonComponent = (onClick, type) => {
     })
 }
 
+How the parsing works:
+-> I break all the HTML into pieces (DOMParser)
+-> I create the small elements (tag, props, children) with the 3 cases (string, component, html)
+-> I apply context (using template-ing)
+-> Return the "node" (well I think there is no need for createPage)
+
+
+
+
 const HomePage : Page = () => {
     setTitle('Home');
     const [data, setData] = useState({}); <-- it will have a prop called 'reactive'

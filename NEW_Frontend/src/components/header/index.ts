@@ -1,33 +1,15 @@
-import html from './component.html';
-import styles from './styles.module.css';
+import { Component } from '../../core';
+// import html from './component.html';
+// import styles from './styles.module.css';
 
-
-const render = (text, obj) : string => {
-	Object.keys(obj).forEach(key => {
-		text = text.replace(`\${${key}}`, obj[key]);
-	})
-	return text
-}
-
-const Header = (name) : string => {
-	// document.styleSheets = styles
-	const footerTemplate = document.createElement('template');
-
-	footerTemplate.innerHTML = html;
-	footerTemplate.style.all = styles
-	// const shadowRoot = this.attachShadow({ mode: 'closed' });
-
-    // shadowRoot.appendChild(footerTem plate.content);
-
-
-	// console.log(styles)
-	return render(html, { name });
+const Header = (props) => {
+	const html = `
+		<div>
+			<h3> %title% </h3>
+			<p> This is a custom header component! </p> 
+		</div>
+	`;
+	return Component(html, {...props, title: 'zaBogdan'})
 };
 
-const HeaderComponent = {
-	type: 'component',
-	component: Header,
-	tag: 'Header',
-	props: ["name"],
-}
 export default Header;

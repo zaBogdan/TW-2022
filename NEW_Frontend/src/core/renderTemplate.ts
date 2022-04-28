@@ -17,7 +17,6 @@ const renderTemplate = (text: string, props: RenderObjects = {}) : string => {
     let match : RegExpExecArray | null;
     let cursor = 0;
 
-    console.log("Starting to parse")
     while(match = re.exec(text)) {
         add(text.slice(cursor, match.index))
         add(match[1], true)
