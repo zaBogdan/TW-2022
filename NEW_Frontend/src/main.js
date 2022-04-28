@@ -10,7 +10,7 @@ const ButtonComponent = ({ onClick, type }) => {
   }[type]
 
   const name = ['Alo', 'Ce faci', 'Buna'];
-
+  const title = 'Hello World';
   const html = `
       <div style="hello">
         <h1 *zFor="let n in name">
@@ -19,17 +19,17 @@ const ButtonComponent = ({ onClick, type }) => {
         <button style="%styleBasedOnType%">
           %_children_%
         </button>
-        <C-Header title="Hello World" *zFor="let n in name">%n%</C-Header>
+        <C-Header title="%title%" *zFor="let n in name">%n%</C-Header>
       </div>
   `
 
   return Component(html, {
       onClick, 
       type,
-      styleBasedOnType
+      styleBasedOnType,
+      name
   })
 }
-
 const component = ButtonComponent({ onClick: ()=>{console.log('Clicked')}, type: 'primary' })
 
 console.log(component)

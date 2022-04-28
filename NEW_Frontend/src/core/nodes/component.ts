@@ -2,7 +2,6 @@ import { transformTextInHTML } from "./utils";
 import { createNodes } from "./createNodes";
 import renderNodes from "../templating/renderNodes";
 import type { VDOMElement, CTXType } from "../types/nodes";
-import { SPECIAL_PROPS } from '../types/props';
 
 const Component = (text: string, ctx: CTXType) : VDOMElement => {
     const entryPoint = transformTextInHTML(text);
@@ -11,15 +10,9 @@ const Component = (text: string, ctx: CTXType) : VDOMElement => {
     if(response === null || response.length !== 1) {
         throw new Error('Failed to parse the component');
     }
-    
-    for(let _prop in SPECIAL_PROPS) {
-        const id = SPECIAL_PROPS[_prop];
-        if (ctx[id] !== undefined) {
-            response[0].props[id] = ctx[id];
-            delete ctx[id];
-        }
-    }
-    
+
+    // TODO: if we are in production mode we will serialize this component and save it
+    // somewhere in this form, to be much more faster to build the pages and dynamic links
     return renderNodes(response[0], ctx);
 }
 
