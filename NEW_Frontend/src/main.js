@@ -3,6 +3,6 @@ if (module.hot) {
 }
 
 import Core, { Render } from './core';
-import Home from './pages/Home';
+import App from './App';
 
-Core.render(Home, document.getElementById('app'));
+Core.render(App, document.getElementById('app'));

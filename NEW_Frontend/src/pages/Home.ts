@@ -37,7 +37,7 @@ const Home = function(this: CorePage<IHome>) {
             </C-Header>
             
             <h1 style="%headerTitle%"> 
-                This is my beautiful %headerTitsle% page!
+                This is my beautiful %headerTitle% page!
             </h1> 
             
             <a href="%link.href%" *zfor="let link in links">
