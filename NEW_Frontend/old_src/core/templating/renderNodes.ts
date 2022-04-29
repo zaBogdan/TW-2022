@@ -146,6 +146,11 @@ const updateNode = (node: VDOMElement, ctx: CTXType, op: Cases) : VDOMElement[] 
     }
 }
 
+/***
+ * Render page & Render component (this will be basically same thing with different contexts)
+ * + render component will have a callback that will decide if the component can be changed in the future
+ * 
+ */
 
 // this function is called only once, no recursive calls!
 const renderNodes = (entryPoint: VDOMElement, ctx: CTXType) : VDOMElement => {

@@ -1,7 +1,11 @@
-import Router from './router';
-// import Component from './component';
-import { createElement } from './createElement';
-import { renderTemplate } from './renderTemplate';
-import { Component } from './nodes/component';
-export { Router, Component, createElement as CreateElement, renderTemplate as RenderTemplate };
-export default { Router, Component, createElement, renderTemplate };
+import type { CorePage } from './types/Page';
+import render from './render';
+
+const Core = {
+    render
+}
+
+export default Core;
+export { Core };
+
+export type { CorePage };

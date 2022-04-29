@@ -15,7 +15,7 @@ const createNodeString = (htmlNode: ChildNode) : VDOMElement[] | null => {
     if(tag === null || tag === '')
         return null;
     return [{
-        tag: STRING_NODE,
+        tag: Z_FRAGMENT,
         props: {},
         children: tag,
     }];
