@@ -10,11 +10,26 @@ const App = function(this: CorePage<any>) {
     this.title = 'Core - Homepage';
     this.nameOfLibrary = 'Core';
 
-    this.html = `
-        <div>
-            <C-Header title="%title%"></C-Header>
+    this.links = [
+        {
+            href: 'https://google.com',
+            text: 'Google',
+        },
+        {
+            href: 'https://apple.com',
+            text: 'Apple',
+        }
+    ]
 
-            <h1> This is the <b>%nameOfLibrary%</b> engine!</h1>
+    this.html = `
+        <div style="hello">
+            <C-Header title="%title%" type="primary">
+                <h1>Children H!</h1>
+            </C-Header>
+
+            <p> This is the <b>%nameOfLibrary%</b> engine!</p>
+
+            <a href="%link.href%" *zFor="let link in links">%link.text%</a>
         </div>
     `
 
