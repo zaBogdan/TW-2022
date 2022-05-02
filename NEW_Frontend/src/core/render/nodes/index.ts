@@ -29,13 +29,12 @@ const buildNodeString = (e: ChildNode) : vNode => {
     }
 } 
 
-export const getNodeString = (str: string) : vNode => {
-    return {
+export const getNodeString = (str: string) : vNode => ({
         tag: CORE_FRAGMENT,
         component: true,
         children: str
-    };
-}
+})
+
 
 const wrapInsideFragment = (e: vNode, props: vNodeProps) : vNode => {
     return {

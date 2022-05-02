@@ -3,9 +3,36 @@ import type { vNode } from '../../types/node';
 
 import { CORE_FRAGMENT, getNodeString } from '../nodes/index';
 
+/***
+ * I know this code is very bad, but it works for now so it's not that bad :)))
+ * 
+ * TODO: FInd a better approach
+ */
+
 const resolvePath = (object : ComponentContext, path : string, defaultValue: number | null | string) => path
    .split('.')
    .reduce((o, p) => o ? o[p] : defaultValue, object)
+
+const hasChildren = (str: string, ctx: ComponentContext) : any => {
+    const regex = /%([a-zA-Z0-9.\[\]\']+)%/g;
+    let match = regex.exec(str);
+
+    let newStr = '', cursor = 0, childrenBeforeStr = '';
+    while(match) {
+        newStr += str.slice(cursor, match.index);
+        if(match[1] === 'children') {
+            childrenBeforeStr = newStr;
+            newStr = '';
+        } else {
+            newStr += resolvePath(ctx, match[1], '');
+        }
+        cursor = match.index + match[0].length;
+        
+        match = regex.exec(str);
+    }
+    newStr += str.substring(cursor);
+    return [childrenBeforeStr, newStr];
+};
 
 const replaceStringWithCTX = (stringOnlyCTX: boolean, str: string, ctx: ComponentContext) : any => {
     const regex = /%([a-zA-Z0-9.\[\]\']+)%/g;
@@ -16,21 +43,16 @@ const replaceStringWithCTX = (stringOnlyCTX: boolean, str: string, ctx: Componen
         return resolvePath(ctx, match[1], null);
     }
     
-    let newStr = '', cursor = 0, childrenBeforeStr = '';
+    let newStr = '', cursor = 0;
     while(match) {
         newStr += str.slice(cursor, match.index);
-        // if(match[1] === 'children') {
-        //     childrenBeforeStr = newStr;
-        //     newStr = '';
-        // } else {
-            newStr += resolvePath(ctx, match[1], '');
-        // }
+        newStr += resolvePath(ctx, match[1], '');
         cursor = match.index + match[0].length;
         
         match = regex.exec(str);
     }
     newStr += str.substring(cursor);
-    return [childrenBeforeStr, newStr];
+    return newStr;
 }
 
 const renderTemplate = (vTree: vNode, ctx: ComponentContext) : void => {
@@ -38,18 +60,21 @@ const renderTemplate = (vTree: vNode, ctx: ComponentContext) : void => {
     if(vTree.tag === CORE_FRAGMENT && typeof vTree.children === 'string') {
         // if that string child is actually %children%, treat it here!
         // these is the only place where I can find children and to be actually valid.
-
-        const response = replaceStringWithCTX(false, vTree.children, ctx);
-        console.log('String replacement: ',response)
-        // if(response[0] !== '') {
-        //     vTree.children = [
-        //         getNodeString(response[0]),
-        //         ctx.children[0],
-        //         getNodeString(response[1])
-        //     ]
-        // } else {
-        // }
-        // vTree.children = response;
+        const response = hasChildren(vTree.children, ctx);
+        if(response[0] !== '') {
+            if(ctx?.children?.length !== 0) {
+                vTree.children = [
+                    getNodeString(response[0]),
+                    ctx.children[0],
+                    getNodeString(response[1])
+                ]
+            }
+            else {
+                vTree.children = response[0] + response[1];
+            }
+        } else {
+            vTree.children = response[1];
+        }
         return;
     } 
 
@@ -62,8 +87,7 @@ const renderTemplate = (vTree: vNode, ctx: ComponentContext) : void => {
     for(const prop in vTree.props) {
         if (prop === '*zfor')
             vTree.props['__forCTX'] = 1;
-        vTree.props[prop] = replaceStringWithCTX(stringOnlyCTX, vTree.props[prop], ctx)[1];
-        console.log(prop, vTree.props[prop])
+        vTree.props[prop] = replaceStringWithCTX(stringOnlyCTX, vTree.props[prop], ctx);
     }
 
     // typescript is stupid and i need to do this check... even though I can have only string or array of vNode....
