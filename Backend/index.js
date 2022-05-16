@@ -1,29 +1,28 @@
 process.env.__ZAPPUCINNO_DEBUG__ = true;
 const zappucinno = require('./zappucinno');
+const { bodyParser, cors } = require('./zappucinno/middlewares');
 const router = require('./router');
 
 const app = zappucinno();
 
-app.use((req,res, next) => {
-    console.log('middleware 1');
-})
+const models = {}; // TODO: Add mongoose models;
 
-app.use((req,res, next) => {
-    console.log('middleware 2');
-})
 
-app.use((req,res, next) => {
-    console.log('middleware 3');
-})
+app.use(cors({
+    origin: '*',
+}));
+app.use(bodyParser.json);
+app.use(bodyParser.urlencoded);
 
-app.use((req,res, next) => {
-    console.log('middleware 4');
-})
+app.use((req, rest, next) => {
+    req.db = models;
+    next();
+});
 
-console.log('Middleware router: ',router)
 app.use('/', router());
 
+const exposedPort = process.env.PORT || 3000;
 
-app.listen(3000, () => {
+app.listen(exposedPort, () => {
     console.log('[Gamify] Listening on port 3000');
 })

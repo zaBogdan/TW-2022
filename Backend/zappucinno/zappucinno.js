@@ -91,7 +91,7 @@ zappucinno.done = function(err) {
     if(err) {
         return this.res.status(err.status || 500).json({
             error: err.message,
-            stack: err.stack
+            stack: this.settings.env === 'dev' ? err.stack : undefined
         }).end()
     }
     return this.res.end();
