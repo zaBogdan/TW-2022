@@ -44,7 +44,7 @@
         // edit button functionality
         ic1.addEventListener('click', () => {
             // constructing the fetch url
-            let url = "editDomain.html?" + "domain="+response.data[i]['url'];
+            let url = "/admin/Domains/editDomain/editDomain.html?" + "domain="+response.data[i]['url'];
             // redirect to url
             location.href = url;
         })
