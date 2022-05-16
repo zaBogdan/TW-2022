@@ -11,7 +11,6 @@ const url = require('url')
  * @returns {Function} representing the middleware function for Zappucinno 
  */
 module.exports = function(options) {
-    console.log('Cors options: ', options);
     const defaultOptions = {
         origin: '*',
         methods: ['GET','HEAD','PUT','PATCH','POST','DELETE'],

@@ -88,7 +88,6 @@ zappucinno._handle = function(req, res, cb) {
                 await layer(req, res, next);
                 next();
             } catch(err) {
-                console.log('layer error', err)
                 return next(err);
             }
         });
