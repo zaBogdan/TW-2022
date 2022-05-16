@@ -20,7 +20,7 @@ zappucinno.init = function () {
 
 zappucinno.defaultConfig = function() {
     this.addHeader('X-Powered-By', 'Zappucinno');
-    this.settings.env = process.env.NODE_ENV || 'dev';
+    this.settings.env = 'prod';
 
     if(this.settings.env === 'dev') {
         process.env.__ZAPPUCINNO_DEBUG__ = true;

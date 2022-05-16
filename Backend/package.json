@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "The backend of our TW project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon index.js",
+    "start:prod": "NODE_ENV=prod node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaBogdan/tw-2022.git"
+  },
+  "author": "Alin Jufa, Bogdan Zavadovschi, Lucian Chiriac",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "joi": "^17.6.0",
+    "mongoose": "^6.3.3"
+  }, 
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

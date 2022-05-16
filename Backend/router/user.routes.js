@@ -1,7 +1,7 @@
 const router = require('../zappucinno').Router();
 const userController = require('../controller').userController;
 
-router.get('/', userController.getUser);
+router.get('/', userController.createUser);
 router.post('/:id', userController.getUser);
 router.post('/:id/:name', userController.getUser);
 router.post('/all/me', userController.getUser);

@@ -1,10 +1,23 @@
+const mongoose = require('mongoose');
+
 const zappucinno = require('./zappucinno');
 const { bodyParser, cors } = require('./zappucinno/middlewares');
+
 const router = require('./router');
+const models = require('./models');
+const { config } = require('./middleware');
 
 const app = zappucinno();
 
-const models = {}; // TODO: Add mongoose models;
+mongoose.connect(config.DB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    tlsInsecure: true,
+}).then(conn => {
+    console.log('[Gamify] Successfully connected to Mongo');
+}).catch(e => {
+    throw e;
+})
 
 app.use(cors({
     origin: ['localhost:3000'],
