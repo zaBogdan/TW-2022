@@ -8,7 +8,6 @@ const zappucinno = exports = module.exports = {};
 zappucinno.init = function () {
     this.settings = {
         env: '',
-        finshed: false,
     };
     this._stack = [];
 
@@ -16,6 +15,7 @@ zappucinno.init = function () {
     this.res = {};
 
     this.defaultConfig();
+    return this;
 }
 
 zappucinno.defaultConfig = function() {
@@ -32,6 +32,14 @@ zappucinno.addHeader = (name, value) => {
 
 }
 
+zappucinno.external = function() {
+    return this;
+}
+/**
+ * Add a new middleware function to the application
+ * @param {string} path - An optional first parameter to specify the paths on which the middleware should be execute
+ * @param {Function} fn - The middleware function
+ */
 zappucinno.use = function() {
     let offset = 0;
 
@@ -123,7 +131,7 @@ zappucinno.customRequestFunctions = async function() {
     this.res.json = (data) => {
         if(this.res.finished) return;
         this.res.writeHead(this.res.statusCode, {
-            'content-type': 'application/json'
+            'Content-Type': 'application/json'
         });
         // this.res.setEncoding("UTF-8");
         this.res.write(JSON.stringify(data));

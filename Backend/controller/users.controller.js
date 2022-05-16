@@ -5,10 +5,11 @@ exports.getUser = async (req, res,next) => {
         setTimeout(() => {
             data = 10000;
             resolve();
-        }, 1000);
+        }, 100);
         
-    }) 
-        // next('Failed to fuck')
+    }); 
+
+    // next('Failed to fuck')
     return res.status(200).json({
         success: true,
         message: 'Hello World',

@@ -16,6 +16,7 @@ const routerModule = module.exports = function(){
 
 routerModule.handle = async function(req, res, next) {
     debug('[ Zappucinno ][ Router ] Started handling request')
+    console.log(this.paths);
     let [path, query] = req.url.split('?');
     if(!path.endsWith('/')) {
         path += '/';
@@ -41,7 +42,9 @@ routerModule.handle = async function(req, res, next) {
 
         func = func[value];
     }
-
+    if(func === undefined) {
+        throw new Error('Failed to find specified path');
+    }
     // add default path for examples like /user or /domain
     if(func['/'] !== undefined)
         func = func['/'];

@@ -1,12 +1,7 @@
-const { debug } = require('console');
-const app = require('./zappucinno');
+'use strict';
+
 const { router } = require('./middlewares');
+const app = require('./initialize');
 
-function initApp() {
-    app.init();
-
-    return app;
-}
-
-exports = module.exports = initApp;
+exports = module.exports = app;
 exports.Router = router; 
