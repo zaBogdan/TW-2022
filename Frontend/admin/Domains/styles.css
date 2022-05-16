@@ -160,6 +160,12 @@ body {
 }
 
 
+#username_form{
+  display: none;
+}
+
+
+
 
 @media (max-width: 1060px) {
   .flex-container {
