@@ -1,0 +1,26 @@
+{
+  "name": "zappucinno",
+  "version": "1.0.0",
+  "description": "A copy of express that includes only a set of needed features",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaBogdan/tw-2022.git"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "tw",
+    "uaic",
+    "javascript"
+  ],
+  "author": "Bogdan Zavadovschi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zaBogdan/tw-2022/issues"
+  },
+  "homepage": "https://github.com/zaBogdan/tw-2022#readme"
+}

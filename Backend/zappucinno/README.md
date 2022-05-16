@@ -1,0 +1,6 @@
+-> req.params are the routes parameters
+-> req.query are the query paramters
+-> req.body is the body of the request
+-> res.status sets the response status
+-> res.json encodes the request in json format
+-> 
