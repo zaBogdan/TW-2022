@@ -4,11 +4,7 @@ const utils = require('../utils');
 
 const routerModule = module.exports = function(){
     const router = function (req, res, next) {
-        try {
-            return routerModule.handle(req, res, next);  
-        } catch(e) {
-            next('Failed to find route');
-        }
+        return routerModule.handle(req, res, next);  
     };
 
     router.routes = {};
@@ -18,7 +14,8 @@ const routerModule = module.exports = function(){
     return router;
 } 
 
-routerModule.handle = function(req, res, next) {
+routerModule.handle = async function(req, res, next) {
+    debug('[ Zappucinno ][ Router ] Started handling request')
     let [path, query] = req.url.split('?');
     if(!path.endsWith('/')) {
         path += '/';
@@ -49,9 +46,11 @@ routerModule.handle = function(req, res, next) {
     if(func['/'] !== undefined)
         func = func['/'];
 
-    const response = func[req.method.toLowerCase()](req, res, next);
-    response.end();
-    debug('[Zappucinno] Finished request')
+    const response = await func[req.method.toLowerCase()](req, res, next);
+    if(!res.finished) {
+        response.end();
+    }
+    debug('[ Zappucinno ][ Router ] Finished request')
     return;
 }
 

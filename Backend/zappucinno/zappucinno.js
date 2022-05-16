@@ -80,6 +80,7 @@ zappucinno._handle = function(req, res, cb) {
                 await layer(req, res, next);
                 next();
             } catch(err) {
+                console.log('layer error', err)
                 return next(err);
             }
         });
@@ -89,12 +90,16 @@ zappucinno._handle = function(req, res, cb) {
 
 zappucinno.done = function(err) {
     if(err) {
-        return this.res.status(err.status || 500).json({
+        debug('Handling error: %s', err);
+    } else {
+        debug('Finished to handle request');
+    }
+    if(err) {
+        return this.res?.status(err.status || 500)?.json({
             error: err.message,
             stack: this.settings.env === 'dev' ? err.stack : undefined
-        }).end()
+        })?.end()
     }
-    return this.res.end();
 }
 
 zappucinno.handler = async function(req, res) {
@@ -116,6 +121,7 @@ zappucinno.customRequestFunctions = async function() {
     }
 
     this.res.json = (data) => {
+        if(this.res.finished) return;
         this.res.writeHead(this.res.statusCode, {
             'content-type': 'application/json'
         });
