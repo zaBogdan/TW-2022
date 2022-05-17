@@ -26,13 +26,15 @@
         const aText =  document.createTextNode(response.data[i]['name']);
             a.setAttribute('href',"/admin/CurrentDomain");
             a.appendChild(aText);
+            a.style.color="#2e3e3f";
       // the "edit" icon
         const ic1 = document.createElement("i");
-            ic1.setAttribute('class', "fas fa-pen");
+            ic1.setAttribute('class', " fas fa-pen");
             ic1.title = "edit";
+         
       // the "delete" icon
         const ic2 = document.createElement("i");
-            ic2.setAttribute('class',"fas fa-trash");
+            ic2.setAttribute('class'," fas fa-trash");
             ic2.title = "delete";
     
     // constructing the <li> entry
