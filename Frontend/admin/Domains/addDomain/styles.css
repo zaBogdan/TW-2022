@@ -90,7 +90,6 @@ body {
 
 
 .wrapper .main_content h1{
-  text-align: center;
   color: #acc8c9;
 }
 
@@ -110,7 +109,6 @@ body {
   margin-left: 200px;
   padding: 30px 0px;
   align-items:center;
-  justify-content:center;
   flex-direction: column;
 }
 
@@ -124,8 +122,7 @@ body {
   color: #2e3e3f;
   font-weight: bold;
   font-size: 2em;
-  text-align: center;
-  padding-left: 0px;
+  padding-left: 15%;
   border: 2px solid rgba(211, 245, 250, 0.3);
   border-radius: 28px;
   flex-direction: column;
@@ -138,8 +135,30 @@ form .input{
   height: 50;
 }
 
-#username_form input{
-  height: 100;
+#username{
+  height:35px;
+  width: 100px;
+}
+
+#add_new_user,#cancel_username{
+  height: 35px;
+  width: 60px;
+  border:none;
+  color: white;
+  background-color: #2e3e3f;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+}
+
+
+#domain_moderators_list{
+  width: 380px;
+  height: 160px;
+  overflow: auto;
+}
+#username_form{
+  display: none;
 }
 
 #add_domain_form Button{
@@ -154,10 +173,26 @@ form .input{
   outline: none;
 }
 
+#add_domain_form input{
+  height: 35px;
+  width: 180px;
+}
 
 #add_domain_form Button:hover{
   background-color:#01858f;
+
 }
+
+#username_form button{
+  height: 35px;
+  width: 65px;
+}
+
+#add_domain_form .fas:hover{
+  color:#01858f;
+  font-size: 40px;
+}
+
 
 
 @media (max-width: 1060px) {

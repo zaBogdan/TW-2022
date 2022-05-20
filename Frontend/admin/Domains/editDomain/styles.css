@@ -96,9 +96,7 @@ body {
   margin-left: 200px;
   padding: 40px 0px;
   align-items:center;
-  justify-content:center;
   flex-direction: column;
-  
 }
 
 
@@ -112,12 +110,6 @@ body {
   padding-bottom: 10px;
 }
 
-
-.wrapper .main_content .text{
-  text-align: center;
-  color: #385170;
-}
-
 #editDomainWindow{
   display: flex;
   width: 65vw;
@@ -127,11 +119,16 @@ body {
   color: #2e3e3f;
   font-weight: bold;
   font-size: 2em;
-  text-align: center;
-  padding-left: 0px;
+  padding-left: 10%;
+  padding-top: 2%;
   border: 2px solid rgba(211, 245, 250, 0.3);
   border-radius: 28px;
   flex-direction: column;
+}
+
+#edit_domain_form input{
+  height: 35px;
+  width: 180px;
 }
 
 #edit_domain_form Button{
@@ -146,9 +143,26 @@ body {
   outline: none;
 }
 
+#username_form button{
+  height: 36px;
+  width: 80px;
+  border:none;
+  color: white;
+  background-color: #2e3e3f;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+}
+
 #edit_domain_form Button:hover{
   background-color:#01858f;
 }
+
+#edit_domain_form .fas:hover{
+  color:#01858f;
+  font-size: 40px;
+}
+
 
 
 @media (max-width: 1060px) {
