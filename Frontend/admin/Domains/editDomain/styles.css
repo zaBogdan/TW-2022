@@ -131,6 +131,12 @@ body {
   width: 180px;
 }
 
+.main_content .fas{
+  padding-left: 8px;
+  font-size: 27px;
+}
+
+
 #edit_domain_form Button{
   margin-top: 6%;
   width: 140px;
@@ -160,7 +166,7 @@ body {
 
 #edit_domain_form .fas:hover{
   color:#01858f;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 
