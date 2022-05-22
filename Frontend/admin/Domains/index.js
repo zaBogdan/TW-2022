@@ -1,3 +1,10 @@
+const sidebar = document.querySelector('.sidebar')
+fetch('../sidebar/sidebar.html')
+.then(res=>res.text())
+.then(data=>{
+    sidebar.innerHTML=data
+})
+/*sidebar included*/
 
 // construirea adresei
  let baseurl = "https://002f0804-fc69-425b-b291-9739c417bb1f.mock.pstmn.io";
