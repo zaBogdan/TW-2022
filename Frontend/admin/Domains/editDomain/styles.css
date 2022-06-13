@@ -163,7 +163,29 @@ body {
   font-size: 40px;
 }
 
+#domain_moderators_list{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 280px;
+  overflow: auto;
+}
 
+#domain_moderators_list li{
+  color: #2e3e3f;
+  display: flex;
+  flex-direction: row;
+}
+.fa-pen{
+  margin-left: auto;
+  margin-right: 10px;
+}
+.fa-trash{
+  margin-right: 10px;
+}
+#domain_moderators_list li a{
+  align-self: left;
+}
 
 @media (max-width: 1060px) {
   .flex-container {
