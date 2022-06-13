@@ -119,7 +119,7 @@ body {
   margin-right: 10px;
 }
 #domain_moderators_list li a{
-  align-self: left;
+  text-align: left;
 }
 
 @media (max-width: 1060px) {

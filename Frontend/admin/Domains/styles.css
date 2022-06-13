@@ -93,7 +93,6 @@ body {
   width: 70%;
   height: 280px;
   overflow: auto;
-<<<<<<< HEAD
 }
 
 #domainList li{
@@ -119,25 +118,7 @@ body {
 }
 
 
-.main_content .domainWindow .fas:hover{
-=======
-  display: flex;
-  flex-direction: column;
-}
-
-#domainList li{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  text-align: left;
-}
-
-#domainList li .fas:first-of-type{
- margin-left: 10%;
-}
-
-#domainList .fas:hover{
->>>>>>> 68e58228b7706bed64dea8656b90022640b6b52e
+.fas:hover{
   color:#01858f;
   font-size: 35px;
 }
