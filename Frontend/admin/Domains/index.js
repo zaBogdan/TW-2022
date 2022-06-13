@@ -1,15 +1,12 @@
-const sidebar = document.querySelector('.sidebar')
-fetch('../sidebar/sidebar.html')
-.then(res=>res.text())
-.then(data=>{
-    sidebar.innerHTML=data
-})
-/*sidebar included*/
+$(function(){
+  $("#nav").load("../sidebar/sidebar.html"); 
+});   /*sidebar included*/
 
-// construirea adresei
- let baseurl = "https://002f0804-fc69-425b-b291-9739c417bb1f.mock.pstmn.io";
- let url = baseurl +"/domain/self?status=active";
-// obtinerea informatiilor din API
+
+
+ let baseurl = "https://002f0804-fc69-425b-b291-9739c417bb1f.mock.pstmn.io"; // construirea adresei
+ let url = baseurl +"/domain/self?status=active";  // obtinerea informatiilor din API
+
 
  async function getDomains(url){
    try{

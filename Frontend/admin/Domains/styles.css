@@ -93,32 +93,22 @@ body {
   width: 70%;
   height: 280px;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 #domainList li{
-  color: #2e3e3f;
   display: flex;
   flex-direction: row;
-}
-.fa-pen{
-  margin-left: auto;
-  margin-right: 10px;
-}
-.fa-trash{
-
-  margin-right: 10px;
-}
-#domainList li a{
-  align-self: left;
+  justify-content: flex-end;
+  text-align: left;
 }
 
-
-#username_form{
-  display: none;
+#domainList li .fas:first-of-type{
+ margin-left: 10%;
 }
 
-
-.fas:hover{
+#domainList .fas:hover{
   color:#01858f;
   font-size: 35px;
 }

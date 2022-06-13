@@ -1,9 +1,7 @@
-const sidebar = document.querySelector('.sidebar')
-fetch('../../sidebar/sidebar.html')
-.then(res=>res.text())
-.then(data=>{
-    sidebar.innerHTML=data
-})
+$(function(){
+    $("#nav").load("../../sidebar/sidebar.html"); 
+  });
+
 /*sidebar included*/
 
 
