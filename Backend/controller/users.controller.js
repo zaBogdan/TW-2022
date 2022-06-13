@@ -30,6 +30,7 @@ exports.createUser = async (req, res, next) => {
             success: true,
             message: 'User created',
         });
+        // next();
     } catch(e) {
         return res.status(500).json({
             success: false,

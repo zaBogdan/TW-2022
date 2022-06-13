@@ -3,7 +3,7 @@
 const utils = require('../utils');
 
 const routerModule = module.exports = function(){
-    const router = function (req, res, next) {
+    const router = async function (req, res, next) {
         return routerModule.handle(req, res, next);  
     };
 
@@ -40,6 +40,7 @@ routerModule.handle = async function(req, res, next) {
         }
 
         func = func[value];
+        if(func === null || func === undefined) break;
     }
     if(func === undefined) {
         throw new Error('Failed to find specified path');
@@ -49,8 +50,9 @@ routerModule.handle = async function(req, res, next) {
         func = func['/'];
 
     const response = await func[req.method.toLowerCase()](req, res, next);
-    if(!res.finished) {
-        response.end();
+    if(response !== undefined) {
+        response?.end();
+        res.finished = true;
     }
     debug('[ Zappucinno ][ Router ] Finished request')
     return;

@@ -14,6 +14,8 @@ zappucinno.init = function () {
     this.req = {};
     this.res = {};
 
+    this.doneTwice = false;
+
     this.defaultConfig();
     return this;
 }
@@ -51,13 +53,13 @@ zappucinno.use = function() {
     if(typeof(arguments[offset]) !== 'function') 
         throw new TypeError('Middleware must be a function!');
 
-    const fn = offset === 0 ? arguments[0] : (req, res, next) => {
+    const fn = offset === 0 ? arguments[0] : (async (req, res, next) => {
         if(req.url.startsWith(arguments[0])) {
-            return arguments[offset].bind(this).apply(arguments[1], [req, res, next]);
-        } else {
-            debug('middleware skipped: %s != %s', arguments[0], req.url);
+            return await arguments[offset].bind(this).apply(arguments[offset], [req, res, next]);
         }
-    };
+        debug('middleware skipped: %s != %s', arguments[0], req.url);
+    });
+
     this._stack.push(fn);
 }
 
@@ -67,7 +69,7 @@ zappucinno._handle = function(req, res, cb) {
     const callback = cb || this.done;
 
     const next = err => {
-        if(this.res.finished) return;
+        if(this.doneTwice === true) return;
 
         if(err) {
             if(typeof(err) !== 'object') {
@@ -83,7 +85,7 @@ zappucinno._handle = function(req, res, cb) {
         }
         const layer = this._stack[idx++];
         setImmediate(async () => {
-            if(this.res.finished) return;
+            if(this.doneTwice === true) return;
             try{
                 await layer(req, res, next);
                 next();
@@ -96,22 +98,23 @@ zappucinno._handle = function(req, res, cb) {
 }
 
 zappucinno.done = function(err) {
+    if(this.doneTwice === true) return;
+
     if(err) {
         debug('Handling error: %s', err);
-    } else {
-        debug('Finished to handle request');
-    }
-    if(err) {
-        return this.res?.status(err.status || 500)?.json({
+        this.res.status(err.status || 500).json({
             error: err.message,
             stack: this.settings.env === 'dev' ? err.stack : undefined
-        })?.end()
+        })
     }
+    this.doneTwice = true;
+    return this.res.end();
 }
 
 zappucinno.handler = async function(req, res) {
     this.req = req;
     this.res = res;
+    this.doneTwice = false;
     await this.customRequestFunctions();
     this._handle(req,res);
 }
@@ -128,13 +131,12 @@ zappucinno.customRequestFunctions = async function() {
     }
 
     this.res.json = (data) => {
-        if(this.res.finished) return;
+        if(this.doneTwice === true || this.res.finished == true) return this.res;
         this.res.writeHead(this.res.statusCode, {
             'Content-Type': 'application/json'
         });
         // this.res.setEncoding("UTF-8");
         this.res.write(JSON.stringify(data));
-
         return this.res;
     }
 
