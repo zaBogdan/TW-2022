@@ -15,38 +15,33 @@
 
   <div class="wrapper">
     <div class="sidebar">
-      <h2><img class="logo" src="/admin/assets/img/logo.svg" width="60" height="60" alt="logo"></h2>
-      <ul>
-        <li><a href="/admin/Dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
-        <li><a href="/admin/Domains"><i class="fas fa-project-diagram"></i>Manage apps</a></li>
-        <li><a href="/admin/Rewards"><i class="fas fa-trophy"></i>Manage rewards</a></li>
-        <li><a href="/admin/MyAccount"><i class="fas fa-user"></i>My account</a></li>
-      </ul>
-
-      <div class="social_media">
-        <a href="#"><i class="fab fa-github"></i></a>
-      </div>
     </div>
+
 
     <div class="main_content">
       <h1>Manage apps</h1>
-      <h1>Here, you can manage your domains!</h1>
-      <div class="flex-container ">
-        <div class="flex-item flex-1">
-          <small class="text">Click on a domain and you will get redirected to a special dashboard</small>
-          <ul>
-            <li><a href="/admin/CurrentDomain">www.myforum1.com </a><i class="fas fa-trash"></i></li>
-            <li><a href="/admin/CurrentDomain">www.prinfo.com </a><i class="fas fa-trash"></i></li>
-            <li><a href="/admin/CurrentDomain">www.mysiteBoomboom.com </a><i class="fas fa-trash"></i></li>
-            <li><a href="/admin/CurrentDomain">www.forumJmecher.com </a><i class="fas fa-trash"></i></li>
-            <li><a href="/admin/CurrentDomain">Add domain </a><i class="fas fa-plus-square"></i></li>
-          </ul>
-        </div>
-      </div>
+  
+      <h1>Click on a domain and you will get redirected to a special dashboard.</h1>
+      
+   
+      <div class="domainWindow">
+        <h2> Domain List</h2>
+        <ul id="domainList" >
+            <!-- SE GENERAZA DIN JS -->
+        </ul>
+        <a href="/admin/Domains/addDomain/addDomain.html">
+          <button class="AddButton">Add domain</button>
+        </a>
+     </div>
+
     </div>
 
   </div>
 
+ 
+
+ 
+  <script src="index.js"></script>
 </body>
 
 </html>

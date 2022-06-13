@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Gammification - Domains</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="sidebar">
+    </div>
+
+    <div class="main_content">
+      <h1>Manage apps</h1>
+      <h1>Edit Domain Details</h1>
+      
+      <div id="editDomainWindow">
+            <form id="edit_domain_form">
+                <label for="domain_name">Domain name:</label>
+                <input type="text" name="domain_name" id="domain_name" placeholder="Insert the name of your domain" required> <br>
+
+                <label for="domain_address">Domain URL:</label>
+                <input type="text" name="domain_address" id="domain_address" placeholder="Domain URL" required> <br>
+
+
+                <label for="domain_moderators">Domain administrators: <i class="fas fa-user-plus" onclick="showForm()" title="Add new user"></i></label>
+                <ul id="domain_moderators_list">
+                    <!-- Generat in script -->
+                </ul>
+
+                <div id="username_form">
+                    <label  for="username">Moderator username:</label>
+                    <input type="text" name = "username" id="username" placeholder="username"/>
+                    <button type="submit" id="add_new_user">Add</button>
+                    <button type="button" id="cancel_username">Cancel</button>
+                </div>
+               
+
+                <button type="submit" id="submit_domain">Save changes</button>                
+                <button type="button" id="cancel_form">Cancel</button>  
+            </form>
+      </div>
+      </div>
+    </div>
+
+  </div>
+
+ 
+  <script src="editDomain.js"></script>
+</body>
+
+</html>

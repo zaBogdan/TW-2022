@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
-@import '../sidebar/sidebar.css';
+@import '../../sidebar/sidebar.css';
+
 
 body {
   background-color: #2e3e3f;
@@ -13,7 +14,6 @@ body {
 .wrapper .sidebar ul :nth-child(2) a {
   color: white;
 }
-
 .wrapper .sidebar ul :nth-child(2) {
   background-color: #acc8c9;
 }
@@ -28,24 +28,18 @@ body {
   flex-direction: column;
 }
 
-.wrapper .main_content h1{
-  text-align: center;
-  color: #acc8c9;
-}
 
 .wrapper .main_content h1{
   text-align: center;
   color: #acc8c9;
 }
-
 
 .main_content h1:first-of-type{
   font-size: 50px;
   padding-bottom: 10px;
 }
 
-
-.domainWindow {
+#editDomainWindow{
   display: flex;
   width: 65vw;
   height: 70vh;
@@ -55,48 +49,64 @@ body {
   font-weight: bold;
   font-size: 2em;
   padding-left: 10%;
+  padding-top: 2%;
   border: 2px solid rgba(211, 245, 250, 0.3);
   border-radius: 28px;
   flex-direction: column;
 }
 
-
-.domainWindow h2{
-  margin-top: 2%;
-  margin-bottom: 4%;
-  justify-content: center;
-  color: #2e3e3f;
+#edit_domain_form input{
+  height: 35px;
+  width: 180px;
 }
 
-
-.domainWindow .AddButton{
-    font-size: 20px;
-    margin-top: 3%;
-    width: 170px;
-    height: 60px;
-    border:none;
-    color: white;
-    background-color: #2e3e3f;
-    border-radius: 4px;
-    outline: none;
-}
-
-
-#domainList .fas{
+.main_content .fas{
   padding-left: 8px;
   font-size: 27px;
 }
 
-#domainList{
+
+#edit_domain_form Button{
+  margin-top: 6%;
+  width: 140px;
+  height: 50px;
+  border:none;
+  color: white;
+  background-color: #2e3e3f;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+}
+
+#username_form button{
+  height: 36px;
+  width: 80px;
+  border:none;
+  color: white;
+  background-color: #2e3e3f;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+}
+
+#edit_domain_form Button:hover{
+  background-color:#01858f;
+}
+
+#edit_domain_form .fas:hover{
+  color:#01858f;
+  font-size: 35px;
+}
+
+#domain_moderators_list{
   display: flex;
   flex-direction: column;
   width: 70%;
   height: 280px;
   overflow: auto;
-<<<<<<< HEAD
 }
 
-#domainList li{
+#domain_moderators_list li{
   color: #2e3e3f;
   display: flex;
   flex-direction: row;
@@ -106,50 +116,11 @@ body {
   margin-right: 10px;
 }
 .fa-trash{
-
   margin-right: 10px;
 }
-#domainList li a{
+#domain_moderators_list li a{
   align-self: left;
 }
-
-
-#username_form{
-  display: none;
-}
-
-
-.main_content .domainWindow .fas:hover{
-=======
-  display: flex;
-  flex-direction: column;
-}
-
-#domainList li{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  text-align: left;
-}
-
-#domainList li .fas:first-of-type{
- margin-left: 10%;
-}
-
-#domainList .fas:hover{
->>>>>>> 68e58228b7706bed64dea8656b90022640b6b52e
-  color:#01858f;
-  font-size: 35px;
-}
-
-#username_form{
-  display: none;
-}
-
-.AddButton:hover{
-  background-color:#01858f;
-}
-
 
 @media (max-width: 1060px) {
   .flex-container {
