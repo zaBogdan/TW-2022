@@ -30,13 +30,6 @@ app.use((req, rest, next) => {
 });
 
 app.use('/', router());
-app.use((req, res, next) => {
-    console.log('Hai sa pl')
-    return res.status(200).json({
-        success: false,
-        message: "Hai sa mearga si asta"
-    });
-});
 
 const exposedPort = process.env.PORT || 3000;
 

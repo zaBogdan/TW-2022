@@ -49,6 +49,10 @@ routerModule.handle = async function(req, res, next) {
     if(func['/'] !== undefined)
         func = func['/'];
 
+    const method = req.method.toLowerCase();
+    if(func[method] === undefined) {
+        throw new Error(`Method ${req.method} is not supported for this route!`);
+    }
     const response = await func[req.method.toLowerCase()](req, res, next);
     if(response !== undefined) {
         response?.end();
