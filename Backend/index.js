@@ -27,7 +27,6 @@ app.use(bodyParser.json);
 
 app.use((req, rest, next) => {
     req.db = models;
-    next();
 });
 
 app.use('/', router());

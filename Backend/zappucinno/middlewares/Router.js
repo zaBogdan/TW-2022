@@ -3,7 +3,7 @@
 const utils = require('../utils');
 
 const routerModule = module.exports = function(){
-    const router = function (req, res, next) {
+    const router = async function (req, res, next) {
         return routerModule.handle(req, res, next);  
     };
 
@@ -40,6 +40,7 @@ routerModule.handle = async function(req, res, next) {
         }
 
         func = func[value];
+        if(func === null || func === undefined) break;
     }
     if(func === undefined) {
         throw new Error('Failed to find specified path');
@@ -48,9 +49,14 @@ routerModule.handle = async function(req, res, next) {
     if(func['/'] !== undefined)
         func = func['/'];
 
+    const method = req.method.toLowerCase();
+    if(func[method] === undefined) {
+        throw new Error(`Method ${req.method} is not supported for this route!`);
+    }
     const response = await func[req.method.toLowerCase()](req, res, next);
-    if(!res.finished) {
-        response.end();
+    if(response !== undefined) {
+        response?.end();
+        res.finished = true;
     }
     debug('[ Zappucinno ][ Router ] Finished request')
     return;
