@@ -1,0 +1,47 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Cache-Control: public, max-age=300
+
+{
+    "success": true,
+    "message": "Successfully fetched domain",
+    "data": {
+        "achievements": [
+            {
+                "_id": "35b2fa5fc6c442f89cb5880ca6f4da95",
+                "name": "Noobie",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "score": 1000,
+                "rank": 0
+            },
+            {
+                "_id": "4786f5c43d6b49d1b58c69df6dd4ccf0",
+                "name": "Script Kiddie",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "score": 2000,
+                "rank": 1
+            },
+            {
+                "_id": "1a00b6454dc44ca8903b4a39b7c0fd1c",
+                "name": "Hacker",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "score": 3000,
+                "rank": 2
+            },
+            {
+                "_id": "49fa83d9422d410ba44f01719b768bdf",
+                "name": "Pro Hacker",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "score": 4000,
+                "rank": 3
+            },
+            {
+                "_id": "f1ee062574df46b0836aedb729880735",
+                "name": "Elite Hacker",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "score": 5000,
+                "rank": 4
+            }
+        ]
+    }
+}

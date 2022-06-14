@@ -1,0 +1,38 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Cache-Control: public, max-age=300
+
+{
+    "success": true,
+    "message": "Successfully fetched leaderboard",
+    "nota": "Hai sa vedem daca adaugam asta pe front cel putin.Nu o sa existe fieldu asta in versiunea finala. Type: 1 - event, 2 - achievement, 3 - rankup, 4 - rankdown"
+    "data": {
+        "userHistory": [
+            {
+                "type": 1
+                "event": "Like",
+                "at": 1655053258
+            },
+            {
+                "type": 1,
+                "event": "Like",
+                "at": 1655053300
+            },
+            {
+                "type": 2,
+                "event": "Two consecutive likes",
+                "at": 1655053300
+            },
+            {
+                "type": 2,
+                "event": "Rankup",
+                "at": 1655053300
+            },
+            {
+                "type": 3,
+                "event": "Rankup",
+                "at": 1655053300
+            }
+        ]
+    }
+}

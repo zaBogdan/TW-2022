@@ -32,7 +32,7 @@ This microservice will handle all the authentication methods, at the starting po
 
 ### Users service
 
-This service targets the platform users (with editing accounts, profiles)
+This service targets the platform users (with editing accounts, profiles) - we must add an api key here
 
 #### Gameify service (3x fiecare db are microserviciu lui)
 
@@ -63,7 +63,7 @@ With this service you will be able to evaluate the complex logic of each and eve
 }
 ```
 
-> **NOTE**: Type will always be 1 (because we will support only email & password)
+> **NOTE**: Type will always be 1 (because we will support only email & password).
 
 ### User (BZV)
 
@@ -162,7 +162,8 @@ With this service you will be able to evaluate the complex logic of each and eve
     "achievements" : [
         // a list of badges ids here 
     ],
-    "rank": "35b2fa5fc6c442f89cb5880ca6f4da95"
+    "rank": "35b2fa5fc6c442f89cb5880ca6f4da95",
+    "active": true
 }
 ```
 

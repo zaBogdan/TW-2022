@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Cache-Control: public, max-age=300
+
+{
+    "success": true,
+    "message": "Session refreshed successfully",
+    "data": {
+        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InphQm9nZGFuIiwiaWQiOiI2MGNmNmJlZC1hMzEwLTRlY2UtODJiZi01ZTc1ODZlNTUyNjkiLCJmcmVzaCI6ZmFsc2UsInJlZnJlc2giOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.5XQGrgMogdMtggWRbqGRr9TYm3Jut-cRLdtSomrIsYU",
+        "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InphQm9nZGFuIiwiaWQiOiI2MGNmNmJlZC1hMzEwLTRlY2UtODJiZi01ZTc1ODZlNTUyNjkiLCJmcmVzaCI6ZmFsc2UsInJlZnJlc2giOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.5XQGrgMogdMtggWRbqGRr9TYm3Jut-cRLdtSomrIsYU"
+    }
+}

@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Cache-Control: public, max-age=300
+
+{
+    "success": true,
+    "message": "Successfully fetched current user",
+    "data": {
+        "user": {
+            "email": "bzavadovschi@bitdefender.biz",
+            "userId": "e13d88872b6641cda866b27d1e0920b6",
+            "firstName": "Bogdan",
+            "lastName": "Zavadovschi",
+            "username": "zaBogdan",
+            "dateOfBirth": "00.00.0000",
+            "active": true
+        }
+    }
+}

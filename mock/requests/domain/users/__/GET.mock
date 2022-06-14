@@ -1,0 +1,28 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Cache-Control: public, max-age=300
+
+{
+    "success": true,
+    "message": "Successfully fetched domain",
+    "data": {
+        "domainUser": {
+            "_id": "71122cde42d24cf09b3f8ddf371bb4d9",
+            "listenerId": "8d190dc07a1c44829fb123ba233cb3ef",
+            "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+            "score": 120,
+            "events": {
+                "551c11e4798f47e39cc6fd50c21568be": {
+                    "latest": 1655053258,
+                    "data": [
+                        1655053258
+                    ]
+                }
+            },
+            "achievements" : [
+                "5ab5153a3f034bab91f62ed5ee648d9c"
+            ],
+            "rank": "35b2fa5fc6c442f89cb5880ca6f4da95"
+        }
+    }
+}

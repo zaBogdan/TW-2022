@@ -1,0 +1,47 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Cache-Control: public, max-age=300
+
+{
+    "success": true,
+    "message": "Successfully fetched top 10 leaderboard",
+    "data": {
+        "domainUsers": [
+            {
+                "_id": "71122cde42d24cf09b3f8ddf371bb4d9",
+                "listenerId": "8d190dc07a1c44829fb123ba233cb3ef",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "score": 2120,
+                "rank": "35b2fa5fc6c442f89cb5880ca6f4da95"
+            },
+            {
+                "_id": "39fc8764bb8e4f3c83288468f2524edb",
+                "listenerId": "98b7533a28ca400085f93a822e959142",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "score": 1120,
+                "rank": "35b2fa5fc6c442f89cb5880ca6f4da95"
+            },
+            {
+                "_id": "a399d0f4b1d24e31937440182984626d",
+                "listenerId": "72ca02fe0c2141cd8d79288f75ea6d1e",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "score": 110,
+                "rank": "35b2fa5fc6c442f89cb5880ca6f4da95"
+            },
+            {
+                "_id": "0b32da2f082548bab94e0f2902f756ee",
+                "listenerId": "066bed34f1e14b79a0d1ac55e41dd681",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "score": 10,
+                "rank": "35b2fa5fc6c442f89cb5880ca6f4da95"
+            },
+            {
+                "_id": "90e27dbb204f4461bc659a3fe4a0feb2",
+                "listenerId": "33e85051588a42aa9d0fcd545662d5ae",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "score": 2,
+                "rank": "35b2fa5fc6c442f89cb5880ca6f4da95"
+            }
+        ]
+    }
+}

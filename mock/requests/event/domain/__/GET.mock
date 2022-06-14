@@ -1,0 +1,48 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Cache-Control: public, max-age=300
+
+{
+    "success": true,
+    "message": "Successfully fetched domain",
+    "data": {
+        "events": [
+            {
+                "_id": "551c11e4798f47e39cc6fd50c21568be",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "name": "Login",
+                "active": true
+            },
+            {
+                "_id": "5d0b7f1efdac4c6e8eff64cdc90a61d3",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "name": "Register",
+                "active": true
+            },
+            {
+                "_id": "f7d2cfb25acf400ba46b90737962f505",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "name": "Review",
+                "active": true
+            },
+            {
+                "_id": "f4339060325f4d24a020a50245ed80cd",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "name": "Like",
+                "active": true
+            },
+            {
+                "_id": "f8a4f69618d54c94af2e39d1638acff8",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "name": "Dislike",
+                "active": true
+            },
+            {
+                "_id": "599dfeab554c41ea99905f49697e0125",
+                "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131",
+                "name": "Download",
+                "active": true
+            }
+        ]
+    }
+}

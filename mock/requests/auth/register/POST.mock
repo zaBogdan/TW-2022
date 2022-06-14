@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Cache-Control: public, max-age=300
+
+{
+    "success": true,
+    "message": "Successfully registered user with email 'zabogdan@gameify.biz'",
+    "data": {
+        "user": {
+            "email": "zabogdan@gameify.biz",
+            "active": true
+        }
+    }
+}
