@@ -1,12 +1,3 @@
-/** 
-const sidebar = document.querySelector('.sidebar')
-fetch('../sidebar/sidebar.html')
-.then(res=>res.text())
-.then(data=>{
-    sidebar.innerHTML=data
-})*/
-/*sidebar included*/
-
 
 function hideAll(){
     const fields = document.querySelectorAll('.dynamic');
@@ -38,6 +29,3 @@ function show_appropriate(){
         fd.style.display = "block";
     }   
 }
-
-
-/** Sidebar */
