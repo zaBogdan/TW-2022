@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Cache-Control: public, max-age=300
+
+{
+    "success": true,
+    "message": "Successfully fetched domain",
+    "data": {
+        "achievement": {
+            "_id": "5ab5153a3f034bab91f62ed5ee648d9c",
+            "name": "10 consecutive logins",
+            "score": 100,
+            "image": "firstImage",
+            "activeDomain": "c89fcd3a1d3c49e793a54c74ff906131"
+        }
+    }
+}

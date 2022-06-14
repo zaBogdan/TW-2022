@@ -1,0 +1,21 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Cache-Control: public, max-age=300
+
+{
+    "success": true,
+    "message": "Successfully fetched domain",
+    "data": {
+        "domain": {
+            "userId": "e13d88872b6641cda866b27d1e0920b6",
+            "name": "PGround",
+            "activeUrl": [
+                "https://api.pground.io",
+                "https://pground.io",
+                "https://dashboard.pground.io",
+            ],
+            "registeredAt": 1655052444,
+            "active": true
+        }
+    }
+}

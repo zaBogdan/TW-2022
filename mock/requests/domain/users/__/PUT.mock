@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Cache-Control: public, max-age=300
+
+{
+    "success": true,
+    "message": "Successfully activated/deactivated user with id `71122cde42d24cf09b3f8ddf371bb4d9`"
+    "note": "Fieldu asta nu o sa existe in API, dar scriu aici ca sa nu uit. Singura chestie pe care o poate face cineva cu domain users este sa-i active/dezactiveze"
+}

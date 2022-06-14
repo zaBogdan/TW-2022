@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Cache-Control: public, max-age=300
+
+{
+    "success": true,
+    "message": "Successfully fetched user",
+    "data": {
+        "user": {
+            "firstName": "Bogdan",
+            "lastName": "Zavadovschi",
+            "username": "zaBogdan",
+            "dateOfBirth": "00.00.0000",
+        }
+    }
+}
