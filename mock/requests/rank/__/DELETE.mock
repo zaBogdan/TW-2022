@@ -4,5 +4,5 @@ Cache-Control: public, max-age=300
 
 {
     "success": true,
-    "message": "Successfully updated achievement with id `c89fcd3a1d3c49e793a54c74ff906131`"
+    "message": "Successfully deleted rank with id `35b2fa5fc6c442f89cb5880ca6f4da95`"
 }

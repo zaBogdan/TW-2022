@@ -4,7 +4,7 @@ Cache-Control: public, max-age=300
 
 {
     "success": true,
-    "message": "Successfully fetched domain",
+    "message": "Successfully fetched achievements",
     "data": {
         "achievements": [
             {

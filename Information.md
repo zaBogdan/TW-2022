@@ -32,7 +32,7 @@ This microservice will handle all the authentication methods, at the starting po
 
 ### Users service
 
-This service targets the platform users (with editing accounts, profiles)
+This service targets the platform users (with editing accounts, profiles) - we must add an api key here
 
 #### Gameify service (3x fiecare db are microserviciu lui)
 

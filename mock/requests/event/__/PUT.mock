@@ -4,5 +4,5 @@ Cache-Control: public, max-age=300
 
 {
     "success": true,
-    "message": "Successfully updated domain with id `551c11e4798f47e39cc6fd50c21568be`"
+    "message": "Successfully updated event with id `551c11e4798f47e39cc6fd50c21568be`"
 }
