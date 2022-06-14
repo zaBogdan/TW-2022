@@ -11,11 +11,11 @@ body {
 }
 
 
-.wrapper .sidebar ul :nth-child(4) a {
+.wrapper .sidebar ul :nth-child(3) a {
   color: white;
 }
 
-.wrapper .sidebar ul :nth-child(4) {
+.wrapper .sidebar ul :nth-child(3) {
   background-color: #acc8c9;
 }
 
@@ -54,7 +54,7 @@ body {
 
 .flex-container {
   display: flex;
-  padding-top: 3%;
+ 
   list-style:none;
 }
 
@@ -115,8 +115,3 @@ font-size: 70px;
 }
 
 
-@media (max-width: 1060px) {
-  .flex-container {
-    flex-wrap: wrap;
-  }
-}

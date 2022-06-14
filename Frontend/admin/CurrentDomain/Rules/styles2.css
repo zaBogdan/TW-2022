@@ -193,6 +193,11 @@ select::-ms-expand {
   display: none;
 }
 
+/* Optiunile de la alegerea tipului de Reward */
+.dynamic{
+  display: none;
+}
+
 
 @media(max-width:650px) {
 

@@ -7,17 +7,18 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Gammification - Domains</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 
 </head>
 
 <body>
 
   <div class="wrapper">
-    <div class="sidebar">
-    </div>
 
+    <div id="nav">  <!-- included from js-->
+    </div>
+    
     <div class="main_content">
       <h1>Manage apps</h1>
       <h1>Edit Domain Details</h1>
@@ -39,8 +40,8 @@
                 <div id="username_form">
                     <label  for="username">Moderator username:</label>
                     <input type="text" name = "username" id="username" placeholder="username"/>
-                    <button type="submit" id="add_new_user">Add</button>
-                    <button type="button" id="cancel_username">Cancel</button>
+                    <input type="submit" id="add_new_user" value="Add"/>
+                    <input type="button" id="cancel_username" value="Cancel">
                 </div>
                
 

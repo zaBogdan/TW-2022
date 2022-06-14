@@ -7,124 +7,72 @@
   <title>Gammification</title>
   <link rel="stylesheet" href="styles2.css">
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
-  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-  <script src="https://kit.fontawesome.com/956724cc15.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 
 </head>
 
 <body>
   <div class="wrapper">
-    <div class="nav">
-      <div class="sidebar" id="sidebar">
-        <i class="fa-solid fa-arrow-left" onclick="hideMenu()"></i>
-        <h2><img class="logo" src="/assets/img/logo.svg" width="60" height="60" alt="logo"></h2>        
-        <ul>
-          <li><a href="/admin/Dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
-          <li><a href="/admin/CurrentDomain/Statistics"><i class="fas fa-globe"></i>Current Domain</a></li>
-          <li><a href="/admin/CurrentDomain/Achievements"><i
-                class="fas fa-project-diagram"></i>Manage Achievements</a></li>
-          <li><a href="/admin/CurrentDomain/Metrics"><i class="fas fa-boxes"></i>Manage Metrics</a>
-          </li>
-          <li><a href="/admin/CurrentDomain/Rules"><i class="fas fa-cogs"></i>Rules</a></li>
-          <li><a href="#"><i class="fas fa-list-ol"></i>Leaderboards</a></li>
-        </ul>
-        <div class="social_media">
-          <a href="#"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
-      <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+
+    <div id="nav">  <!-- included from js-->
     </div>
 
     <div class="main_content">
       <h1>Set Rules</h1>
       <div class="flex-container ">
+        <h2></h2>
         <div class="flex-item flex-1">
-          <h1>Give a suggestive name to your new rule</h1>
-          <h1>Rule applies to:</h1>
-          <div class="selectdiv">
-            <label>
-              <select>
-                <option selected>select a metric for group/category award </option>
-                <option>Comment awards</option>
-                <option>Likes given awards</option>
-                <option>Likes received awards</option>
-                <option>Number of posts awards</option>
+          <form id="AddNewRule">
+
+            <label for="rule_name">Rule name:</label>
+            <input type="text" name="rule_name" id="rule_name" placeholder="Insert the name of your new rule" required> <br>
+
+            <fieldset id="rule_reward">
+              <h3>Reward information:</h3>
+              <label for="reward_type">Reward type</label>
+              <select id="select_reward_type" onchange="show_appropriate()">
+                <option value="0" selected></option>
+                <option value="1">Score</option>
+                <option value="2">Achievement</option>
+                <option value="3">Rank-up</option>
+                <option value="4">Rank-down</option>
               </select>
-            </label>
-          </div>
 
-          <div class="selectdiv">
-            <label>
-              <select>
-                <option selected>select a metric for award</option>
-                <option>Comment awards</option>
-                <option>Likes given awards</option>
-                <option>Likes received awards</option>
-                <option>Number of posts awards</option>
-              </select>
-            </label>
-          </div>
+              <fieldset class="dynamic" id="reward_score">
+                <label for="score_value">Score:</label>
+                <input type="number" id="reward_score" name="reward_score" min="0">
+              </fieldset>
 
-          <h1>Requirements:</h1>
-          <div class="Requirements">
-            <h2>Match</h2>
-            <div class="selectdiv">
-              <label>
+              <fieldset class="dynamic" id="reward_achievement">
+                <label for="achievement_choice">Achievement: </label>
                 <select>
-                  <option selected>Select a type of expression </option>
-                  <option>If the player has the metric</option>
-                  <option>All of the following rules</option>
-                  <option>Any of the following rules</option>
-
+                  <option selected></option>
+                  <!--Generat din JS in functie de valorile din baza de date-->
                 </select>
-              </label>
-            </div>
+             </fieldset>
 
-            <h2>Having the name</h2>
-            <div class="selectdiv">
-              <label>
+              <fieldset class="dynamic" id="reward_rank-up">
+                <label for="rank_choice">Rank: </label>
                 <select>
-                  <option selected>Number of posts </option>
-                  <option>Comment awards</option>
-                  <option>Likes given awards</option>
-                  <option>Likes received awards</option>
-                  <option>Number of posts awards</option>
+                  <option selected></option>
+                  <!--Generat din JS in functie de valorile din baza de date-->
                 </select>
-              </label>
-            </div>
+              </fieldset>
 
-            <h2>Having a value</h2>
-            <form>
-              <input selected type="number" min="1" max="500"></input>
-            </form>
-
+              <fieldset class="dynamic" id="reward_rank-down">
+                <label for="rank_choice">Rank: </label>
+                <select>
+                  <option selected></option>
+                  <!--Generat din JS in functie de valorile din baza de date-->
+                </select>
+              </fieldset>
+            </fieldset>
+          </form> 
           </div>
-          <button class="Addbutton">Add Rule <i class="fas fa-plus"></i></button>
-          <button class="Addbutton" style="margin-top: 8%;">Save</button>
-        </div>
-      </div>
     </div>
   </div>
 
-
-  <!--------JavaScript toggle menu ------>
-
-  <script>
-
-    var sidebar = document.getElementById("sidebar");
-
-    function showMenu() {
-      sidebar.style.left = "0";
-    }
-    function hideMenu() {
-      sidebar.style.left = "-200px";
-    }
-    
-       window.addEventListener("resize", function () {
-      if (window.innerWidth > 650) sidebar.style.removeProperty("left");
-    });
-
-
-  </script>
+<script src="index.js"></script>
 </body>
 
 </html>

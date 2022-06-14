@@ -1,16 +1,15 @@
-const sidebar = document.querySelector('.sidebar')
-fetch('../sidebar/sidebar.html')
-.then(res=>res.text())
-.then(data=>{
-    sidebar.innerHTML=data
-})
-/*sidebar included*/
+
+$(function(){
+  $("#nav").load("../sidebar/sidebar.html"); 
+});   /*sidebar included*/
+
+
 
 // construirea adresei
- let baseurl = "https://002f0804-fc69-425b-b291-9739c417bb1f.mock.pstmn.io";
- let url = baseurl +"/domain/self?status=active";
+ var baseurl = "https://002f0804-fc69-425b-b291-9739c417bb1f.mock.pstmn.io";
+ //let url = baseurl +"/domain/self?status=active";
 // obtinerea informatiilor din API
-
+var url = "/admin/Mocks/GetDomains.mock";
  async function getDomains(url){
    try{
     let x = await fetch(url).then(response => response.json());
@@ -23,8 +22,8 @@ fetch('../sidebar/sidebar.html')
  }
  // Construirea dinamica a listei in functie de ce primim din baza de date
     // versiunea initiala, needitata
- const domenii = document.getElementById("domainList");
- const domains = getDomains(url);
+var domenii = document.getElementById("domainList");
+var domains = getDomains(url);
  domains.then(response => {
   if(response.data.length>0){
     for (let i=0; i<response.data.length; i++){

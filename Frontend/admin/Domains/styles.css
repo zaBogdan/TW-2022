@@ -83,7 +83,8 @@ body {
 
 
 #domainList .fas{
-  padding-left: 8px;
+  padding-left: 15px;
+  padding-right: 10px;
   font-size: 27px;
 }
 
@@ -93,34 +94,6 @@ body {
   width: 70%;
   height: 280px;
   overflow: auto;
-<<<<<<< HEAD
-}
-
-#domainList li{
-  color: #2e3e3f;
-  display: flex;
-  flex-direction: row;
-}
-.fa-pen{
-  margin-left: auto;
-  margin-right: 10px;
-}
-.fa-trash{
-
-  margin-right: 10px;
-}
-#domainList li a{
-  align-self: left;
-}
-
-
-#username_form{
-  display: none;
-}
-
-
-.main_content .domainWindow .fas:hover{
-=======
   display: flex;
   flex-direction: column;
 }
@@ -128,16 +101,16 @@ body {
 #domainList li{
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   text-align: left;
 }
 
 #domainList li .fas:first-of-type{
- margin-left: 10%;
+ margin-left: auto;
+ padding-right: 0;
 }
 
 #domainList .fas:hover{
->>>>>>> 68e58228b7706bed64dea8656b90022640b6b52e
   color:#01858f;
   font-size: 35px;
 }
@@ -149,6 +122,8 @@ body {
 .AddButton:hover{
   background-color:#01858f;
 }
+
+
 
 
 @media (max-width: 1060px) {

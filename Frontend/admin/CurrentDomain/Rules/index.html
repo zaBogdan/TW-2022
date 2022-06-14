@@ -7,50 +7,30 @@
   <title>Gammification</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
-  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-  <script src="https://kit.fontawesome.com/956724cc15.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
 </head>
 
 <body>
 
   <div class="wrapper">
-    <div class="nav">
-      <div class="sidebar" id="sidebar">
-        <i class="fa-solid fa-arrow-left" onclick="hideMenu()"></i>
-        <h2><img class="logo" src="/assets/img/logo.svg" width="60" height="60" alt="logo"></h2>
-        <ul>
-          <li><a href="/admin/Dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
-          <li><a href="/admin/CurrentDomain/Statistics"><i class="fas fa-globe"></i>Current Domain</a></li>
-          <li><a href="/admin/CurrentDomain/Achievements"><i
-                class="fas fa-project-diagram"></i>Manage Achievements</a></li>
-          <li><a href="../Metrics/index.html"><i class="fas fa-boxes"></i>Manage Metrics</a>
-          </li>
-          <li><a href="/admin/CurrentDomain/Rules"><i class="fas fa-cogs"></i>Rules</a></li>
-          <li><a href="#"><i class="fas fa-list-ol"></i>Leaderboards</a></li>
-        </ul>
-        <div class="social_media">
-          <a href="#"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
-      <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+
+    <div id="nav">  <!-- included from js-->
     </div>
 
     <div class="main_content">
 
-      <h1>Set Rules</h1>
+      <h1>Rules</h1>
       <h1>Here, you can set the rules/milestones for every existent reward!</h1>
 
       <div class="flex-container ">
         <div class="flex-item flex-1">
-         <h1>Achievements category</h1>
-          <div class="selectdiv">
+         <h1>My Rules</h1>
+          <div class="select_rule">
             <label>
               <select>
-                <option selected>select achievement category </option>
-                <option>Comment awards</option>
-                <option>Likes given awards</option>
-                <option>Likes received awards</option>
-                <option>Number of posts awards</option>
+                <option selected> pick a rule </option>
+                <!-- Generat din JS-->
               </select>
             </label>
           </div>
@@ -75,26 +55,8 @@
     </div>
 
   </div>
-
-    <!--------JavaScript toggle menu ------>
-
-    <script>
-
-      var sidebar = document.getElementById("sidebar");
   
-      function showMenu() {
-        sidebar.style.left = "0";
-      }
-      function hideMenu() {
-        sidebar.style.left = "-200px";
-      }
-      
-          window.addEventListener("resize", function () {
-      if (window.innerWidth > 650) sidebar.style.removeProperty("left");
-    });
-  
-    </script>
-
+  <script src="index.js"></script> 
 </body>
 
 </html>
