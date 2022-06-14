@@ -42,7 +42,7 @@ body {
 #editDomainWindow{
   display: flex;
   width: 65vw;
-  height: 70vh;
+  height: 80vh;
   background: #acc8c9;
   margin: 4px;
   color: #2e3e3f;
