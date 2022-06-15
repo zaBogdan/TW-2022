@@ -11,7 +11,7 @@ class JWToken {
      * @returns the signed jwt
      */
   static async generate(data, settings = {}) {
-    const privateKey = fs.readFileSync(`configs/${config.JWT_PRIVATE_KEY_FILE}`);
+    const privateKey = fs.readFileSync(config.JWT_PRIVATE_KEY_FILE);
     const token = await jwt.sign(data, privateKey, {
       algorithm: 'RS256',
       expiresIn: settings?.expiresIn || '4h',
@@ -27,7 +27,7 @@ class JWToken {
      * @returns the dict is data stored inside the token, boolean is whether is valid or not
      */
   static async validate(token, settings = {}) {
-    const publicKey = fs.readFileSync(`configs/${config.JWT_PUBLIC_KEY_FILE}`);
+    const publicKey = fs.readFileSync(config.JWT_PUBLIC_KEY_FILE);
     const data = await jwt.verify(token, publicKey, {
       algorithm: 'RS256',
       ...settings,
