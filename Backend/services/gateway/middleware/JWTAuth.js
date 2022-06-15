@@ -13,7 +13,7 @@ exports.JWTAuth = async (req, res, next) => {
         return;
     }
     await new Promise((resolve, reject) => {
-        https.get(`${servicesURL.AUTHENTICATION}/internal/validate`, {
+        const __req = https.get(`${servicesURL.AUTHENTICATION}/internal/validate`, {
             headers: {
                 authorization: headers.authorization,
             }
@@ -26,10 +26,11 @@ exports.JWTAuth = async (req, res, next) => {
                 reject(`Path '${path}' not found`)
             }
         })
+        __req.on('error', function(error) {
+            res.status(500).json({
+                success: false,
+                message: 'Internal server error. Contact us at devops@gameify.biz',
+            }).end()
+        });
     })
-
-    
-
-
-    console.log(path, headers);
 }
