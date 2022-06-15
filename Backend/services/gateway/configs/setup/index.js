@@ -2,5 +2,5 @@ module.exports = {
     corsOrigins: [
         'localhost:3000'
     ],
-    PORT: 3001,
+    PORT: 3000,
 }

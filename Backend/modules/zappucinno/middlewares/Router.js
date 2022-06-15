@@ -13,15 +13,17 @@ const routerModule = module.exports = function(){
 
     return router;
 } 
+routerModule.paths = {}
 
 routerModule.handle = async function(req, res, next) {
     debug('[ Zappucinno ][ Router ] Started handling request')
     let [path, query] = req.url.split('?');
+
     if(!path.endsWith('/')) {
         path += '/';
     }
 
-    req.params = {};
+    req.params = {}; // add query params to req.params
     let start = 1, func = this.paths;
     while(start < path.length) {
         const firstSlash = path.indexOf('/', start);
@@ -38,37 +40,79 @@ routerModule.handle = async function(req, res, next) {
                 }
             }
         }
-
+        // always use the /* case for a match
+        if(func['/*'] !== undefined) break;
         func = func[value];
+        
         if(func === null || func === undefined) break;
     }
     if(func === undefined) {
         throw new Error('Failed to find specified path');
     }
+
+    let response = undefined;
+
     // add default path for examples like /user or /domain
     if(func['/'] !== undefined)
         func = func['/'];
-
-    const method = req.method.toLowerCase();
-    if(func[method] === undefined) {
-        throw new Error(`Method ${req.method} is not supported for this route!`);
+    else if(func['/*'] !== undefined) {
+        func = func['/*'];
+        response = await func(req,res, next) || null;
     }
-    const response = await func[req.method.toLowerCase()](req, res, next);
+
+    if(response === undefined) {
+        const method = req.method.toLowerCase();
+        if(func[method] === undefined) {
+            throw new Error(`Method ${req.method} is not supported for this route!`);
+        }
+        response = await func[req.method.toLowerCase()](req, res, next);
+    }
+
     if(response !== undefined) {
-        response?.end();
+        res?.end();
         res.finished = true;
     }
     debug('[ Zappucinno ][ Router ] Finished request')
     return;
 }
 
-
 routerModule.use = function(path, fn) {
-    this.paths = {};
-    if(this.paths[path] === undefined) {
-        this.paths[path] = {}
+    const pathSplit = path.slice(1).split('/');
+    if(pathSplit.length === 1) {
+        pathSplit.push('')
     }
-    this.paths[path] = fn.routes;
+
+    let entryPoint = null;
+    const nestedPath = {};
+    let reference = nestedPath;
+    let data = {}
+
+    pathSplit.forEach((el, index) => {
+        if(index === 0) {
+            entryPoint = `/${el}`;
+            return;
+        }
+        if(pathSplit.length === index + 1) {
+            if(el === '*') {
+                data = fn
+            } else {
+                data = fn.routes;
+            }
+        }
+        if(el !== '') {
+            el = `/${el}`;
+            reference[el] = data;
+            reference = reference[el]
+        }
+    })
+    if(this.paths[entryPoint] === undefined) {
+        this.paths[entryPoint] = nestedPath
+    } else {
+        this.paths[entryPoint] = {
+            ...this.paths[entryPoint],
+            ...data
+        }
+    }
 }
 
 routerModule.buildPathObject = function(path) {

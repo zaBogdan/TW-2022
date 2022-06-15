@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const {log, debug} = require('shared').utils.logging;
+const {log} = require('shared').utils.logging;
 
 const zappucinno = require('zappucinno');
 const { bodyParser, cors } = require('zappucinno/middlewares');
