@@ -6,13 +6,19 @@ $(function(){
 
 
 // construirea adresei
- var baseurl = "https://002f0804-fc69-425b-b291-9739c417bb1f.mock.pstmn.io";
+var baseurl = "https://002f0804-fc69-425b-b291-9739c417bb1f.mock.pstmn.io";
  //let url = baseurl +"/domain/self?status=active";
 // obtinerea informatiilor din API
-var url = "/admin/Mocks/GetDomains.mock";
- async function getDomains(url){
+//var url = "/admin/Mocks/GetDomains.mock";
+var url = "http://localhost:8085/domain/self";
+
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+ async function getDomains(url, requestOptions){
    try{
-    let x = await fetch(url).then(response => response.json());
+    let x = await fetch(url, requestOptions).then(response => response.json());
     return x;
    }
    catch(error){
@@ -23,13 +29,13 @@ var url = "/admin/Mocks/GetDomains.mock";
  // Construirea dinamica a listei in functie de ce primim din baza de date
     // versiunea initiala, needitata
 var domenii = document.getElementById("domainList");
-var domains = getDomains(url);
+var domains = getDomains(url,requestOptions);
  domains.then(response => {
-  if(response.data.length>0){
-    for (let i=0; i<response.data.length; i++){
+  if(response.data.domains.length>0){
+    for (let i=0; i<response.data.domains.length; i++){
         const li = document.createElement("li");
         const a = document.createElement("a");
-        const aText =  document.createTextNode(response.data[i]['name']);
+        const aText =  document.createTextNode(response.data.domains[i]['name']);
             a.setAttribute('href',"/admin/CurrentDomain");
             a.appendChild(aText);
             a.style.color="#2e3e3f";

@@ -1,6 +1,7 @@
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Cache-Control: public, max-age=300
+Access-Control-Allow-Origin: *
 
 {
     "success": true,

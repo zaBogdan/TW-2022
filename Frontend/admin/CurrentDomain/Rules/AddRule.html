@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +9,6 @@
   <link rel="stylesheet" href="styles2.css">
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- 
 </head>
 
 <body>
@@ -22,7 +22,7 @@
       <div class="flex-container ">
         <h2></h2>
         <div class="flex-item flex-1">
-          <form id="AddNewRule">
+          <form id="AddNewRule" action="http://www.foo.com" method="POST">
 
             <label for="rule_name">Rule name:</label>
             <input type="text" name="rule_name" id="rule_name" placeholder="Insert the name of your new rule" required> <br>
@@ -30,43 +30,85 @@
             <fieldset id="rule_reward">
               <h3>Reward information:</h3>
               <label for="reward_type">Reward type</label>
-              <select id="select_reward_type" onchange="show_appropriate()">
-                <option value="0" selected></option>
-                <option value="1">Score</option>
-                <option value="2">Achievement</option>
-                <option value="3">Rank-up</option>
-                <option value="4">Rank-down</option>
+              <select name="reward_type" id="select_reward_type" onchange="show_appropriate()" required>
+                <option selected value=" "></option>
+                <option value="Score">Score</option>
+                <option value="Achievement">Achievement</option>
+                <option value="Rank-up">Rank-up</option>
+                <option value="Rank-down">Rank-down</option>
               </select>
 
-              <fieldset class="dynamic" id="reward_score">
+              <fieldset class="dynamic_reward_type" id="reward_score">
                 <label for="score_value">Score:</label>
-                <input type="number" id="reward_score" name="reward_score" min="0">
+                <input type="number" id="reward_score" name="score_value" min="0" default=" " required>
               </fieldset>
 
-              <fieldset class="dynamic" id="reward_achievement">
+              <fieldset class="dynamic_reward_type" id="reward_achievement">
                 <label for="achievement_choice">Achievement: </label>
-                <select>
-                  <option selected></option>
+                <select id="achievement_list" name="achievement_choice" required>
+                  <option selected value=""></option>
                   <!--Generat din JS in functie de valorile din baza de date-->
                 </select>
              </fieldset>
 
-              <fieldset class="dynamic" id="reward_rank-up">
+              <fieldset class="dynamic_reward_type" id="reward_rank-up">
                 <label for="rank_choice">Rank: </label>
-                <select>
-                  <option selected></option>
+                <select name="rank_choice" class="rank_list" required>
+                  <option selected value="0">--pick a rank--</option>
                   <!--Generat din JS in functie de valorile din baza de date-->
                 </select>
               </fieldset>
 
-              <fieldset class="dynamic" id="reward_rank-down">
+              <fieldset class="dynamic_reward_type" id="reward_rank-down">
                 <label for="rank_choice">Rank: </label>
-                <select>
-                  <option selected></option>
+                <select name="rank_choice" class="rank_list" required>
+                  <option selected value="">--pick a rank--</option>
                   <!--Generat din JS in functie de valorile din baza de date-->
                 </select>
               </fieldset>
             </fieldset>
+            <!-- Box-ul pentru reguli -->
+            <h3>Rule</h3>
+            <fieldset id="Rule_box">
+              <label for="Match">Match:</label>
+              <select name="Match" id="select_rule_type" onchange="show_rule_params()" required>
+                <option value="" selected>--select expression type--</option>
+                <option value="has_metric">If the user performs the action</option>
+                <option value="all">All of the following rules</option>
+                <option value="any">Any of the following rules</option>
+              </select>
+
+              <fieldset class="dynamic_rule_type" id="user_has_metric">
+                <label for="having_the_name">Having the name:</label>
+                <select name="having_the_name" id="actions_list" required>
+                  <option value="" selected>--Select an action--</option>
+                  <!-- Generat din JS -->
+                </select>
+                <label for="having_a_value">Having a value: </label>
+                <select name="having_a_value" id="comparator_list" required>
+                  <option value="" selected>--select an operator--</option>
+                  <option value="eq">equal to</option>
+                  <option value="neq">not equal to</option>
+                  <option value="lt">less than</option>
+                  <option value="lte">less than or equal to</option>
+                  <option value="gt">greater than</option>
+                  <option value="gte">greater than or equal to</option>
+                </select>
+                <label for="value"></label>
+                <input name="value" type="number" placeholder="write a numeric value" min="0" required>
+                <i></i>
+              </fieldset>
+
+              <fieldset class="dynamic_rule_type" id="all_rules">
+                <button class="add_rule_button" type="button" onclick="insert_new_rule_field('all_rules')">add rule</button>
+              </fieldset>
+
+              <fieldset class="dynamic_rule_type" id="any_rule">
+                <button class="add_rule_button" type="button" onclick="insert_new_rule_field('any_rule')">add rule</button>
+              </fieldset>
+            </fieldset>
+            <input type="submit" value="Submit">
+            <input type="button" value="Cancel" id="cancel_rule">
           </form> 
           </div>
     </div>

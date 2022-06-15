@@ -1,6 +1,7 @@
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Cache-Control: public, max-age=300
+Access-Control-Allow-Origin: *
 
 {
     "success": true,
@@ -13,27 +14,27 @@ Cache-Control: public, max-age=300
                 "activeUrl": [
                     "https://api.pground.io",
                     "https://pground.io",
-                    "https://dashboard.pground.io",
+                    "https://dashboard.pground.io"
                 ],
-                "registeredAt": 1655052444,
+                "registeredAt": "1655052444",
                 "active": true
             },
             {
                 "userId": "bb4029297f1d4c92b9d342caccf83b6a",
                 "name": "UAIC",
                 "activeUrl": [
-                    "https://api.uaic.io",
+                    "https://api.uaic.io"
                 ],
-                "registeredAt": 1655052444,
-                "active": true
+                "registeredAt": "1655052444",
+                "active": true 
             },
             {
                 "userId": "fdcb8974556942b7885d1f1f6011850f",
                 "name": "Google",
                 "activeUrl": [
-                    "https://api.google.io",
+                    "https://api.google.io"
                 ],
-                "registeredAt": 1655052444,
+                "registeredAt": "1655052444",
                 "active": true
             }
         ]

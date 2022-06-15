@@ -194,7 +194,7 @@ select::-ms-expand {
 }
 
 /* Optiunile de la alegerea tipului de Reward */
-.dynamic{
+.dynamic_reward_type, .dynamic_rule_type{
   display: none;
 }
 
