@@ -23,7 +23,7 @@
       <h1>Adding a new domain</h1>
       
       <div id="addDomainWindow">
-            <form id="add_domain_form">
+            <form id="add_domain_form" action="http://www.foof.com" method="POST">
                 <label for="domain_name">Domain name:</label>
                 <input type="text" name="domain_name" id="domain_name" placeholder="Insert the name of your domain" required> <br>
 
@@ -32,20 +32,20 @@
 
 
                 <label for="domain_moderators">Domain administrators: <i class="fas fa-user-plus" onclick="showForm()" title="Add new user"></i></label>
-                <ul id="domain_moderators_list">
+                <ul name="domain_moderators" id="domain_moderators_list">
                     <!-- Generat in script -->
                 </ul>
 
                 <div id="username_form">
-                    <label  for="username">Moderator username:</label>
-                    <input type="text" name = "username" id="username" placeholder="username"/>
-                    <button type="submit" id="add_new_user">Add</button>
-                    <button type="button" id="cancel_username">Cancel</button>
+                    <label  id="label_id" for="usernames[]">Moderator username:</label>
+                    <input type="text"  id="username" name="usernames[]" placeholder="username"/>
+                    <input type="button" id="add_new_user" value="Add">
+                    <input type="button" id="cancel_username" value="Cancel">
                 </div>
                
 
-                <button type="submit" id="">Add domain</button>
-                <button type="button" id="cancel_form">Cancel</button>             
+                <input type="submit" id="submitBtn" value="Add domain">
+                <input type="button" id="cancel_form" value="Cancel">             
                 
             </form>
       </div>

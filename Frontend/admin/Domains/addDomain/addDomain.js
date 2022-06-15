@@ -1,3 +1,5 @@
+var idx = 0;
+
 $(function(){
     $("#nav").load("../../sidebar/sidebar.html"); 
   });
@@ -10,10 +12,14 @@ function showForm(){
     let placeholder = document.getElementById("username");
     placeholder.value = "";
     inpt.style.display = "block";
+    let fld = document.getElementById("username");
+    fld.disabled = false;
 }
 function hideForm(){
     let inpt = document.getElementById("username_form");
     inpt.style.display = "none";
+    let fld = document.getElementById("username");
+    fld.disabled = true;
 }
 
 
@@ -40,6 +46,8 @@ window.addEventListener('load', () => {
 
         const li = document.createElement("li");
             li.classList.add("username_entry");
+            li.setAttribute("name","domain_moderators[]")
+            li.setAttribute("type","domain_moderators[]")
         const textVal = document.createElement("input");
             textVal.classList.add("text");
             textVal.type = "text";
@@ -91,8 +99,25 @@ window.addEventListener('load', () => {
     
     // after saving changes - redirect to domains page
     document.getElementById("add_domain_form").addEventListener("submit",(e) => {
-        e.preventDefault()
-        window.location.href = "/admin/Domains/index.html";
+            e.preventDefault();
+            const data = new FormData(e.target);
+            //const value = Object.fromEntries(data.entries());
+            // get the form data
+            var val = {};
+            data.forEach(function(v,key){
+                val[key]=v;
+            });
+            // get the <ul> entries and put them in an array
+            var users = [];
+            const u = document.getElementsByClassName("text");
+            for (let x=0; x<u.length; x++)
+                users.push(u[x].value);
+            // append this to the result
+            val["users"]=users;
+            // stringify
+            var json = JSON.stringify(val);
+            console.log(json);
+        //window.location.href = "/admin/Domains/index.html";
     });
 
     // daca se decide la renuntare => optiunea "cancel"

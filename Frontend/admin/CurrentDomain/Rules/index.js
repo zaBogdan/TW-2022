@@ -127,7 +127,7 @@ var achievements = getFromApi(url, requestOptions);
  /** Generarea listei de rank-uri pentru dropdownul de la reward type */
 var url = "http://localhost:8085/rank/domain/c89fcd3a1d3c49e793a54c74ff906131";
 var rank_lists = document.getElementsByClassName("rank_list");
-var ranks = getFromApi(url);
+var ranks = getFromApi(url,requestOptions);
  ranks.then(response => {
   if(response.data.ranks.length>0){
     for (let i=0; i<response.data.ranks.length; i++){
@@ -145,7 +145,7 @@ var ranks = getFromApi(url);
  /** Generarea listei de event-uri pentru dropdownul de la rule */
 var url = "http://localhost:8085/event/domain/c89fcd3a1d3c49e793a54c74ff906131";
 var actions_list = document.getElementById("actions_list");
-var actions = getFromApi(url);
+var actions = getFromApi(url,requestOptions);
 actions.then(response => {
   if(response.data.events.length>0){
     for (let i=0; i<response.data.events.length; i++){
@@ -157,6 +157,24 @@ actions.then(response => {
     }
 }}
  );
+
+
+/** Generarea listei de "rules" din baza de date */
+/*var url = "http://localhost:8085/event/domain/c89fcd3a1d3c49e793a54c74ff906131";
+var actions_list = document.getElementById("actions_list");
+var actions = getFromApi(url,requestOptions);
+actions.then(response => {
+  if(response.data.events.length>0){
+    for (let i=0; i<response.data.events.length; i++){
+        const option = document.createElement("option");
+        option.value = response.data.events[i]["name"];
+        const textNode = document.createTextNode(response.data.events[i]["name"]);
+        option.appendChild(textNode);
+        actions_list.appendChild(option);
+    }
+}}
+ );*/
+
 
  const cnclBtn = document.getElementById("cancel_rule").onclick = function(){
     /// informatiile nu se trimit nicaieri
