@@ -1,6 +1,6 @@
 const { debug } = require('shared').utils.logging;
 const { v4: uuid } = require('uuid');
-const { Password, Token } = require('../modules');
+const { Password, Token, validateToken } = require('../modules');
 const StatusCodeException = require('shared').exceptions.StatusCodeException;
 
 exports.handleEmailRegister = async (req) => {
@@ -62,20 +62,7 @@ exports.handleAuthentication = async(req) => {
 }
 
 exports.handleRefreshSession = async(req) => {
-    if(req?.headers?.authorization === undefined) {
-        throw new StatusCodeException('You must be authenticated to use this route', 403);
-    }
-    const [type, token] = req.headers.authorization.split(' ');
-
-    if(type !== 'Bearer') {
-        throw new StatusCodeException('Invalid authorization token type. Allowed types: Bearer', 403);
-    }
-    
-    const [data, valid] = await Token.validate(token);
-    
-    if(valid !== true) {
-        throw new StatusCodeException('Token is already expired. Try to login', 403);
-    }
+    const data = await validateToken(req)
     if(data.type !== 'refresh') {
         throw new StatusCodeException('Invalid token type. You must use \'REFRESH\' tokens.', 403);
     }

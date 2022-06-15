@@ -1,4 +1,5 @@
 const dotenv = require('dotenv');
+const { JWTAuth } = require('./JWTAuth');
 
 const ENV = process.env.NODE_ENV || 'dev';
 
@@ -7,5 +8,6 @@ const config = dotenv.config({
 }).parsed;
 
 module.exports = {
-    config
+    config,
+    JWTAuth
 };

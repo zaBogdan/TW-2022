@@ -7,9 +7,7 @@ const { bodyParser, cors } = require('zappucinno/middlewares');
 const setup = require('./configs/setup');
 
 const router = require('./router');
-const models = require('./models');
-const { config } = require('./middleware');
-
+const { config, JWTAuth } = require('./middleware');
 const app = zappucinno();
 
 mongoose.connect(config.DB_URI, {
@@ -26,11 +24,7 @@ app.use(cors({
     origin: corsList,
 }));
 
-// app.use(bodyParser.json);
-
-// app.use((req, res, next) => {
-//     req.db = models;
-// });
+app.use(JWTAuth);
 app.use('/', router());
 
 const exposedPort = setup?.PORT  || process.env.PORT  || 3000;

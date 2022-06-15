@@ -102,7 +102,7 @@ zappucinno.done = function(err) {
 
     if(err) {
         debug('Handling error: %s', err);
-        this.res.status(err.status || 500).json({
+        this.res.status(this.res.statusCode || 500).json({
             error: err.message,
             stack: this.settings.env === 'dev' ? err.stack : undefined
         })
