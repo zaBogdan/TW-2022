@@ -1,9 +1,9 @@
 const router = require('zappucinno').Router();
-const userController = require('../controller').userController;
+const authController = require('../controller').authController;
 
-router.post('/login', () => {});
-router.post('/register', userController.getUser);
-router.get('/refresh', userController.getUser);
-router.post('/change_password', userController.getUser);
+router.post('/login', authController.login);
+router.post('/register', authController.register);
+router.get('/refresh', authController.refresh);
+router.post('/change_password', authController.changePassword);
 
 module.exports = router;

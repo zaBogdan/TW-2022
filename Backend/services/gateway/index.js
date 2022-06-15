@@ -26,11 +26,11 @@ app.use(cors({
     origin: corsList,
 }));
 
-app.use(bodyParser.json);
+// app.use(bodyParser.json);
 
-app.use((req, res, next) => {
-    req.db = models;
-});
+// app.use((req, res, next) => {
+//     req.db = models;
+// });
 app.use('/', router());
 
 const exposedPort = setup?.PORT  || process.env.PORT  || 3000;

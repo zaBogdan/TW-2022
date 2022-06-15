@@ -125,6 +125,7 @@ zappucinno.listen = function() {
 }
 
 zappucinno.customRequestFunctions = async function() {
+
     this.res.status = (code) => {
         this.res.statusCode = code;
         return this.res;
@@ -139,18 +140,4 @@ zappucinno.customRequestFunctions = async function() {
         this.res.write(JSON.stringify(data));
         return this.res;
     }
-
-    this.req.body = await new Promise((resolve, reject) => {
-        let body = '';
-        this.req.on('data', (data) => {
-            body += data;
-            if(body.length > 1e6) {
-                this.req.connection.destroy();
-            }
-        }).on('end', () => {
-            return resolve(body);
-        }).on('error', (err) => {
-            return reject(err);
-        })
-    })
 }
