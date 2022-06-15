@@ -1,3 +1,6 @@
+let getOneURL = "http://localhost:8085/domain/c89fcd3a1d3c49e793a54c74ff906131";
+let putURL = "http://localhost:8085/domain/c89fcd3a1d3c49e793a54c74ff906131";
+
 $(function(){
     $("#nav").load("../../sidebar/sidebar.html"); 
   });
@@ -14,50 +17,44 @@ function hideForm(){
     let inpt = document.getElementById("username_form");
     inpt.style.display = "none";
 }
-function buildFetchUrl(){
-    /* building the URL to fetch the data for this domain
-    ....
-    let search_params = window.location.search;
-    let search_fetchKey = search_params.slice(1).split("&")[0].split("=")[1];
-    */
-   let baseURL = "https://002f0804-fc69-425b-b291-9739c417bb1f.mock.pstmn.io";
-   let URL = baseURL+"/domain/644fc60f37564676aeb277c74712a856";
-   return URL;
-}
 
-// should this be a universal function?
-async function getFetch(url){
+
+
+let requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+  async function getFromApi(url, requestOptions){
     try{
-     let x = await fetch(url).then(response => response.json());
+     let x = await fetch(url, requestOptions).then(response => response.json());
      return x;
     }
     catch(error){
       console.error("Could not fetch from API!");
-    } 
+    }
+    
   }
-  
 
 
 
 window.addEventListener('load', () => {
     // se face fetch-ul
-    const domain_info = getFetch(buildFetchUrl());
+    var domain_info = getFromApi(getOneURL,requestOptions);
 
     domain_info.then(response => {
         let domainName = document.getElementById("domain_name");
-            domainName.value = response.data["name"];
+            domainName.value = response.data.domain["name"];
         let domainAddress = document.getElementById("domain_address");
-            domainAddress.value = response.data["url"];
+            domainAddress.value = response.data.domain["activeUrl"][0];
         const userList = document.querySelector("#domain_moderators_list");
-        if (response.data["users"].length>0){
-            for (let i=0; i<response.data["users"].length; i++){
+        if (response.data.domain["users"].length>0){
+            for (let i=0; i<response.data.domain["users"].length; i++){
                 const li = document.createElement("li");
                     li.classList.add("username_entry");
                 const textVal = document.createElement("input");
                     textVal.classList.add("text");
                     textVal.type = "text";
-                    textVal.value = response.data["users"][i]["username"];
-                    textVal.setAttribute("required","required");
+                    textVal.value = response.data.domain["users"][i];
                     textVal.setAttribute("readonly","readonly");
                 li.appendChild(textVal);
                 // the "Edit" icon
@@ -174,12 +171,38 @@ window.addEventListener('load', () => {
 
         // after saving changes - redirect to domains page
         document.getElementById("edit_domain_form").addEventListener("submit",(e) => {
-            e.preventDefault()
-            window.location.href = "/admin/Domains/index.html";
+            e.preventDefault();
+            const data = new FormData(e.target);
+            // get the form data
+            let val = {};
+            data.forEach(function(v,key){
+                val[key]=v;
+            });
+            // get the <ul> entries and put them in an array
+            let users = [];
+            const u = document.getElementsByClassName("text");
+            for (let x=0; x<u.length; x++)
+                users.push(u[x].value);
+            // append this to the result
+            val["users"]=users;
+            // stringify
+            let json = JSON.stringify(val);
+            // sending data to the server
+            let requestOptions = {
+                method: 'PUT',
+                body: json,
+                redirect: 'follow',
+                
+              };
+              fetch(putURL, requestOptions)
+                .then(response => response.json())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+            // redirect to domains home page
+             window.location.href = "/admin/Domains/index.html";
         });
         const cnclBtn = document.getElementById("cancel_form").onclick = function(){
-        /// informatiile nu se trimit nicaieri
-        location.href = "/admin/Domains/index.html";
+        location.href = "/admin/Domains/index.html"; 
     };
     })
         

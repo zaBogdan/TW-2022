@@ -1,5 +1,8 @@
-var idx = 0;
-
+var postURL = "http://localhost:8085/domain/self";
+var getAllURL = "http://localhost:8085/domain/self";
+var getOneURL = "http://localhost:8085/domain/c89fcd3a1d3c49e793a54c74ff906131";
+var putURL = "http://localhost:8085/domain/c89fcd3a1d3c49e793a54c74ff906131";
+var delURL = "http://localhost:8085/domain/c89fcd3a1d3c49e793a54c74ff906131";
 $(function(){
     $("#nav").load("../../sidebar/sidebar.html"); 
   });
@@ -101,7 +104,6 @@ window.addEventListener('load', () => {
     document.getElementById("add_domain_form").addEventListener("submit",(e) => {
             e.preventDefault();
             const data = new FormData(e.target);
-            //const value = Object.fromEntries(data.entries());
             // get the form data
             var val = {};
             data.forEach(function(v,key){
@@ -116,8 +118,18 @@ window.addEventListener('load', () => {
             val["users"]=users;
             // stringify
             var json = JSON.stringify(val);
-            console.log(json);
-        //window.location.href = "/admin/Domains/index.html";
+            // sending data to the server
+            let requestOptions = {
+                method: 'POST',
+                body: json,
+                redirect: 'follow'
+              };
+              fetch(postURL, requestOptions)
+                .then(response => response.json())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+            // redirect to domains home page
+            //window.location.href = "/admin/Domains/index.html";
     });
 
     // daca se decide la renuntare => optiunea "cancel"

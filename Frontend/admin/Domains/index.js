@@ -31,6 +31,7 @@ var requestOptions = {
 var domenii = document.getElementById("domainList");
 var domains = getDomains(url,requestOptions);
  domains.then(response => {
+  console.log(response.data.domains);
   if(response.data.domains.length>0){
     for (let i=0; i<response.data.domains.length; i++){
         const li = document.createElement("li");
@@ -39,6 +40,11 @@ var domains = getDomains(url,requestOptions);
             a.setAttribute('href',"/admin/CurrentDomain");
             a.appendChild(aText);
             a.style.color="#2e3e3f";
+        const id_p = document.createElement("p");
+        const id = document.createTextNode(response.data.domains[i]['_id']);
+        id_p.appendChild(id);
+        id_p.setAttribute("id","webpage_id");
+
       // the "edit" icon
         const ic1 = document.createElement("i");
             ic1.setAttribute('class', " fas fa-pen");
@@ -53,12 +59,13 @@ var domains = getDomains(url,requestOptions);
         li.appendChild(a);
         li.appendChild(ic1);
         li.appendChild(ic2);
+        li.appendChild(id);
         domenii.appendChild(li);
 
         // edit button functionality
         ic1.addEventListener('click', () => {
             // constructing the fetch url
-            let url = "/admin/Domains/editDomain/editDomain.html?" + "domain="+response.data[i]['url'];
+            let url = "/admin/Domains/editDomain/editDomain.html?" + "domain="+response.data.domains[i]['_id'];
             // redirect to url
             location.href = url;
         })
