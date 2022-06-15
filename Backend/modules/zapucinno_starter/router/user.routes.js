@@ -1,4 +1,4 @@
-const router = require('../zappucinno').Router();
+const router = require('zappucinno').Router();
 const userController = require('../controller').userController;
 
 router.get('/', userController.createUser);

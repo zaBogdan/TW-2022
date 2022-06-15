@@ -1,0 +1,19 @@
+{
+    "name": "shared",
+    "version": "1.0.0",
+    "description": "The shared library of our TW project",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/zaBogdan/tw-2022.git"
+    },
+    "author": "Alin Jufa, Bogdan Zavadovschi, Lucian Chiriac",
+    "license": "ISC",
+    "dependencies": {
+      "dotenv": "^16.0.1"
+    }
+}
+  

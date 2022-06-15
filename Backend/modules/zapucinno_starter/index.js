@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const zappucinno = require('./zappucinno');
-const { bodyParser, cors } = require('./zappucinno/middlewares');
+const zappucinno = require('zappucinno');
+const { bodyParser, cors } = require('zappucinno/middlewares');
 
 const router = require('./router');
 const models = require('./models');
@@ -28,7 +28,6 @@ app.use(bodyParser.json);
 app.use((req, rest, next) => {
     req.db = models;
 });
-
 app.use('/', router());
 
 const exposedPort = process.env.PORT || 3000;
