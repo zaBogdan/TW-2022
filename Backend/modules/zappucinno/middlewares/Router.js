@@ -41,7 +41,7 @@ routerModule.handle = async function(req, res, next) {
             }
         }
         // always use the /* case for a match
-        if(func['/*'] !== undefined) break;
+        if(func['/*'] !== undefined && (func[value] === undefined || func[value] === null)) break;
         func = func[value];
         
         if(func === null || func === undefined) break;
@@ -110,7 +110,7 @@ routerModule.use = function(path, fn) {
     } else {
         this.paths[entryPoint] = {
             ...this.paths[entryPoint],
-            ...data
+            ...nestedPath
         }
     }
 }

@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.1",
+    "http-proxy": "^1.18.1",
     "joi": "^17.6.0",
     "mongoose": "^6.3.3",
     "shared": "file:../../modules/shared",
