@@ -18,7 +18,8 @@
     "dotenv": "^16.0.1",
     "joi": "^17.6.0",
     "mongoose": "^6.3.3",
-    "zappucinno": "file:../modules/zappucinno"
+    "shared": "file:../../modules/shared",
+    "zappucinno": "file:../../modules/zappucinno"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"

@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
+const {log} = require('shared').utils.logging;
+const corsList = require('shared').config.cors;
 
 const zappucinno = require('zappucinno');
 const { bodyParser, cors } = require('zappucinno/middlewares');
+const setup = require('./configs/setup');
 
 const router = require('./router');
 const models = require('./models');
@@ -14,24 +17,24 @@ mongoose.connect(config.DB_URI, {
     useUnifiedTopology: true,
     tlsInsecure: true,
 }).then(conn => {
-    console.log('[Gamify] Successfully connected to Mongo');
+    log('Successfully connected to Mongo')
 }).catch(e => {
     throw e;
 })
 
 app.use(cors({
-    origin: ['localhost:3000'],
+    origin: corsList,
 }));
 
 app.use(bodyParser.json);
 
-app.use((req, rest, next) => {
+app.use((req, res, next) => {
     req.db = models;
 });
 app.use('/', router());
 
-const exposedPort = process.env.PORT || 3000;
+const exposedPort = setup?.PORT  || process.env.PORT  || 3000;
 
 app.listen(exposedPort, () => {
-    console.log('[Gamify] Listening on port 3000');
+    log(`Listening on port ${exposedPort}`)
 })

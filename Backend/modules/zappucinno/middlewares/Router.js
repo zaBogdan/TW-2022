@@ -18,7 +18,6 @@ routerModule.paths = {}
 routerModule.handle = async function(req, res, next) {
     debug('[ Zappucinno ][ Router ] Started handling request')
     let [path, query] = req.url.split('?');
-
     if(!path.endsWith('/')) {
         path += '/';
     }
@@ -83,7 +82,7 @@ routerModule.use = function(path, fn) {
     }
 
     let entryPoint = null;
-    const nestedPath = {};
+    let nestedPath = {};
     let reference = nestedPath;
     let data = {}
 
@@ -105,6 +104,10 @@ routerModule.use = function(path, fn) {
             reference = reference[el]
         }
     })
+    if(Object.keys(nestedPath).length === 0) {
+        nestedPath = fn.routes
+    }
+
     if(this.paths[entryPoint] === undefined) {
         this.paths[entryPoint] = nestedPath
     } else {
