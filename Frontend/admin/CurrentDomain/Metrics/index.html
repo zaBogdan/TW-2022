@@ -5,10 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Gammification</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/admin/CurrentDomain/Metrics/styles.css">
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="index.js"></script> 
 </head>
 
 <body>
@@ -20,29 +19,26 @@
 
     <div class="main_content">
 
-      <h1>Manage Metrics</h1>
-      <h1>Here, you can modify the information you want to track in order to assign rewards.</h1>
+      <div class="main_content">
 
-      <div class="flex-container ">
-        <div class="flex-item flex-1">
-          <h1>My metrics:</h1>
-          <div class="Event_list">
-            <a href="#">Number of likes received<i class="fas fa-edit"></i><i class="fas fa-trash"></i></a>
-            <a href="#">Number of comments posted<i class="fas fa-edit"></i><i class="fas fa-trash"></i></a>
-            <a href="#">Number of events<i class="fas fa-edit"></i><i class="fas fa-trash"></i></a>
-            <a href="#">Days since registered<i class="fas fa-edit"></i><i class="fas fa-trash"></i></a>
-            <a href="#">Has reached a certain level<i class="fas fa-edit"></i><i class="fas fa-trash"></i></a>
-            <a href="#">Number of likes given<i class="fas fa-edit"></i><i class="fas fa-trash"></i></a>
+        <h1>Manage Events</h1>
+        <h1>Here, you can manage the events you want to track.</h1>
+  
+        <div class="flex-container ">
+          <div class="flex-item flex-1">
+            <div class="events_list">
+              <h2> Events List</h2>
+                <ul id="eventList" >
+                    <!-- SE GENERAZA DIN JS -->
+                </ul>
+       </div>
+       <button class="Addbutton" id="Addbutton" onclick="redirect()">Add Event <i class="fas fa-plus"></i></button>
           </div>
-          <a href="/admin/CurrentDomain/Metrics/AddMetric.html">
-            <button class="Addbutton">Add metric <i class="fas fa-plus"></i></button>
-          </a>
-        </div>
       </div>
     </div>
   </div>
 
-
+  <script src="/admin/CurrentDomain/Metrics/index.js"></script> 
 </body>
 
 </html>

@@ -107,6 +107,47 @@ body {
   background-color:#01858f
 }
 
+.id_event{
+  display:none;
+}
+
+#eventList{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 280px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#eventList li{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+}
+#eventList li .fas:first-of-type{
+  margin-left: auto;
+  padding-right: 0;
+ }
+ .fas{
+  padding-left: 5px;
+ }
+
+.events_list p{
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  border-bottom: 1px solid #5c7879;
+}
+
+ 
+.events_list .fas:hover{
+  color: #01858f;
+}
 
 @media (max-width: 1060px) {
   .flex-container {

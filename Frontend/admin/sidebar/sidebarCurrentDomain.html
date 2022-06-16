@@ -8,13 +8,13 @@
       <h2><img class="logo" src="/assets/img/logo.svg" width="60" height="60" alt="logo"></h2>
       <ul>
         <li><a href="/admin/Dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
-        <li><a href="/admin/CurrentDomain/Statistics"><i class="fas fa-globe"></i>Current Domain</a></li>
-        <li><a href="/admin/CurrentDomain/Achievements"><i
+        <li><a class="id_param" href="/admin/CurrentDomain/Statistics/"><i class="fas fa-globe"></i>Current Domain</a></li>
+        <li><a class="id_param" href="/admin/CurrentDomain/Achievements/"><i
               class="fas fa-project-diagram"></i>Manage Achievements</a></li>
-        <li><a href="/admin/CurrentDomain/Metrics"><i class="fas fa-boxes"></i>Manage Metrics</a>
+        <li><a class="id_param" href="/admin/CurrentDomain/Metrics/"><i class="fas fa-boxes"></i>Manage Events</a>
         </li>
-        <li><a href="/admin/CurrentDomain/Rules"><i class="fas fa-cogs"></i>Rules</a></li>
-        <li><a href="#"><i class="fas fa-list-ol"></i>Leaderboards</a></li>
+        <li><a class="id_param" href="/admin/CurrentDomain/Rules/"><i class="fas fa-cogs"></i>Rules</a></li>
+        <li><a class="id_param" href="#"><i class="fas fa-list-ol"></i>Leaderboards</a></li>
       </ul>
       <div class="social_media">
         <a href="#"><i class="fab fa-github"></i></a>
@@ -23,6 +23,8 @@
     <i class="fa-solid fa-bars" onclick="showMenu()"></i>
   </div>
 
+
+  <script src="/admin/sidebar/sidebarCurrentDomain.js"></script>
   <script>
 
     var sidebar = document.getElementById("sidebar");

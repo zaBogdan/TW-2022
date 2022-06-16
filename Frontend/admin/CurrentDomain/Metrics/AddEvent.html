@@ -5,10 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Gammification</title>
-  <link rel="stylesheet" href="styles2.css">
+  <link rel="stylesheet" href="/admin/CurrentDomain/Metrics/styles2.css">
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="index.js"></script> 
 </head>
 
 <body>
@@ -21,22 +20,21 @@
 
     <div class="main_content">
 
-      <h1>Manage Metrics</h1>
+      <h1>Add a new event</h1>
       <div class="flex-container ">
         <div class="flex-item flex-1">
-
-          <h2 style="padding-bottom: 4%;">New Metric:</h2>
-          <h2>Metric name</h2>
-          <input type="text" placeholder="What metric do you want to measure?">
-
-          <h2>Information source</h2>
-          <input type="text" placeholder="Where to get the information from?">
-          <button class="Addbutton" style="margin-top: 7%;">Add metric</button>
+          <h2 style="padding-bottom: 4%;">New Event:</h2>
+          <form action="www.google.ro" id="add_event_form">
+            <label for="event_name">Event name:</label>
+            <input type="text" name="event_name" placeholder="What event do you want to measure?" required>
+            <input type="submit" value="Save Event"/>
+            <input type="button" value="Cancel" onclick="cancel()"/>
+          </form>
         </div>
       </div>
     </div>
   </div>
-
+  <script src="/admin/CurrentDomain/Metrics/AddEvent.js"></script> 
 </body>
 
 </html>

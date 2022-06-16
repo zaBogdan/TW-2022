@@ -10,6 +10,12 @@ Access-Control-Allow-Origin: *
         "domains": [
             {
                 "userId": "e13d88872b6641cda866b27d1e0920b6",
+                "users":[
+                "JohnDoe",
+                "Anton",
+                "Bixby"
+                ],
+                "_id": "c89fcd3a1d3c49e793a54c74ff906131",
                 "name": "PGround",
                 "activeUrl": [
                     "https://api.pground.io",
@@ -21,6 +27,12 @@ Access-Control-Allow-Origin: *
             },
             {
                 "userId": "bb4029297f1d4c92b9d342caccf83b6a",
+                 "users":[
+                "JohnDoe",
+                "Anton",
+                "Bixby"
+                ],
+                "_id": "c89fcd3a1d3c49e793a54c74ff906131",
                 "name": "UAIC",
                 "activeUrl": [
                     "https://api.uaic.io"
@@ -30,6 +42,12 @@ Access-Control-Allow-Origin: *
             },
             {
                 "userId": "fdcb8974556942b7885d1f1f6011850f",
+                 "users":[
+                "JohnDoe",
+                "Anton",
+                "Bixby"
+                ],
+                "_id": "c89fcd3a1d3c49e793a54c74ff906131",
                 "name": "Google",
                 "activeUrl": [
                     "https://api.google.io"

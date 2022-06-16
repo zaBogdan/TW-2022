@@ -1,5 +1,16 @@
-let getOneURL = "http://localhost:8085/domain/c89fcd3a1d3c49e793a54c74ff906131";
-let putURL = "http://localhost:8085/domain/c89fcd3a1d3c49e793a54c74ff906131";
+// functie pentru extragerea unui parametru din URL
+function getParamFromUrl(parameter){
+    let search = window.location.search;
+    const urlParams = new URLSearchParams(search);
+    return urlParams.get(parameter);
+}
+// se extrage din URL id-ul unic al unui domeniu, a.i sa se poata construi corect URL-ul pentru API
+let website_id = getParamFromUrl("domain");
+let baseURL="http://localhost:8085/domain/";
+
+
+let getOneURL = baseURL+website_id;
+let putURL = baseURL+website_id;
 
 $(function(){
     $("#nav").load("../../sidebar/sidebar.html"); 
