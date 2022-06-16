@@ -12,6 +12,12 @@ exports.JWTAuth = async (req, res, next) => {
         debug(`Path '${path}' doesn't require JWT authentication`);
         return;
     }
+    if(headers?.authorization === undefined) {
+        return res.status(404).json({
+            success: false,
+            message: `Path '${path}' not found`,
+        }).end();
+    }
     await new Promise((resolve, reject) => {
         const __req = https.get(`${servicesURL.AUTHENTICATION}/internal/validate`, {
             headers: {
