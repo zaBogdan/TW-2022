@@ -1,0 +1,22 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  Authentication:
+    build:
+      dockerfile: ./services/authentication/Dockerfile
+      context: .
+      args:
+        folder_name: authentication
+        api_port: 3100
+    image: abl/authentication-service
+    restart: always
+  Gateway:
+    build:
+      dockerfile: ./deploy/Dockerfile
+      context: .
+      args:
+        folder_name: gateway
+        api_port: 3000
+    image: abl/gateway-service
+    restart: always
+    ports:
+      - '3000:3000'

@@ -27,7 +27,7 @@ app.use(cors({
 app.use(JWTAuth);
 app.use('/', router());
 
-const exposedPort = setup?.PORT  || process.env.PORT  || 3000;
+const exposedPort = process.env.PORT || setup?.PORT || 3000;
 
 app.listen(exposedPort, () => {
     log(`Listening on port ${exposedPort}`)

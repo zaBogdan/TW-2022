@@ -19,7 +19,8 @@ module.exports = function(options) {
     }
     
     const configureOrigin = async req => {
-        if(!options.origin || options.origin === '*') {
+        if(!options.origin || options.origin === '*' || options.origin.includes('*')) {
+            console.log('Everything allowed here')
             return true;
         }
 
@@ -66,7 +67,7 @@ module.exports = function(options) {
         if(origin === false) 
             return;
 
-        res.setHeader('Access-Control-Allow-Origin', req.headers.host);
+        res.setHeader('Access-Control-Allow-Origin', '*');
 
         const method = configureMethod(req);
         if(method !== null) {
