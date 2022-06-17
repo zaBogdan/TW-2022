@@ -29,7 +29,7 @@ body {
   flex-direction: column;
 }
 
-.main_content h1{
+h1{
   text-align: center;
   color: #acc8c9;
   font-size: 50px;
@@ -38,9 +38,12 @@ body {
 h2{
   text-align: center;
   color: #acc8c9;
-  font-size: 20px;
+  font-size: 25px;
   padding-bottom: 10px;
   max-width: 60vw;
+}
+h3{
+  font-size: 23px;
 }
 
 .flex-container {
@@ -73,15 +76,6 @@ h2{
   margin-top: 8%;
 }
 
-.Event_list a{
-  background-color: #eee;
-  color: black;
-  display: block;
-  padding: 12px;
-  padding-right: 1%;
-  text-decoration: none;
-  border-bottom: 1px solid #5c7879;
-}
 
 .Event_list i:first-of-type{
  margin-left: 20%;
@@ -131,6 +125,7 @@ h2{
   flex-direction: row;
   justify-content: flex-start;
   text-align: left;
+  font-size: 22px;
 }
 #eventList li .fas:first-of-type{
   margin-left: auto;
