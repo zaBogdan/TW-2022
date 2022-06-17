@@ -9,6 +9,6 @@ const development =  {
 const production = {
     GATEWAY: 'http://Gateway:3000',
     AUTHENTICATION: 'http://Authentication:3100',
-    DOMAIN: 'http://Domain:3101',
+    DOMAIN: 'http://Domains:3101',
 }
 module.exports = (process.env.NODE_ENV === 'prod' ? production : development);

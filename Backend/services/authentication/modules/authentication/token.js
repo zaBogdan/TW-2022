@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const config = require('../../middleware/index').config;
+const servicesURL = require('shared').config.services;
 
 // TODO: REFACTOR THIS ****. and update the locations.
 class JWToken {
