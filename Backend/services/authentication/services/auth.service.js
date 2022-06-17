@@ -1,12 +1,13 @@
 const { debug } = require('shared').utils.logging;
 const { v4: uuid } = require('uuid');
 const { Password, Token, validateToken } = require('../modules');
+const { authSchema } = require('../validation');
 const StatusCodeException = require('shared').exceptions.StatusCodeException;
 
 exports.handleEmailRegister = async (req) => {
+    await authSchema.register.validateAsync(req.body);
     const { email, password, type } = req.body;
     const emailExists = await req.db.Auth.findOne({ email })
-
     // TODO: This must be changed in future when we'll support OAuth
     if(type !== 1) {
         throw new StatusCodeException('These are the following types allowed: [ 1 ]. More to come later', 400)
@@ -27,6 +28,7 @@ exports.handleEmailRegister = async (req) => {
 }
 
 exports.handleAuthentication = async(req) => {
+    await authSchema.login.validateAsync(req.body);
     const { email, password } = req.body;
     const user = await req.db.Auth.findOne({ email })
     if(user === null) {
