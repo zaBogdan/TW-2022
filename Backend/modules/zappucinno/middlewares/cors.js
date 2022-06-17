@@ -13,7 +13,7 @@ const url = require('url')
 module.exports = function(options) {
     const defaultOptions = {
         origin: '*',
-        methods: ['GET','HEAD','PUT','PATCH','POST','DELETE'],
+        methods: ['GET','HEAD','PUT','PATCH','POST', 'OPTIONS','DELETE'],
         headers: 'Vary',
         credentials: false,
     }
@@ -73,6 +73,7 @@ module.exports = function(options) {
             res.setHeader('Access-Control-Allow-Methods',  method);
         }
         res.setHeader('Access-Control-Allow-Headers', defaultOptions.headers);
+        res.setHeader('Access-Control-Allow-Headers', '*');
         
         if(configureCredentials()) {
             res.setHeader('Access-Control-Allow-Credentials', 'true');
