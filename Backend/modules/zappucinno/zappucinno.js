@@ -125,7 +125,8 @@ zappucinno.listen = function() {
 }
 
 zappucinno.customRequestFunctions = async function() {
-
+    this.req.locals = {}
+    
     this.res.status = (code) => {
         this.res.statusCode = code;
         return this.res;

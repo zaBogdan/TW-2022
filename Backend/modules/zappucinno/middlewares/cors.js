@@ -20,7 +20,6 @@ module.exports = function(options) {
     
     const configureOrigin = async req => {
         if(!options.origin || options.origin === '*' || options.origin.includes('*')) {
-            console.log('Everything allowed here')
             return true;
         }
 
