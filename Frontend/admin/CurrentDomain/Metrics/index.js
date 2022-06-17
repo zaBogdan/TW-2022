@@ -81,7 +81,7 @@ var events = getFromApi(GetURL,requestOptions);
         // edit button functionality
         ic1.addEventListener('click', () => {
             // constructing the fetch url
-            let url = "/admin/CurrentDomain/Metrics/EditEvent.html/?" + "domain="+website_id+"&event="+response.data.events[i]['_id'];
+            let url = "/admin/CurrentDomain/Metrics/EditEvent.html/?" + "domain="+website_id+"&achievement="+response.data.events[i]['_id'];
             // redirect to url
             location.href = url;
         })

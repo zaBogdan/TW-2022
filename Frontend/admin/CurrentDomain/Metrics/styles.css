@@ -11,38 +11,43 @@ body {
 }
 
 
-.wrapper .sidebar ul :nth-child(4) a {
+.sidebar ul :nth-child(4) a {
   color: white;
 }
 
-.wrapper .sidebar ul :nth-child(4) {
+.sidebar ul :nth-child(4) {
   background-color: #acc8c9;
 }
 
-.wrapper .main_content {
+.main_content {
   display: flex;
   width: 100%;
-  margin-left: 200px;
+  height: 100vh;
   padding: 40px 0px;
   align-items:center;
   justify-content:center;
   flex-direction: column;
 }
 
-.wrapper .main_content h1{
+.main_content h1{
   text-align: center;
   color: #acc8c9;
-}
-
-.main_content h1:first-of-type{
   font-size: 50px;
   padding-bottom: 10px;
 }
-
+h2{
+  text-align: center;
+  color: #acc8c9;
+  font-size: 20px;
+  padding-bottom: 10px;
+  max-width: 60vw;
+}
 
 .flex-container {
-  padding-top: 3%;
+  padding-top: 1%;
+  height: 72vh;
   list-style:none;
+  width: 80%;
   
 }
 
@@ -52,8 +57,8 @@ body {
   display: flex;
   background: #acc8c9;
   color: #385170;
-  width: 60vw;
-  height: 72vh;
+  width: 100%;
+  height: 100%;
   border: 2px solid rgba(211, 245, 250, 0.3);
   border-radius: 28px;
   flex-direction: column;
@@ -89,7 +94,7 @@ body {
   color: #2e3e3f;
 }
 .Addbutton{
-  margin-top: 8%;
+  margin-top: 5%;
   width: 30%;
   height: 40px;
   border:none;
@@ -148,6 +153,11 @@ body {
 .events_list .fas:hover{
   color: #01858f;
 }
+#nav  {
+  height: 100vh;
+  text-align: left;
+}
+
 
 @media (max-width: 1060px) {
   .flex-container {

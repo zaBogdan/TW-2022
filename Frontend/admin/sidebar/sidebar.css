@@ -7,13 +7,14 @@
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
   }
+  
 
 .wrapper .sidebar {
-    width: 200px;
-    height: 100%;
+    width: 100%;
+    min-width: 100px;
+    height: 100vh;
     background: #5c7879;
     padding: 30px 0px;
-    position: fixed;
   }
   
   .wrapper .sidebar h2 {
@@ -51,10 +52,8 @@
   }
   
   .wrapper .sidebar .social_media {
-    position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
     display: flex;
   }
   
@@ -65,7 +64,8 @@
     height: 40px;
     line-height: 45px;
     text-align: center;
-    margin: 0 5px;
+    margin: 0 auto;
+    align-self: center;
     color: #091826;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -78,7 +78,9 @@
     }
   }
   
-  
+  .fa-bars{
+    position:absolute;
+  }
   
   .sidebar .fa-solid{
     display: none;
@@ -92,6 +94,7 @@
     }
     .wrapper .nav .sidebar {
       position: absolute;
+      max-width: 100px;
       height: 100%;
       top: 0;
       left: -200px;
