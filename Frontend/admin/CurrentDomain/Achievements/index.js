@@ -54,7 +54,11 @@ var achievements = getFromApi(GetURL,requestOptions);
     for (let i=0; i<response.data.achievements.length; i++){
         const li = document.createElement("li");
         const a = document.createElement("a");
+        a.href="#";
+        const name = document.createElement("div");
+        name.classList.add("name_in_list");
         const aText =  document.createTextNode(response.data.achievements[i]['name']);
+        name.append(aText);
         const id_p = document.createElement("div");
         const id = document.createTextNode(response.data.achievements[i]['_id']);
         id_p.appendChild(id);
@@ -70,7 +74,8 @@ var achievements = getFromApi(GetURL,requestOptions);
             ic2.title = "delete";
     
     // constructing the <li> entry
-        li.appendChild(aText);
+        li.appendChild(a);
+        li.appendChild(name);
         li.appendChild(ic1);
         li.appendChild(ic2);
         li.appendChild(id_p);
@@ -108,4 +113,26 @@ var achievements = getFromApi(GetURL,requestOptions);
   }
    }); 
 
+  // functia de search
+  function search() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("achievementList");
+    li = ul.getElementsByTagName('li');
+    console.log(li);
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+   
+      a = li[i].getElementsByClassName("name_in_list")[0];
+      txtValue = a.textContent || a.innerText;
+      console.log(a);
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
 //

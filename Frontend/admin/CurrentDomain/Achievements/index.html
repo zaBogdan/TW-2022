@@ -2,36 +2,41 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>Gammification</title>
-  <link rel="stylesheet" href="/admin/CurrentDomain/Achievements/styles.css">
-  <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+  <link rel="stylesheet" href="/admin/CurrentDomain/Achievements/styles.css" />
+  <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-
   <div class="wrapper">
-
-    <div id="nav">  <!-- included from js-->
+    <div id="nav">
+      <!-- included from js-->
     </div>
 
     <div class="main_content">
-
       <h1>Manage Achievements</h1>
-      <h1>Here, you can manage the achievements categories for your *website*.</h1>
+      <h1>
+        Here, you can manage the achievements categories for your *website*.
+      </h1>
 
-      <div class="flex-container ">
-        <div class="flex-item flex-1">
-          <div class="achievement_list">
-            <h2> Achievements List</h2>
-              <ul id="achievementList" >
-                  <!-- SE GENERAZA DIN JS -->
-              </ul>
-     </div>
-     <button class="Addbutton" id="Addbutton" onclick="redirect()">Add Achievement <i class="fas fa-plus"></i></button>
+      <div class="flex-container flex-item flex-1">
+        <div class="achievement_list">
+          <h2>Achievements List</h2>
+          <div class="input_icon">
+            <i class="fas fa-search"></i>
+            <input type="text" id="myInput" onkeyup="search()" placeholder="Search for achievements..">
+          </div>
+
+          <ul id="achievementList">
+            <!-- SE GENERAZA DIN JS -->
+          </ul>
         </div>
+        <button class="Addbutton" id="Addbutton" onclick="redirect()">
+          Add Achievement <i class="fas fa-plus"></i>
+        </button>
       </div>
     </div>
   </div>
