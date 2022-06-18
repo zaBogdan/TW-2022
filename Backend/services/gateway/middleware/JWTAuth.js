@@ -18,6 +18,8 @@ exports.JWTAuth = async (req, res, next) => {
             message: `You can\'t access '${path}'. Your tokens might have expired`,
         }).end();
     }
+
+    // TODO: Change this to using latest api
     await new Promise((resolve, reject) => {
         const __req = https.get(`${servicesURL.AUTHENTICATION}/internal/validate`, {
             headers: {

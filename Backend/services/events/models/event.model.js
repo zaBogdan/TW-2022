@@ -7,7 +7,7 @@ const eventSchema = new Schema({
     required: true,
   },
   activeDomain: {
-    type: String,
+    type: Schema.Types.ObjectId,
     required: true,
   },
   name: {

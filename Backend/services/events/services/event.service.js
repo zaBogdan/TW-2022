@@ -1,6 +1,8 @@
 const { debug } = require('shared').utils.logging;
 const StatusCodeException = require('shared').exceptions.StatusCodeException;
 const { eventSchema } = require('../validation');
+const httpRequest = require('shared').modules.internal_comm.http.request;
+const { DOMAIN } = require('shared').config.services;
 
 exports.getEventById = async (req) => {
     const userId = req.locals.token.userId;
@@ -43,13 +45,9 @@ exports.addNewEventToDomain = async (req) => {
     const domainId = req.params.domainId;
     const userId = req.locals.token.userId;
 
-    const domainExists = await req.db.Domain.countDocuments({
-        userId,
-        _id: domainId
-    })
-
-
-    if(domainExists === 0) {
+    try {
+        await httpRequest(req, 'get', `${DOMAIN}/domain/${domainId}`)
+    } catch(e) {
         throw new StatusCodeException('Domain that you are trying to link doesn\'t exists', 400)
     }
 

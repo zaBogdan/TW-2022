@@ -75,28 +75,3 @@ exports.updateUserByListenerId = async (req) => {
 
     return domainUser;
 }
-
-exports.createDomainUser = async (req) => {
-    const { listenerId, domainId } = req.params
-    console.log(listenerId, domainId)
-    
-    const domainUserExists = await req.db.DomainUser.findOne({
-        activeDomain: domainId,
-        listenerId
-    })
-    
-    if(domainUserExists !== null) {
-        return domainUserExists
-    }
-
-    const domainUser = new req.db.DomainUser({
-        listenerId,
-        activeDomain: domainId,
-        score: 0,
-        events: {},
-        achievemnts: [],
-        rank: ""
-    })
-    await domainUser.save();
-    return domainUser;
-}
