@@ -2,8 +2,8 @@ const { userService } = require('../services');
 
 exports.getProfileById = async (req, res, next) => {
     try {
+        console.log('OK?')
         const user = await userService.getProfileById(req);
-
         return res.status(200).json({
             success: true,
             message: 'Successfully fetched user',
@@ -12,6 +12,7 @@ exports.getProfileById = async (req, res, next) => {
             } 
         });
     }catch(e) {
+        console.error(e)
         return res.status(e?.statusCode || 500).json({
             success: false,
             message: 'Failed to fetch profile using id. Error: ' + e?.message || 'Internal server error', 
