@@ -1,11 +1,14 @@
-const Joi = require('joi');
+const Joi = require('joi').extend(require('@joi/date'));
 
-exports.updateEvent = Joi.object({
-    name: Joi.string(),
-    active: Joi.boolean(),
+exports.updateProfile = Joi.object({
+    firstName: Joi.string(),
+    lastName: Joi.string(),
+    dateOfBirth: Joi.date().format('DD/MM/YYYY').raw(),
 }).min(1)
 
-exports.createEvent = Joi.object({
-    name: Joi.string().required(),
-    active: Joi.boolean().default(true),
+exports.createProfile = Joi.object({
+    firstName: Joi.string().required(),
+    lastName: Joi.string().required(),
+    username: Joi.string().required(),
+    dateOfBirth: Joi.date().format('DD/MM/YYYY').raw().required(),
 })

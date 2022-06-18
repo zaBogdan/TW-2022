@@ -1,10 +1,8 @@
 const { debug } = require('shared').utils.logging;
-const { v4: uuid } = require('uuid');
 const StatusCodeException = require('shared').exceptions.StatusCodeException;
 const { eventSchema } = require('../validation');
 
 exports.getEventById = async (req) => {
-    console.log(req.params.id)
     const userId = req.locals.token.userId;
     const eventId = req.params.id;
 

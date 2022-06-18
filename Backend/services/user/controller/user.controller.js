@@ -2,7 +2,6 @@ const { userService } = require('../services');
 
 exports.getProfileById = async (req, res, next) => {
     try {
-        console.log('OK?')
         const user = await userService.getProfileById(req);
         return res.status(200).json({
             success: true,
@@ -22,13 +21,13 @@ exports.getProfileById = async (req, res, next) => {
 
 exports.getCurrentProfile = async (req, res, next) => {
     try {
-        const event = await userService.getCurrentProfile(req);
+        const user = await userService.getCurrentProfile(req);
 
         return res.status(200).json({
             success: true,
             message: 'Successfully fetched current user',
             data: {
-                event
+                user
             } 
         });
     }catch(e) {
@@ -61,10 +60,7 @@ exports.updateCurrentProfile = async (req, res, next) => {
 
         return res.status(200).json({
             success: true,
-            message: `Successfully updated profile with id ${profile?.id}`,
-            data: {
-                event
-            } 
+            message: `Successfully updated profile with id ${profile?.id}`
         });
     }catch(e) {
         return res.status(e?.statusCode || 500).json({
