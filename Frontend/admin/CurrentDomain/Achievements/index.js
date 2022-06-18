@@ -127,7 +127,6 @@ var achievements = getFromApi(GetURL,requestOptions);
    
       a = li[i].getElementsByClassName("name_in_list")[0];
       txtValue = a.textContent || a.innerText;
-      console.log(a);
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         li[i].style.display = "";
       } else {
