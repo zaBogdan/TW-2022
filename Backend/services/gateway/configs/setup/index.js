@@ -5,7 +5,6 @@ module.exports = {
         '/auth/register',
         '/auth/refresh',
         '/auth/change_password',
-        '/.well-known/jwks',
         '/info'
     ]
 }
