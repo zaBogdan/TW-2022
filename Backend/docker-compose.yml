@@ -27,6 +27,15 @@ services:
         api_port: 3102
     image: abl/events-service
     restart: always
+  User:
+    build:
+      dockerfile: ./deploy/Dockerfile
+      context: .
+      args:
+        folder_name: user
+        api_port: 3104
+    image: abl/user-service
+    restart: always
   Gateway:
     build:
       dockerfile: ./deploy/Dockerfile

@@ -40,7 +40,6 @@ exports.createNewProfile = async (req) => {
     await userSchema.createProfile.validateAsync(req.body);
     const { firstName, lastName, username, dateOfBirth } = req.body;
     
-    console.log('Hello:',firstName, lastName, username, dateOfBirth);
     const userId = req.locals.token.userId;
 
     const profileExists = await req.db.User.findOne({
@@ -51,7 +50,6 @@ exports.createNewProfile = async (req) => {
     })
 
     if(profileExists !== null) {
-        console.log(profileExists)
 
         if(profileExists.userId === userId) {
             throw new StatusCodeException('You\'ve already configured a profile. Try to update it.', 409);
@@ -59,7 +57,6 @@ exports.createNewProfile = async (req) => {
             throw new StatusCodeException('This username is currently in use. Try to be more creative.', 409);
         }
     }
-    console.log(profileExists)
 
     const profile = new req.db.User({
         userId,
@@ -78,8 +75,6 @@ exports.updateCurrentProfile = async (req) => {
     await userSchema.updateProfile.validateAsync(req.body);
     const { firstName, lastName, dateOfBirth } = req.body;
     
-    console.log('Hello:',firstName, lastName, dateOfBirth);
-
     const userId = req.locals.token.userId;
 
     const profile = await req.db.User.findOne({
