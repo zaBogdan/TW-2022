@@ -1,10 +1,11 @@
 const { debug } = require('shared').utils.logging;
 const { v4: uuid } = require('uuid');
 const StatusCodeException = require('shared').exceptions.StatusCodeException;
+const httpRequest = require('shared').modules.internal_comm.http.request;
+const { DOMAIN } = require('shared').config.services;
 const { domainUserSchema } = require('../validation');
 
 exports.getUserByListenerId = async (req) => {
-    //TODO: ADD AUTHORIZATION BASED ON USERID
     const { listenerId } = req.params
     const domainUser = await req.db.DomainUser.findOne({
         listenerId: listenerId
@@ -14,15 +15,23 @@ exports.getUserByListenerId = async (req) => {
     if(domainUser === null) {
         throw new StatusCodeException('Domain user not found', 404)
     }
+
+    const body = await httpRequest(req, 'get', `${DOMAIN}/domain/${domainUser.activeDomain}`)
+    if(body.data.domain.userId !== userId) {
+        throw new StatusCodeException('Domain user not found', 404);
+    }
     return domainUser;
 }
 
 exports.getDomainUserLeaderboard = async (req) => {
-    //TODO: ADD AUTHORIZATION BASED ON USERID
-
     const { domainId } = req.params
-    console.log(domainId)
+    const { userId } = req.locals.token;
     
+    const body = await httpRequest(req, 'get', `${DOMAIN}/domain/${domainId}`)
+    if(body.data.domain.userId !== userId) {
+        throw new StatusCodeException('Domain user not found', 404);
+    }
+
     const domainUsers = await req.db.DomainUser.find({
         activeDomain: domainId
     }, {
@@ -41,8 +50,6 @@ exports.getDomainUserHistory = async (req) => {
 }
 
 exports.updateUserByListenerId = async (req) => {
-    //TODO: ADD AUTHORIZATION BASED ON USERID
-
     const { listenerId } = req.params
     console.log(listenerId)
 
@@ -51,6 +58,12 @@ exports.updateUserByListenerId = async (req) => {
     });
 
     if(domainUser === null) {
+        throw new StatusCodeException('Domain user not found', 404);
+    }
+    const { userId } = req.locals.token;
+    
+    const body = await httpRequest(req, 'get', `${DOMAIN}/domain/${domainUser.activeDomain}`)
+    if(body.data.domain.userId !== userId) {
         throw new StatusCodeException('Domain user not found', 404);
     }
     await domainUserSchema.updateUser.validateAsync(req.body)
