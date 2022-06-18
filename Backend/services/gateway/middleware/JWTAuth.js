@@ -13,9 +13,9 @@ exports.JWTAuth = async (req, res, next) => {
         return;
     }
     if(headers?.authorization === undefined) {
-        return res.status(404).json({
+        return res.status(403).json({
             success: false,
-            message: `Path '${path}' not found`,
+            message: `You can\'t access '${path}'. Your tokens might have expired`,
         }).end();
     }
     await new Promise((resolve, reject) => {
@@ -28,8 +28,8 @@ exports.JWTAuth = async (req, res, next) => {
                 debug(`JWT authentication successful`);
                 resolve()
             } else {
-                res.status(404);
-                reject(`Path '${path}' not found`)
+                res.status(403);
+                reject(`You can\'t access '${path}'. Your tokens might have expired`)
             }
         })
         __req.on('error', function(error) {
