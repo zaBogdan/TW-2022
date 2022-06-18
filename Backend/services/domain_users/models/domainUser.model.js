@@ -15,10 +15,6 @@ const EventSchema = new Schema({
 })
 
 const domainUserSchema = new Schema({
-  userId: {
-    type: Schema.Types.ObjectId,
-    required: true,
-  },
   listenerId: {
     type: String,
     required: true,
@@ -40,10 +36,11 @@ const domainUserSchema = new Schema({
   achievements: [{
     type: Schema.Types.ObjectId
   }],
-  rank: {
-    type: Schema.Types.ObjectId,
-    required: true
-  }
+  //TODO: Add this when you get rank
+  // rank: {
+  //   type: Schema.Types.ObjectId,
+  //   required: true
+  // }
 }, { collection: 'domain_users' });
 
 module.exports = model('domain_users', domainUserSchema);

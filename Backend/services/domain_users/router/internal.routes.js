@@ -1,6 +1,6 @@
 const router = require('zappucinno').Router();
 const { domainUsersController } = require('../controller');
 
-router.post('/domain/user/:domainId', domainUsersController.createDomainUser);
+router.get('/domain/user/:domainId/:listenerId', domainUsersController.createDomainUser);
 
 module.exports = router;

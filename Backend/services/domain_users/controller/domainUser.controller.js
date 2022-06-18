@@ -73,12 +73,16 @@ exports.updateUserByListenerId = async (req, res, next) => {
     }
 }
 
+/** THIS SHOULD BE IN INTERNAL. Maybe I will change it later */
 exports.createDomainUser = async (req, res, next) => {
     try {
         const domainUser = await domainUserService.createDomainUser(req);
         return res.status(200).json({
             success: true,
             message: `Successfully created domain user with id '${domainUser?.listenerId}'`,
+            data: {
+                domainUser
+            }
         });
     }catch(e) {
         console.error(e)
