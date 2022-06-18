@@ -1,5 +1,5 @@
-const domainUserController = require('./domainUser.controller');
+const domainUsersController = require('./domainUser.controller');
 
 module.exports = {
-    domainUserController,
+    domainUsersController,
 };

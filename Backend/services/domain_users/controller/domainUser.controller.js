@@ -43,7 +43,7 @@ exports.getDomainUserHistory = async (req, res, next) => {
         const user = await domainUserService.getDomainUserHistory(req);
         return res.status(200).json({
             success: true,
-            message: 'Successfully fetched user',
+            message: 'Successfully fetched domain user history',
             data: {
                 user
             } 
@@ -52,7 +52,7 @@ exports.getDomainUserHistory = async (req, res, next) => {
         console.error(e)
         return res.status(e?.statusCode || 500).json({
             success: false,
-            message: 'Failed to fetch profile using id. Error: ' + e?.message || 'Internal server error', 
+            message: 'Failed to get domain user history using id. Error: ' + e?.message || 'Internal server error', 
         });
     }
 }
@@ -69,6 +69,22 @@ exports.updateUserByListenerId = async (req, res, next) => {
         return res.status(e?.statusCode || 500).json({
             success: false,
             message: 'Failed to update domain user using listener id. Error: ' + e?.message || 'Internal server error', 
+        });
+    }
+}
+
+exports.createDomainUser = async (req, res, next) => {
+    try {
+        const domainUser = await domainUserService.createDomainUser(req);
+        return res.status(200).json({
+            success: true,
+            message: `Successfully created domain user with id '${domainUser?.listenerId}'`,
+        });
+    }catch(e) {
+        console.error(e)
+        return res.status(e?.statusCode || 500).json({
+            success: false,
+            message: 'Failed to create domain user. Error: ' + e?.message || 'Internal server error', 
         });
     }
 }

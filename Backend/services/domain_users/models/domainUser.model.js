@@ -16,7 +16,7 @@ const EventSchema = new Schema({
 
 const domainUserSchema = new Schema({
   userId: {
-    type: ObjectId,
+    type: Schema.Types.ObjectId,
     required: true,
   },
   listenerId: {
@@ -24,7 +24,7 @@ const domainUserSchema = new Schema({
     required: true,
   },
   activeDomain: {
-    type: ObjectId,
+    type: Schema.Types.ObjectId,
     required: true,
   },
   score: {
@@ -38,10 +38,10 @@ const domainUserSchema = new Schema({
     default: {}
   },
   achievements: [{
-    type: ObjectId
+    type: Schema.Types.ObjectId
   }],
   rank: {
-    type: String,
+    type: Schema.Types.ObjectId,
     required: true
   }
 }, { collection: 'domain_users' });

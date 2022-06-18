@@ -15,3 +15,7 @@ exports.getDomainUserHistory = async (req) => {
 exports.updateUserByListenerId = async (req) => {
     return null;
 }
+
+exports.createDomainUser = async (req) => {
+    return null;
+}

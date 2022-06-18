@@ -8,6 +8,7 @@ const development =  {
     DOMAIN: `${basePath}:3101`,
     EVENT: `${basePath}:3102`,
     USER: `${basePath}:3104`,
+    DOMAIN_USER: `${basePath}:3105`,
 }
 
 const production = {
@@ -16,6 +17,7 @@ const production = {
     DOMAIN: 'http://Domains:3101',
     EVENT: 'http://Events:3102',
     USER: 'http://User:3104',
+    DOMAIN_USER: 'http://DomainUser:3105',
 }
 
 module.exports = (process.env.NODE_ENV === 'prod' ? production : development);

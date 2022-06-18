@@ -36,6 +36,15 @@ services:
         api_port: 3104
     image: abl/user-service
     restart: always
+  DomainUser:
+    build:
+      dockerfile: ./deploy/Dockerfile
+      context: .
+      args:
+        folder_name: domain_users
+        api_port: 3105
+    image: abl/domain_users-service
+    restart: always
   Gateway:
     build:
       dockerfile: ./deploy/Dockerfile
