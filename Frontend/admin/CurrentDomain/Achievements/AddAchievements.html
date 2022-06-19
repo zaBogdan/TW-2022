@@ -8,14 +8,16 @@
   <link rel="stylesheet" href="/admin/CurrentDomain/Achievements/styles2.css">
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  </head>
+</head>
+
 <body>
 
   <div class="wrapper">
 
-    <div id="nav">  <!-- included from js-->
+    <div id="nav">
+      <!-- included from js-->
     </div>
-    
+
     <div class="main_content">
 
       <h1>Manage Achievements</h1>
@@ -28,16 +30,16 @@
             <input type="text" name="achievement_name" placeholder="insert a name for your achievement" required>
             <label for="achievement_score">Score:</label>
             <input type="number" name="achievement_score" placeholder="insert a score for this achievement">
-            <label for="avatar">Image:</label>
-            <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" value="choose image">
-            <input type="submit" value="Save Achievement"/>
-            <input type="button" value="Cancel" onclick="cancel()"/>
+            <!--  <label for="avatar">Image:</label>
+            <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" value="choose image">-->
+            <input type="submit" value="Save Achievement" />
+            <input type="button" value="Cancel" onclick="cancel()" />
           </form>
         </div>
       </div>
     </div>
   </div>
- <script src="/admin/CurrentDomain/Achievements/AddAchievements.js"></script>
+  <script src="/admin/CurrentDomain/Achievements/AddAchievements.js"></script>
 
 </body>
 

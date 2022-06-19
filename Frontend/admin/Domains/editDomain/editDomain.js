@@ -7,8 +7,6 @@ function getParamFromUrl(parameter){
 // se extrage din URL id-ul unic al unui domeniu, a.i sa se poata construi corect URL-ul pentru API
 let website_id = getParamFromUrl("domain");
 let baseURL="http://localhost:8085/domain/";
-
-
 let getOneURL = baseURL+website_id;
 let putURL = baseURL+website_id;
 
