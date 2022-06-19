@@ -11,7 +11,6 @@ const models = require('./models');
 const { config } = require('./middleware');
 const { decodeToken } = require('shared').modules.tokens;
 
-
 const app = zappucinno();
 
 mongoose.connect(config.DB_URI, {

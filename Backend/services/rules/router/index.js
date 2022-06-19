@@ -1,8 +1,8 @@
 const router = require('zappucinno').Router;
-const event = require('./event.routes');
+const rule = require('./rule.routes');
 const internal = require('./internal.routes');
 
+router.use('/rule', rule);
 router.use('/internal', internal);
-router.use('/event', event);
 
 module.exports = router;
