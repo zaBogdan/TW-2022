@@ -74,6 +74,7 @@ module.exports = function(options) {
         }
         // res.setHeader('Access-Control-Allow-Headers', defaultOptions.headers);
         res.setHeader('Access-Control-Allow-Headers', '*');
+        res.setHeader('Access-Control-Request-Headers',  '*')
         
         if(configureCredentials()) {
             res.setHeader('Access-Control-Allow-Credentials', 'true');

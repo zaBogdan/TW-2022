@@ -4,6 +4,11 @@ const setup = require('../configs/setup');
 const https = require('http');
 
 exports.JWTAuth = async (req, res, next) => {
+    if(req.method === 'OPTIONS') {
+        res.status(200);
+        res.end();
+        return;
+    }
     const path = req.url.split('?')[0];
     const headers = req.headers
 
