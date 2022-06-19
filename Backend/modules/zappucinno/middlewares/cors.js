@@ -13,14 +13,13 @@ const url = require('url')
 module.exports = function(options) {
     const defaultOptions = {
         origin: '*',
-        methods: ['GET','HEAD','PUT','PATCH','POST','DELETE'],
+        methods: ['GET','HEAD','PUT','PATCH','POST', 'OPTIONS','DELETE'],
         headers: 'Vary',
         credentials: false,
     }
     
     const configureOrigin = async req => {
         if(!options.origin || options.origin === '*' || options.origin.includes('*')) {
-            console.log('Everything allowed here')
             return true;
         }
 
@@ -73,7 +72,9 @@ module.exports = function(options) {
         if(method !== null) {
             res.setHeader('Access-Control-Allow-Methods',  method);
         }
-        res.setHeader('Access-Control-Allow-Headers', defaultOptions.headers);
+        // res.setHeader('Access-Control-Allow-Headers', defaultOptions.headers);
+        res.setHeader('Access-Control-Allow-Headers', '*');
+        res.setHeader('Access-Control-Request-Headers',  '*')
         
         if(configureCredentials()) {
             res.setHeader('Access-Control-Allow-Credentials', 'true');

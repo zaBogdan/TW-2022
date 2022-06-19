@@ -4,6 +4,11 @@ const setup = require('../configs/setup');
 const https = require('http');
 
 exports.JWTAuth = async (req, res, next) => {
+    if(req.method === 'OPTIONS') {
+        res.status(200);
+        res.end();
+        return;
+    }
     const path = req.url.split('?')[0];
     const headers = req.headers
 
@@ -13,11 +18,13 @@ exports.JWTAuth = async (req, res, next) => {
         return;
     }
     if(headers?.authorization === undefined) {
-        return res.status(404).json({
+        return res.status(403).json({
             success: false,
-            message: `Path '${path}' not found`,
+            message: `You can\'t access '${path}'. Your tokens might have expired`,
         }).end();
     }
+
+    // TODO: Change this to using latest api
     await new Promise((resolve, reject) => {
         const __req = https.get(`${servicesURL.AUTHENTICATION}/internal/validate`, {
             headers: {
@@ -28,8 +35,8 @@ exports.JWTAuth = async (req, res, next) => {
                 debug(`JWT authentication successful`);
                 resolve()
             } else {
-                res.status(404);
-                reject(`Path '${path}' not found`)
+                res.status(403);
+                reject(`You can\'t access '${path}'. Your tokens might have expired`)
             }
         })
         __req.on('error', function(error) {
