@@ -10,7 +10,6 @@ body {
   position: relative;
 }
 
-
 .sidebar ul :nth-child(4) a {
   color: white;
 }
@@ -69,8 +68,8 @@ h3{
   padding-left: 5%;
 }
 
-.Event_list{  
-  width: 40%;
+.events_list{  
+  width: 90%;
   min-width: 150px;
   height: 280px;
   overflow-y: auto;
@@ -114,7 +113,7 @@ h3{
 #eventList{
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 90%;
   height: 280px;
   overflow: auto;
   display: flex;

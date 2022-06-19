@@ -18,25 +18,27 @@
 
     <div class="main_content">
       <h1>Manage Achievements</h1>
-      <h1>
-        Here, you can manage the achievements categories for your *website*.
-      </h1>
+      <h2>
+        Here, you can manage the achievements for your website.
+      </h2>
 
-      <div class="flex-container flex-item flex-1">
-        <div class="achievement_list">
-          <h2>Achievements List</h2>
-          <div class="input_icon">
-            <i class="fas fa-search"></i>
-            <input type="text" id="myInput" onkeyup="search()" placeholder="Search for achievements..">
+      <div class="flex-container">
+        <div class="flex-item flex-1">
+          <div class="achievement_list">
+            <h3>Achievements List</h3>
+            <div class="input_icon">
+              <i class="fas fa-search"></i>
+              <input type="text" id="myInput" onkeyup="search()" placeholder="Search for achievements..">
+            </div>
+
+            <ul id="achievementList">
+              <!-- SE GENERAZA DIN JS -->
+            </ul>
           </div>
-
-          <ul id="achievementList">
-            <!-- SE GENERAZA DIN JS -->
-          </ul>
+          <button class="Addbutton" id="Addbutton" onclick="redirect()">
+            Add Achievement <i class="fas fa-plus"></i>
+          </button>
         </div>
-        <button class="Addbutton" id="Addbutton" onclick="redirect()">
-          Add Achievement <i class="fas fa-plus"></i>
-        </button>
       </div>
     </div>
   </div>
