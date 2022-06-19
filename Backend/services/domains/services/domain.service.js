@@ -48,7 +48,6 @@ exports.deleteDomainById = async (req) => {
         _id: req?.params?.id,
         userId: req.locals.token.userId
     })
-    console.log(domain)
     return null;
 }
 

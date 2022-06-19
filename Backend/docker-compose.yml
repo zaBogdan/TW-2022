@@ -45,6 +45,15 @@ services:
         api_port: 3105
     image: abl/domain_users-service
     restart: always
+  Achievements:
+    build:
+      dockerfile: ./deploy/Dockerfile
+      context: .
+      args:
+        folder_name: achievements
+        api_port: 3106
+    image: abl/acheivements-service
+    restart: always
   Gateway:
     build:
       dockerfile: ./deploy/Dockerfile
