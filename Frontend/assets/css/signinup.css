@@ -25,7 +25,7 @@
     border: 2px solid green;
 }
 
-.login form:invalid .btn.submit{
+.login div:invalid .btn.submit{
     background-color: #8CDFD6;
     pointer-events: none;
 }
