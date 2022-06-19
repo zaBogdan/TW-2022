@@ -97,7 +97,7 @@ exports.addRuleToDomain = async (req) => {
 
     const { name, reward, match, rules } = req.body;
 
-    if(await req.db.Rule.findOne({ activeDomain: domainId, name }) !== null) {
+    if(await req.db.Rule.countDocuments({ activeDomain: domainId, name }) !== 0) {
         throw new StatusCodeException('This rule already exists.', 400);
     }
 
@@ -184,7 +184,14 @@ exports.updateRuleById = async (req) => {
     }
     await ruleSchema.updateRule.validateAsync(req.body);
     const { name, match, reward, rules } = req.body;
-    ruleDB.name = name ?? ruleDB.name;
+
+    if(name) {
+        if(await req.db.Rule.countDocuments({ activeDomain: domainId, name }) !== 0) {
+            throw new StatusCodeException('This rule already exists.', 400);
+        }
+        ruleDB.name = name ?? ruleDB.name;
+    }
+    
     if(reward) {
         if(reward.type === 'Score'){
             // nth to do here
