@@ -79,33 +79,35 @@
                 <option value="any">Any of the following rules</option>
               </select>
 
-              <fieldset class="dynamic_rule_type base_rule" id="user_has_metric">
-                <label for="having_the_name">Having the name:</label>
-                <select name="having_the_name" id="actions_list" required>
-                  <option value="" selected>--Select an action--</option>
-                  <!-- Generat din JS -->
-                </select>
-                <label for="having_a_value">Having a value: </label>
-                <select name="having_a_value" id="comparator_list" required>
-                  <option value="" selected>--select an operator--</option>
-                  <option value="eq">equal to</option>
-                  <option value="neq">not equal to</option>
-                  <option value="lt">less than</option>
-                  <option value="lte">less than or equal to</option>
-                  <option value="gt">greater than</option>
-                  <option value="gte">greater than or equal to</option>
-                </select>
-                <label for="value"></label>
-                <input name="value" type="number" id="inpt_value" placeholder="write a numeric value" min="0" required>
-                <i></i>
+              <fieldset class="has_metric">
+                <fieldset class="dynamic_rule_type user_has_metric " id="user_has_metric">
+                  <label for="having_the_name">Having the name:</label>
+                  <select name="having_the_name" id="actions_list" required>
+                    <option value="" selected>--Select an action--</option>
+                    <!-- Generat din JS -->
+                  </select>
+                  <label for="having_a_value">Having a value: </label>
+                  <select name="having_a_value" id="comparator_list" required>
+                    <option value="" selected>--select an operator--</option>
+                    <option value="eq">equal to</option>
+                    <option value="neq">not equal to</option>
+                    <option value="lt">less than</option>
+                    <option value="lte">less than or equal to</option>
+                    <option value="gt">greater than</option>
+                    <option value="gte">greater than or equal to</option>
+                  </select>
+                  <label for="value"></label>
+                  <input name="value" type="number" id="inpt_value" placeholder="write a numeric value" min="0"
+                    required>
+                  <i></i>
+                </fieldset>
               </fieldset>
-
-              <fieldset class="dynamic_rule_type" id="all_rules">
+              <fieldset class="dynamic_rule_type all" id="all_rules">
                 <button class="add_rule_button" type="button" onclick="insert_new_rule_field('all_rules')">add
                   rule</button>
               </fieldset>
 
-              <fieldset class="dynamic_rule_type" id="any_rule">
+              <fieldset class="dynamic_rule_type any" id="any_rule">
                 <button class="add_rule_button" type="button" onclick="insert_new_rule_field('any_rule')">add
                   rule</button>
               </fieldset>

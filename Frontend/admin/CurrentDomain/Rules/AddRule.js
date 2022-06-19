@@ -70,16 +70,27 @@ function show_rule_params(){
     else if (result == "all"){
         const btn = document.getElementById("all_rules").getElementsByClassName("add_rule_button")[0];
         let fd = document.getElementById("all_rules");
-        const newtext = document.createTextNode("The user performed the action:");
-        fd.insertBefore(newtext,btn);
+        if (document.getElementById("desc_text_all") == null){
+            const desc_text = document.createElement("div");
+            desc_text.id="desc_text_all";
+            const newtext = document.createTextNode("The user performed the action:");
+            desc_text.appendChild(newtext);
+            fd.insertBefore(desc_text,btn);
+        }
+       
         fd.style.display = "block";
         fd.disabled = false;
     }
     else if (result == "any"){
         const btn = document.getElementById("any_rule").getElementsByClassName("add_rule_button")[0];
         let fd = document.getElementById("any_rule");
-        const newtext = document.createTextNode("The user performed the action:");
-        fd.insertBefore(newtext,btn);
+        if (document.getElementById("desc_text_any") == null){
+            const desc_text = document.createElement("div");
+            desc_text.id="desc_text_any";
+            const newtext = document.createTextNode("The user performed the action:");
+            desc_text.appendChild(newtext);
+            fd.insertBefore(desc_text,btn);
+        }
         fd.style.display = "block";
         fd.disabled = false;
     }
@@ -189,9 +200,9 @@ document.getElementById("AddNewRule").addEventListener("submit",(e) => {
     });
     // get the <ul> entries and put them in an array
     var rules = [];
-    const u = document.querySelectorAll(".new_sub_rule, .base_rule");
+    var type = data.get("Match");
+    const u = document.getElementsByClassName(type)[0].querySelectorAll(".new_sub_rule, .user_has_metric");
     for (let x=0; x<u.length; x++){
-        
         let rule = {};
         rule["action"] = u[x].querySelector("#actions_list").value;
         rule["comparator"] = u[x].querySelector("#comparator_list").value;
@@ -202,9 +213,8 @@ document.getElementById("AddNewRule").addEventListener("submit",(e) => {
     val["rules"]=rules;
     // stringify
     var json = JSON.stringify(val);
-    console.log(val);
     // sending data to the server
-   /*
+   
     let requestOptions = {
         method: 'POST',
         body: json,
@@ -214,7 +224,6 @@ document.getElementById("AddNewRule").addEventListener("submit",(e) => {
         .then(response => response.json())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
-        */
     // redirect to domains home page
     //window.location.href = "/admin/Domains/index.html";
 });
