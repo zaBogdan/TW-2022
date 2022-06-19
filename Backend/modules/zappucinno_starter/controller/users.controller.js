@@ -1,5 +1,4 @@
 exports.getUser = async (req, res,next) => {
-    console.log('get: ', req.body, req.params, req.query, req.token)
     let data = 10;
     await new Promise((resolve, reject) => {
         setTimeout(() => {

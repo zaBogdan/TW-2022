@@ -10,6 +10,7 @@ const development =  {
     USER: `${basePath}:3104`,
     DOMAIN_USER: `${basePath}:3105`,
     ACHIEVEMENTS: `${basePath}:3106`,
+    RANKS: `${basePath}:3107`,
 }
 
 const production = {
@@ -20,6 +21,7 @@ const production = {
     USER: 'http://User:3104',
     DOMAIN_USER: 'http://DomainUser:3105',
     ACHIEVEMENTS: 'http://Achievements:3106',
+    RANKS: 'http://Ranks:3107',
 }
 
 module.exports = (process.env.NODE_ENV === 'prod' ? production : development);

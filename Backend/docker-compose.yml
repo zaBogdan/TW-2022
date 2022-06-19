@@ -54,6 +54,15 @@ services:
         api_port: 3106
     image: abl/acheivements-service
     restart: always
+  # Ranks:
+  #   build:
+  #     dockerfile: ./deploy/Dockerfile
+  #     context: .
+  #     args:
+  #       folder_name: ranks
+  #       api_port: 3107
+  #   image: abl/ranks-service
+  #   restart: always
   Gateway:
     build:
       dockerfile: ./deploy/Dockerfile

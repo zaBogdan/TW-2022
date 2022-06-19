@@ -70,7 +70,6 @@ exports.createNewDomain = async (req) => {
     await domainSchema.createDomain.validateAsync(req.body)
 
     const { name, activeUrl } = req.body
-    console.log(req.locals.token.userId)
 
     const domainExists = await req.db.Domain.findOne({
         name,

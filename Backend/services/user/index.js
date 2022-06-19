@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const {log} = require('shared').utils.logging;
 const corsList = require('shared').config.cors;
+const { decodeToken } = require('shared').modules.tokens;
 
 const zappucinno = require('zappucinno');
 const { bodyParser, cors } = require('zappucinno/middlewares');
@@ -9,7 +10,6 @@ const setup = require('./configs/setup');
 const router = require('./router');
 const models = require('./models');
 const { config } = require('./middleware');
-const { getDataFromToken } = require('./middleware/getDataFromToken');
 
 const app = zappucinno();
 
@@ -32,7 +32,7 @@ app.use(bodyParser.json);
 app.use((req, res, next) => {
     req.db = models;
 });
-app.use(getDataFromToken);
+app.use(decodeToken);
 app.use('/', router());
 
 const exposedPort = setup?.PORT  || process.env.PORT  || 3000;
