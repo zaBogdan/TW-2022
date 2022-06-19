@@ -20,17 +20,12 @@ for (let i = 0; i < collection.length; i++) {
 }
 
 
-// functions
-function cancel() {
-  window.location.href = "/admin/CurrentDomain/Metrics/index.html/?domain=" + getParamFromUrl("domain");
-}
-
-
 // url-urile de baza
 var baseGetURL = url + "/event/";
 var baseDeleteURL = url + "/event/";
 var basePostURL = url + "/event/domain/";
 var basePutURL = url + "/event/";
+
 // id-ul domeniului
 let website_id = getParamFromUrl("domain");
 let DeleteURL = baseDeleteURL + website_id;
@@ -39,18 +34,13 @@ let event_id = getParamFromUrl("event");
 let putURL = basePutURL + event_id;
 let getURL = baseGetURL + event_id;
 
-
-
-
 document.getElementById("edit_event_form").addEventListener("submit", (e) => {
   e.preventDefault();
   const data = new FormData(e.target);
   // get the form data
   var response = {};
-  data.forEach(function (v, key) {
-    response[key] = v;
-  });
-  // get the <ul> entries and put them in an array
+  response["name"] = data.get("event_name");
+  response["active"] = data.get("event_status");
   var json = JSON.stringify(response);
   // sending data to the server
   // info needed for requests
@@ -67,7 +57,12 @@ document.getElementById("edit_event_form").addEventListener("submit", (e) => {
   window.location.href = "/admin/CurrentDomain/Metrics/index.html/?domain=" + getParamFromUrl("domain");
 });
 
+
+
 var event_info = authGet(getURL, requestOptions);
 event_info.then(response => {
   document.getElementById("event_name").value = response.data.event["name"];
+  let status = response.data.event["active"];
+  document.getElementById("event_status").value = status;
+  document.getElementById("event_id").value = response.data.event["_id"];
 })
