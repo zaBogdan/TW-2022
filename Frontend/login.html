@@ -10,7 +10,9 @@
     <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-<script src="https://use.fontawesome.com/b483488714.js"></script>
+    <script src="https://use.fontawesome.com/b483488714.js"></script>
+
+    <script src="auth.js"></script>
 </head>
 <body>
     <!------Home Page-->
@@ -19,7 +21,6 @@
         <a href="index.html"><img src="assets/img/logo.png" alt="Company logo" ></a>
         <div class="nav-links" id="navLinks">
             <i class="fa fa-times" onclick="hideMenu()"></i>
-
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About us</a></li>
@@ -33,26 +34,25 @@
         <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
         <h1>Gamification as a Service</h1>
-
     </section>
-
+    
     <section class="login">
         <h3>Login</h3>
         <hr />
-        <form action="/admin/index.html">
+        <div>
             <div class="formGroup">
                 <label>Email</label>
-                <input type="email" placeholder="Enter email address" required>
+                <input type="email" id="email" placeholder="Enter email address" required>
             </div>
             <div class="formGroup">
                 <label>Password</label>
-                <input type="password" placeholder="Password" required>
+                <input type="password" id="password" placeholder="Password" required>
             </div>
             <div>
-                <button type="submit" class="btn submit">Login</button>
-                <a href="register.html" class="btn register">Register</a>
+                <button type="submit" class="btn submit" onclick="authenticate()">Login</button>
+                <a href="register.html" class="btn register" >Register</a>
             </div>
-        </form>
+        </div>
    </section>
 
     <!--Footer-->

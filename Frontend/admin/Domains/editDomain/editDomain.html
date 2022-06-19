@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- 
+  <script src="../../authGet.js"></script>
 </head>
 
 <body>
@@ -41,12 +41,12 @@
                     <label  for="username">Moderator username:</label>
                     <input type="text" name = "username" id="username" placeholder="username"/>
                     <input type="submit" id="add_new_user" value="Add"/>
-                    <input type="button" id="cancel_username" value="Cancel">
+                    <input type="button" id="cancel_username" value="Cancel" onclick="history.back()">
                 </div>
                
 
                 <button type="submit" id="submit_domain">Save changes</button>                
-                <button type="button" id="cancel_form">Cancel</button>  
+                <button type="button" id="cancel_form" onclick="history.back()" >Cancel</button>  
             </form>
       </div>
       </div>

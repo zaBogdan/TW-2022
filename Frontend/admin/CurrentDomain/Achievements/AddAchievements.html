@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/admin/CurrentDomain/Achievements/styles2.css">
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../../authGet.js"></script>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
             <!--  <label for="avatar">Image:</label>
             <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" value="choose image">-->
             <input type="submit" value="Save Achievement" />
-            <input type="button" value="Cancel" onclick="cancel()" />
+            <input type="button" value="Cancel" onclick="history.back()" />
           </form>
         </div>
       </div>

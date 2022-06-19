@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/admin/CurrentDomain/Metrics/styles2.css">
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../../authGet.js"></script>
 </head>
 
 <body>
@@ -37,7 +38,7 @@
             <label for="event_id">Event id:</label>
             <input type="text" name="event_id" id="event_id" disabled>
             <input type="submit" value="Save Event" />
-            <input type="button" value="Cancel" onclick="cancel()" />
+            <input type="button" value="Cancel" onclick="history.back()" />
           </form>
         </div>
       </div>
