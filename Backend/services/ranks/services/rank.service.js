@@ -63,7 +63,16 @@ exports.addNewRankToDomain = async (req) => {
         throw new StatusCodeException('This rank already exists.', 400);
     }
 
-    console.log(name, score, rankTo);
+    if(rankTo && rankTo !== 'default') {
+        const rankExists = await req.db.Rank.countDocuments({
+            name: rankTo,
+            activeDomain: rank.activeDomain
+        })
+        if(rankExists === 0) {
+            throw new StatusCodeException('Rank that you are trying to set in `rankTo` field doesn\'t exists.', 400);
+        }
+    }
+
     const rank = new req.db.Rank({
         name,
         score,
