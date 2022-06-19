@@ -5,8 +5,8 @@ function getParamFromUrl(parameter){
     return urlParams.get(parameter);
   }
   // url-urile de baza
-  var basePutURL="http://localhost:8085/achievement/self/";
-  var baseGetURL="http://localhost:8085/achievement/self/"
+  var basePutURL="http://localhost:8085/rank/self/";
+  var baseGetURL="http://localhost:8085/rank/self/"
   // id-ul domeniului
   let achievement_id = getParamFromUrl("achievement");
   let putURL = basePutURL+achievement_id;
@@ -44,16 +44,16 @@ function getParamFromUrl(parameter){
   
   var achievement_info = getFromApi(getURL, requestOptions);
   achievement_info.then(response =>{
-    document.getElementById("achievement_name").value = response.data.achievement["name"];
-    document.getElementById("achievement_score").value = response.data.achievement["score"];
+    document.getElementById("rank_name").value = response.data.rank["name"];
+    document.getElementById("rank_score").value = response.data.rank["score"];
   })
 
     // functions
     function cancel(){
-        window.location.href = "/admin/CurrentDomain/Achievements/index.html/?domain="+getParamFromUrl("domain");
+        window.location.href = "/admin/CurrentDomain/Ranks/index.html/?domain="+getParamFromUrl("domain");
       }
     
-      document.getElementById("edit_achievement_form").addEventListener("submit",(e) => {
+      document.getElementById("edit_rank_form").addEventListener("submit",(e) => {
         e.preventDefault();
         const data = new FormData(e.target);
         // get the form data
@@ -76,5 +76,5 @@ function getParamFromUrl(parameter){
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
     
-            window.location.href = "/admin/CurrentDomain/Achievements/index.html/?domain="+getParamFromUrl("domain");
+            window.location.href = "/admin/CurrentDomain/Ranks/index.html/?domain="+getParamFromUrl("domain");
       });

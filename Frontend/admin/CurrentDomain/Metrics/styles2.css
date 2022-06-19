@@ -11,11 +11,11 @@ body {
   position: relative;
 }
 
-.wrapper .sidebar ul :nth-child(4) a {
+.wrapper .sidebar ul :nth-child(5) a {
   color: white;
 }
 
-.wrapper .sidebar ul :nth-child(4) {
+.wrapper .sidebar ul :nth-child(5) {
   background-color: #acc8c9;
 }
 
