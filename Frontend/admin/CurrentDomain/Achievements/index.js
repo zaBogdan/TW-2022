@@ -4,12 +4,13 @@ function getParamFromUrl(parameter) {
   const urlParams = new URLSearchParams(search);
   return urlParams.get(parameter);
 }
-// url-urile de baza
-var baseGetURL = "http://localhost:8085/achievement/domain/";
-var baseDeleteURL = "http://localhost:8085/achievement/self/";
+
+
+var baseDeleteURL = url + "/achievement/self/";
+
 // id-ul domeniului
 let website_id = getParamFromUrl("domain");
-let GetURL = baseGetURL + website_id;
+
 
 $(function () {
   $("#nav").load("/admin/sidebar/sidebarCurrentDomain.html");
@@ -32,23 +33,11 @@ function redirect() {
 }
 
 
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
-async function getFromApi(url, requestOptions) {
-  try {
-    let x = await fetch(url, requestOptions).then(response => response.json());
-    return x;
-  }
-  catch (error) {
-    console.error("Could not fetch from API!");
-  }
 
-}
 
 var achievements_list = document.getElementById("achievementList");
-var achievements = getFromApi(GetURL, requestOptions);
+
+var achievements = authGet("/achievement/domain/" + website_id, requestOptions);
 achievements.then(response => {
   if (response.data.achievements.length > 0) {
     for (let i = 0; i < response.data.achievements.length; i++) {

@@ -29,6 +29,7 @@ var requestOptions = {
         Authorization: `Bearer ${localStorage.getItem('refreshToken')}`    // aici trebuie verificat daca exista sau nu tokenul cu ? :  
     },
     method: 'GET',
+    redirect: 'follow'
 }
 
 async function authGet(path, requestOptions) {
