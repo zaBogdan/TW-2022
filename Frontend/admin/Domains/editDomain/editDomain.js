@@ -12,7 +12,7 @@ function getParamFromUrl(parameter) {
 }
 // se extrage din URL id-ul unic al unui domeniu, a.i sa se poata construi corect URL-ul pentru API
 let website_id = getParamFromUrl("domain");
-let baseURL = "http://localhost:8085/domain/";
+let baseURL = url + "/domain/";
 let getOneURL = baseURL + website_id;
 let putURL = baseURL + website_id;
 
@@ -32,26 +32,10 @@ function hideForm() {
 
 
 
-let requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-};
-async function getFromApi(url, requestOptions) {
-    try {
-        let x = await fetch(url, requestOptions).then(response => response.json());
-        return x;
-    }
-    catch (error) {
-        console.error("Could not fetch from API!");
-    }
-
-}
-
-
 
 window.addEventListener('load', () => {
     // se face fetch-ul
-    var domain_info = getFromApi(getOneURL, requestOptions);
+    var domain_info = authGet(getOneURL, requestOptions);
 
     domain_info.then(response => {
         let domainName = document.getElementById("domain_name");

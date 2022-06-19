@@ -26,15 +26,18 @@ function redirect() {
 
 
 // url-urile de baza
-var baseGetURL = url + "/event/domain/";
+var baseGetURL = url + "event/domain/";
 var baseDeleteURL = url + "/event/";
 // id-ul domeniului
 let website_id = getParamFromUrl("domain");
+let GetURL = baseGetURL + website_id;
 let DeleteURL = baseDeleteURL + website_id;
 
 
+
+
 var events_list = document.getElementById("eventList");
-var events = authGet(baseGetURL + website_id, requestOptions);
+var events = authGet(GetURL, requestOptions);
 events.then(response => {
   if (response.data.events.length > 0) {
     for (let i = 0; i < response.data.events.length; i++) {

@@ -1,13 +1,8 @@
-var baseDelURL = "http://localhost:8085/domain/"; url + "/domain/"
 
 $(function () {
   $("#nav").load("../sidebar/sidebar.html");
 });   /*sidebar included*/
 
-
-
-// construirea adresei
-//var url = "http://localhost:8085/domain/self";
 
 
 // Construirea dinamica a listei in functie de ce primim din baza de date
@@ -75,4 +70,3 @@ domains.then(response => {
   }
 });
 
-//
