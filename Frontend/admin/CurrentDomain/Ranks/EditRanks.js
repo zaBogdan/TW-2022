@@ -9,7 +9,7 @@ var basePutURL = url + "/rank/self/";
 var baseGetURL = url + "/rank/self/"
 // id-ul domeniului
 let achievement_id = getParamFromUrl("achievement");
-let putURL = basePutURL + achievement_id;
+//let putURL = basePutURL + achievement_id;
 let getURL = baseGetURL + achievement_id;
 
 $(function () {
@@ -52,6 +52,7 @@ document.getElementById("edit_rank_form").addEventListener("submit", (e) => {
   var json = JSON.stringify(response);
   // sending data to the server
   // info needed for requests
+  /*
   var requestOptions = {
     method: 'PUT',
     body: json,
@@ -62,6 +63,9 @@ document.getElementById("edit_rank_form").addEventListener("submit", (e) => {
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
+    */
+
+  authPut("/rank/self/" + achievement_id, json);
 
   window.location.href = "/admin/CurrentDomain/Ranks/index.html/?domain=" + getParamFromUrl("domain");
 });

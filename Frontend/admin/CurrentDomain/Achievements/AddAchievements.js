@@ -8,7 +8,7 @@ function getParamFromUrl(parameter) {
 var basePostURL = url + "/achievement/domain/";
 // id-ul domeniului
 let website_id = getParamFromUrl("domain");
-let postURL = basePostURL + website_id;
+//let postURL = basePostURL + website_id;
 
 $(function () {
   $("#nav").load("/admin/sidebar/sidebarCurrentDomain.html");
@@ -39,6 +39,8 @@ document.getElementById("add_achievement_form").addEventListener("submit", (e) =
   var json = JSON.stringify(response);
   // sending data to the server
   // info needed for requests
+
+  /*
   var requestOptions = {
     method: 'POST',
     body: json,
@@ -49,6 +51,9 @@ document.getElementById("add_achievement_form").addEventListener("submit", (e) =
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
+    */
+
+  authPost("/achievement/domain/" + website_id, json);
 
   window.location.href = "/admin/CurrentDomain/Achievements/index.html/?domain=" + getParamFromUrl("domain");
 });

@@ -120,6 +120,8 @@ window.addEventListener('load', () => {
         // stringify
         var json = JSON.stringify(val);
         // sending data to the server
+
+        /*
         let requestOptions = {
             method: 'POST',
             body: json,
@@ -129,6 +131,12 @@ window.addEventListener('load', () => {
             .then(response => response.json())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
+
+        */
+
+        authPost(url + "/domain/self", json);
+
+
         // redirect to domains home page
         window.location.href = "/admin/Domains/index.html";
     });

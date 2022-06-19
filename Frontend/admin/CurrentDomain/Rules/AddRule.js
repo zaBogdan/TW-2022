@@ -208,6 +208,7 @@ document.getElementById("AddNewRule").addEventListener("submit", (e) => {
     var json = JSON.stringify(val);
     // sending data to the server
 
+    /*
     let requestOptions = {
         method: 'POST',
         body: json,
@@ -217,6 +218,9 @@ document.getElementById("AddNewRule").addEventListener("submit", (e) => {
         .then(response => response.json())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
+        */
+    authPost(postURL, json); // google.ro ?
+
     // redirect to domains home page
     //window.location.href = "/admin/Domains/index.html";
 });
