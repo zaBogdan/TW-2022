@@ -7,6 +7,7 @@ const { domainUserSchema } = require('../validation');
 
 exports.getUserByListenerId = async (req) => {
     const { listenerId } = req.params
+    const { userId } = req.locals.token;
     const domainUser = await req.db.DomainUser.findOne({
         listenerId: listenerId
     }, {
