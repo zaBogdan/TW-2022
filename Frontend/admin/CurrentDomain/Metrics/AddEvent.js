@@ -49,6 +49,8 @@ document.getElementById("add_event_form").addEventListener("submit", (e) => {
   var json = JSON.stringify(response);
   // sending data to the server
   // info needed for requests
+
+  /*
   var requestOptions = {
     method: 'POST',
     body: json,
@@ -59,6 +61,8 @@ document.getElementById("add_event_form").addEventListener("submit", (e) => {
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
+  */
+  authPost("/event/domain/" + website_id, json);
 
   window.location.href = "/admin/CurrentDomain/Achievements/index.html/?domain=" + getParamFromUrl("domain");
 });

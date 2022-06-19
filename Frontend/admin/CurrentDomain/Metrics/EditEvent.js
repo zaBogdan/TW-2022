@@ -31,7 +31,7 @@ let website_id = getParamFromUrl("domain");
 let DeleteURL = baseDeleteURL + website_id;
 let PostURL = basePostURL + website_id;
 let event_id = getParamFromUrl("event");
-let putURL = basePutURL + event_id;
+//let putURL = basePutURL + event_id;
 let getURL = baseGetURL + event_id;
 
 document.getElementById("edit_event_form").addEventListener("submit", (e) => {
@@ -44,6 +44,8 @@ document.getElementById("edit_event_form").addEventListener("submit", (e) => {
   var json = JSON.stringify(response);
   // sending data to the server
   // info needed for requests
+
+  /*
   var requestOptions = {
     method: 'PUT',
     body: json,
@@ -54,6 +56,8 @@ document.getElementById("edit_event_form").addEventListener("submit", (e) => {
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
+  */
+  authPut("/event/" + event_id, json);
   window.location.href = "/admin/CurrentDomain/Metrics/index.html/?domain=" + getParamFromUrl("domain");
 });
 

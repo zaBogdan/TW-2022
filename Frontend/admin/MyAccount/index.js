@@ -5,33 +5,30 @@ $(function () {
 
 
 
-authGet("/user/self", requestOptions);
-
-
-
-async function updateProfile() {
-  try {
-    let response = await fetch(url + "user/profile/" + loggedInUser(), {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        "type": 1,
-        "email": EmailInput,
-        "password": PasswordInput
-      })
-    })
-    let data = await response.json();
-
-    return data;
-  } catch (err) {
-    return "Error on registering, error type = " + err;
-  }
+async function getInputData() {
+  window.firstNameInput = document.getElementById("firstName").value;
+  window.lastNameInput = document.getElementById("lastName").value;
+  window.usernameInput = document.getElementById("userName").value;
+  window.dateOfBirthInput = document.getElementById("dateOfBirth").value;
 }
 
 
-async function update() {
+var body = JSON.stringify({
+  "type": 1,
+  "firstName": firstNameInput,
+  "lastName": lastNameInput,
+  "username": usernameInput,
+  "dateOfBirth": dateOfBirthInput,
+  //"email": emailInput  //TODO?
+})
+
+
+async function update() {    //update dar de fapt e post.. 
   await getInputData();
-  console.log(await updateProfile());
+  authPost("user/profile/", body);
 }
+
+
+// authGet("/user/self", requestOptions); //whoAmI  //TObeAddedToURL
+
+//TODO delete account ?

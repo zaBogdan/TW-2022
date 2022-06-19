@@ -10,7 +10,7 @@ var basePutURL = url + "/achievement/self/";
 
 // id-ul domeniului
 let achievement_id = getParamFromUrl("achievement");
-let putURL = basePutURL + achievement_id;
+//let putURL = basePutURL + achievement_id;
 
 
 $(function () {
@@ -54,6 +54,8 @@ document.getElementById("edit_achievement_form").addEventListener("submit", (e) 
   var json = JSON.stringify(response);
   // sending data to the server
   // info needed for requests
+
+  /*
   var requestOptions = {
     method: 'PUT',
     body: json,
@@ -64,6 +66,8 @@ document.getElementById("edit_achievement_form").addEventListener("submit", (e) 
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
+    */
+  authPut("/achievement/self/" + achievement_id, json);
 
   window.location.href = "/admin/CurrentDomain/Achievements/index.html/?domain=" + getParamFromUrl("domain");
 });

@@ -14,7 +14,8 @@ function getParamFromUrl(parameter) {
 let website_id = getParamFromUrl("domain");
 let baseURL = url + "/domain/";
 let getOneURL = baseURL + website_id;
-let putURL = baseURL + website_id;
+
+//let putURL = baseURL + website_id;
 
 
 
@@ -184,6 +185,8 @@ window.addEventListener('load', () => {
             // stringify
             let json = JSON.stringify(val);
             // sending data to the server
+
+            /*
             let requestOptions = {
                 method: 'PUT',
                 body: json,
@@ -194,6 +197,12 @@ window.addEventListener('load', () => {
                 .then(response => response.json())
                 .then(result => console.log(result))
                 .catch(error => console.log('error', error));
+            */
+
+            authPost("/domain/" + website_id, json);
+
+
+
             // redirect to domains home page
             window.location.href = "/admin/Domains/index.html";
         });
