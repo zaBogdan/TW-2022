@@ -43,7 +43,7 @@ exports.addRuleToDomain = async (req, res, next) => {
 
         return res.status(200).json({
             success: true,
-            message: `Successfully added rule with id '${rule?.id}' to  domain`,
+            message: `Successfully added rule with id '${rule?._id}' to  domain`,
         });
     }catch(e) {
         return res.status(e?.statusCode || 500).json({
@@ -58,7 +58,7 @@ exports.updateRuleById = async (req, res, next) => {
 
         return res.status(200).json({
             success: true,
-            message: `Successfully updated rule with id '${rule?.id}'`,
+            message: `Successfully updated rule with id '${rule?._id}'`,
         });
     }catch(e) {
         return res.status(e?.statusCode || 500).json({

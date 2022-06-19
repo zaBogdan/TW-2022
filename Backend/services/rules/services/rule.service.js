@@ -31,6 +31,7 @@ exports.getRuleById = async (req) => {
             const data = await httpRequest(req, 'get', `${ACHIEVEMENTS}/achievement/${rule.reward.objectId}`)
             rule.reward.name = data.data.achievement._id;
             delete rule.reward.objectId;
+            delete rule.reward.score;
         } catch(e) {
             console.log(e)
         }
@@ -39,6 +40,7 @@ exports.getRuleById = async (req) => {
             const data = await httpRequest(req, 'get', `${RANKS}/rank/${rule.reward.objectId}`)
             rule.reward.name = data.data.rank.name;
             delete rule.reward.objectId;
+            delete rule.reward.score;
         } catch(e) {
             console.log(e)
         }
@@ -163,5 +165,85 @@ exports.addRuleToDomain = async (req) => {
 }
 
 exports.updateRuleById = async (req) => {
-    return null;
+    const { ruleId } = req.params;
+    const { userId } = req.locals.token;
+    
+    const ruleDB = await req.db.Rule.findOne({
+        _id: ruleId,
+    });
+
+    if(ruleDB === null) {
+        throw new StatusCodeException('This rule doesn\'t exists.', 404);
+    }
+
+    const domainId = ruleDB.activeDomain;
+
+    const body = await httpRequest(req, 'get', `${DOMAIN}/domain/${ruleDB.activeDomain}`)
+    if(body?.data?.domain?.userId !== userId) {
+        throw new StatusCodeException('This domain doesn\'t exists.', 404);
+    }
+    await ruleSchema.updateRule.validateAsync(req.body);
+    const { name, match, reward, rules } = req.body;
+    ruleDB.name = name ?? ruleDB.name;
+    if(reward) {
+        if(reward.type === 'Score'){
+            // nth to do here
+        } else if(reward.type === 'Achievements') {
+            try {
+                const data = await httpRequest(req, 'post', `${ACHIEVEMENTS}/internal/achievement/byName`, {
+                    domain: domainId,
+                    name: reward.name
+                })
+                reward.objectId = data.data.achievement._id;
+                delete reward.name;
+            } catch(e) {
+                debug('[addRuleToDomain - Achievements] Something didn\'t work', e);
+                throw new StatusCodeException('The achievement with specified name doesn\'t exists',400)
+            }
+        } else if(reward.type.startsWith('Rank')) {
+            try {
+                const data = await httpRequest(req, 'post', `${RANKS}/internal/rank/byName`, {
+                    domain: domainId,
+                    name: reward.name
+                })
+                reward.objectId = data.data.rank._id;
+                delete reward.name;
+            } catch(e) {
+                debug('[addRuleToDomain - Rank] Something didn\'t work', e);
+                throw new StatusCodeException('The rank with specified name doesn\'t exists',400)
+            }
+        }
+    
+        if(rules.length > 7) {
+            throw new StatusCodeException('You can have up to 7 chained rules.', 400);
+        }
+
+        ruleDB.reward = reward;
+    }
+
+    if(rules) {
+        const involvedEvents = [];
+
+        for(const rule of rules) {
+            try {
+                const data = await httpRequest(req, 'post', `${EVENT}/internal/event/byName`, {
+                    domain: domainId,
+                    name: rule.event
+                })
+                rule.event = data.data.event._id;
+                involvedEvents.push(rule.event);
+            } catch(e) {
+                debug('[addRuleToDomain - Event] Something didn\'t work', e);
+                throw new StatusCodeException(`The event with name '${rule.event}' doesn\'t exists`,400)
+            }
+        }
+
+        ruleDB.involvedEvents = involvedEvents;
+        ruleDB.rule = rules;
+    }
+
+    ruleDB.match = match ?? ruleDB.match;
+    await ruleDB.save();
+
+    return ruleDB;
 }
