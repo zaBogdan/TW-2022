@@ -1,42 +1,45 @@
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+  rel="stylesheet">
 <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 <script src="https://kit.fontawesome.com/956724cc15.js" crossorigin="anonymous"></script>
 
 <div class="nav">
-    <div class="sidebar" id="sidebar">
-      <i class="fa-solid fa-arrow-left" onclick="hideMenu()"></i>
-      <h2><img class="logo" src="/assets/img/logo.svg" width="60" height="60" alt="logo"></h2>
-      <ul>
-        <li><a href="/admin/Dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
-        <li><a class="id_param" href="/admin/CurrentDomain/Statistics/"><i class="fas fa-globe"></i>Current Domain</a></li>
-        <li><a class="id_param" href="/admin/CurrentDomain/Achievements/"><i
-              class="fas fa-project-diagram"></i>Manage Achievements</a></li>
-        <li><a class="id_param" href="/admin/CurrentDomain/Metrics/"><i class="fas fa-boxes"></i>Manage Events</a>
-        </li>
-        <li><a class="id_param" href="/admin/CurrentDomain/Rules/"><i class="fas fa-cogs"></i>Rules</a></li>
-        <li><a class="id_param" href="#"><i class="fas fa-list-ol"></i>Leaderboards</a></li>
-      </ul>
-      <div class="social_media">
-        <a href="#"><i class="fab fa-github"></i></a>
-      </div>
+  <div class="sidebar" id="sidebar">
+    <i class="fa-solid fa-arrow-left" onclick="hideMenu()"></i>
+    <h2><img class="logo" src="/assets/img/logo.svg" width="60" height="60" alt="logo"></h2>
+    <ul>
+      <li><a href="/admin/Dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
+      <li><a class="id_param" href="/admin/CurrentDomain/Statistics/"><i class="fas fa-globe"></i>Current Domain</a>
+      </li>
+      <li><a class="id_param" href="/admin/CurrentDomain/Achievements/"><i
+            class="fas fa-project-diagram"></i>Achievements</a></li>
+      <li><a class="id_param" href="/admin/CurrentDomain/Ranks/"><i class="fas fa-project-diagram"></i>Ranks</a></li>
+      <li><a class="id_param" href="/admin/CurrentDomain/Metrics/"><i class="fas fa-boxes"></i>Events</a>
+      </li>
+      <li><a class="id_param" href="/admin/CurrentDomain/Rules/"><i class="fas fa-cogs"></i>Rules</a></li>
+      <li><a class="id_param" href="#"><i class="fas fa-list-ol"></i>Leaderboards</a></li>
+    </ul>
+    <div class="social_media">
+      <a href="#"><i class="fab fa-github"></i></a>
     </div>
-    <i class="fa-solid fa-bars" onclick="showMenu()"></i>
   </div>
+  <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+</div>
 
 
-  <script src="/admin/sidebar/sidebarCurrentDomain.js"></script>
-  <script>
+<script src="/admin/sidebar/sidebarCurrentDomain.js"></script>
+<script>
 
-    var sidebar = document.getElementById("sidebar");
+  var sidebar = document.getElementById("sidebar");
 
-    function showMenu() {
-      sidebar.style.left = "0";
-    }
-    function hideMenu() {
-      sidebar.style.left = "-200px";
-    }
-    
-        window.addEventListener("resize", function () {
+  function showMenu() {
+    sidebar.style.left = "0";
+  }
+  function hideMenu() {
+    sidebar.style.left = "-200px";
+  }
+
+  window.addEventListener("resize", function () {
     if (window.innerWidth > 650) sidebar.style.removeProperty("left");
   });
-  </script>
+</script>

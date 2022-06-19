@@ -5,6 +5,7 @@ function getParamFromUrl(parameter){
     return urlParams.get(parameter);
   }
 
+  let postURL = "www.google.ro";
   
   
   // get all href's and add the id to the name
@@ -69,16 +70,27 @@ function show_rule_params(){
     else if (result == "all"){
         const btn = document.getElementById("all_rules").getElementsByClassName("add_rule_button")[0];
         let fd = document.getElementById("all_rules");
-        const newtext = document.createTextNode("The user performed the action:");
-        fd.insertBefore(newtext,btn);
+        if (document.getElementById("desc_text_all") == null){
+            const desc_text = document.createElement("div");
+            desc_text.id="desc_text_all";
+            const newtext = document.createTextNode("The user performed the action:");
+            desc_text.appendChild(newtext);
+            fd.insertBefore(desc_text,btn);
+        }
+       
         fd.style.display = "block";
         fd.disabled = false;
     }
     else if (result == "any"){
         const btn = document.getElementById("any_rule").getElementsByClassName("add_rule_button")[0];
         let fd = document.getElementById("any_rule");
-        const newtext = document.createTextNode("The user performed the action:");
-        fd.insertBefore(newtext,btn);
+        if (document.getElementById("desc_text_any") == null){
+            const desc_text = document.createElement("div");
+            desc_text.id="desc_text_any";
+            const newtext = document.createTextNode("The user performed the action:");
+            desc_text.appendChild(newtext);
+            fd.insertBefore(desc_text,btn);
+        }
         fd.style.display = "block";
         fd.disabled = false;
     }
@@ -174,22 +186,47 @@ actions.then(response => {
  );
 
 
-/** Generarea listei de "rules" din baza de date */
-/*var url = "http://localhost:8085/event/domain/c89fcd3a1d3c49e793a54c74ff906131";
-var actions_list = document.getElementById("actions_list");
-var actions = getFromApi(url,requestOptions);
-actions.then(response => {
-  if(response.data.events.length>0){
-    for (let i=0; i<response.data.events.length; i++){
-        const option = document.createElement("option");
-        option.value = response.data.events[i]["name"];
-        const textNode = document.createTextNode(response.data.events[i]["name"]);
-        option.appendChild(textNode);
-        actions_list.appendChild(option);
+// Post-ing new entry
+document.getElementById("AddNewRule").addEventListener("submit",(e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    // get the form data
+    var val = {};
+    data.delete("having_a_value");
+    data.delete("having_the_name");
+    data.delete("value");
+    data.forEach(function(v,key){
+        val[key]=v;
+    });
+    // get the <ul> entries and put them in an array
+    var rules = [];
+    var type = data.get("Match");
+    const u = document.getElementsByClassName(type)[0].querySelectorAll(".new_sub_rule, .user_has_metric");
+    for (let x=0; x<u.length; x++){
+        let rule = {};
+        rule["action"] = u[x].querySelector("#actions_list").value;
+        rule["comparator"] = u[x].querySelector("#comparator_list").value;
+        rule["value"] = u[x].querySelector("#inpt_value").value;
+        rules.push(rule);
     }
-}}
- );*/
-
+    // append this to the result
+    val["rules"]=rules;
+    // stringify
+    var json = JSON.stringify(val);
+    // sending data to the server
+   
+    let requestOptions = {
+        method: 'POST',
+        body: json,
+        redirect: 'follow'
+      };
+      fetch(postURL, requestOptions)
+        .then(response => response.json())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    // redirect to domains home page
+    //window.location.href = "/admin/Domains/index.html";
+});
 
  const cnclBtn = document.getElementById("cancel_rule").onclick = function(){
     /// informatiile nu se trimit nicaieri

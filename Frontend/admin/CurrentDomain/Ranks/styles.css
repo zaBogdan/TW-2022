@@ -10,11 +10,11 @@ body {
   position: relative;
 }
 
-.sidebar ul :nth-child(5) a {
+.sidebar ul :nth-child(4) a {
   color: white;
 }
 
-.sidebar ul :nth-child(5) {
+.sidebar ul :nth-child(4) {
   background-color: #acc8c9;
 }
 
@@ -68,7 +68,7 @@ h3{
   padding-left: 5%;
 }
 
-.events_list{  
+.rank_list{
   width: 90%;
   min-width: 150px;
   height: 280px;
@@ -76,11 +76,12 @@ h3{
   margin-top: 8%;
 }
 
-.flex-container .flex-item h1{
+ .flex-container .flex-item h1{
   text-align: left;
   font-size: 40px;
   color: #2e3e3f;
 }
+
 .Addbutton{
   margin-top: 5%;
   width: 30%;
@@ -93,18 +94,18 @@ h3{
   outline: none;
 }
 
-.Event_list .fas:hover{
+.rank_list .fas:hover{
   color: #01858f;
 }
 .Addbutton:hover{
   background-color:#01858f
 }
 
-.id_event{
+.id_rank{
   display:none;
 }
 
-#eventList{
+#rankList{
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -114,14 +115,14 @@ h3{
   flex-direction: column;
 }
 
-#eventList li{
+#rankList li{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   text-align: left;
   font-size: 22px;
 }
-#eventList li .fas:first-of-type{
+#rankList li .fas:first-of-type{
   margin-left: auto;
   padding-right: 0;
  }
@@ -129,7 +130,7 @@ h3{
   padding-left: 5px;
  }
 
-.events_list p{
+.rank_list p{
   background-color: #eee;
   color: black;
   display: block;
@@ -139,7 +140,7 @@ h3{
 }
 
  
-.events_list .fas:hover{
+.rank_list .fas:hover{
   color: #01858f;
 }
 #nav  {
@@ -148,24 +149,48 @@ h3{
 }
 
 
+
+
+/* FOrmatari pt meniul de search*/
+#myInput {
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+.input_icon i {
+  position: absolute;
+}
+
+.input_icon {
+  width: 90%;
+  margin-bottom: 10px;
+  position: relative;
+}
+.fa-search {
+  padding: 15px;
+  min-width: 40px;
+}
+
 @media (max-width: 1060px) {
   .flex-container {
     flex-wrap: wrap;
   }
 }
 
-.sidebar .fa-solid {
+
+.sidebar .fa-solid{
   display: none;
 }
 
 
 @media(max-width:650px) {
 
-  .wrapper .sidebar ul li {
+ .sidebar ul li {
     display: block;
   }
-
-  .wrapper .nav .sidebar {
+.nav .sidebar {
     position: absolute;
     height: 100vh;
     top: 0;
@@ -174,21 +199,18 @@ h3{
     z-index: 2;
     transition: 1s;
   }
-
-  .nav .fa-solid {
+  .nav .fa-solid{
     display: block;
     color: #fff;
     font-size: 22px;
     margin: 15px;
     cursor: pointer;
   }
-
-  .sidebar .fa-solid {
+  .sidebar .fa-solid{
     margin-left: 80%;
     padding-bottom: 10%;
-  }
-
-  .wrapper .main_content {
+ }
+.main_content{
     margin-left: 0px;
   }
 
