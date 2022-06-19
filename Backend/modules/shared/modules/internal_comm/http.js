@@ -24,7 +24,10 @@ exports.request = async (req, method, url, body) => {
             _res.on('data', (chunk) => {
                 body += chunk;
             }).on('end', () => {
-                body = JSON.parse(body)
+                try {
+                    body = JSON.parse(body)
+                } catch(e) {
+                }
                 if(body.success !== true || body.error || _res.statusCode >= 400) {
                     reject(body);
                 } else {
@@ -36,10 +39,11 @@ exports.request = async (req, method, url, body) => {
             __req.write(JSON.stringify(body));
         }
         __req.on('error', function(error) {
-            res.status(500).json({
-                success: false,
-                message: 'Internal server error. Contact us at devops@gameify.biz',
-            }).end()
+            console.log('Error is: ',error)
+            // res.status(500).json({
+            //     success: false,
+            //     message: 'Internal server error. Contact us at devops@gameify.biz',
+            // }).end()
         });
         __req.end()
     })
