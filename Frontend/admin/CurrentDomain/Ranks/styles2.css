@@ -11,15 +11,15 @@ body {
 }
 
 
-.wrapper .sidebar ul :nth-child(3) a {
+.sidebar ul :nth-child(4) a {
   color: white;
 }
 
-.wrapper .sidebar ul :nth-child(3) {
+.sidebar ul :nth-child(4) {
   background-color: #acc8c9;
 }
 
-.wrapper .main_content {
+.main_content {
   display: flex;
   width: 100%;
   margin-left: 200px;
@@ -71,14 +71,14 @@ body {
 }
 
 
-.Achievements_list{
+.Ranks_list{
   width: 350px;
   height: 140px;
   padding-right: 5px;
   margin-top: 2%;
 }
 
-.Achievements_list p{
+.Ranks_list p{
   background-color: #eee;
   color: black;
   display: block;
@@ -86,12 +86,12 @@ body {
   border-bottom: 1px solid #5c7879;
 }
 
-.Achievements_list .fas:first-child{
+.Ranks_list .fas:first-child{
  padding-left: 8%;
  padding-right: 1%;
 }
 
-.AddAchievement button{
+.AddRank button{
  height:33px;
  width: 100px;
 }
@@ -111,7 +111,7 @@ body {
 .Addbutton:hover{
   background-color:#01858f;
 }
-.Achievements_list .fas:hover{
+.Ranks_list .fas:hover{
   color:#01858f;
 }
 

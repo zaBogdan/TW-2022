@@ -14,7 +14,8 @@
 
   <div class="wrapper">
 
-    <div id="nav">  <!-- included from js-->
+    <div id="nav">
+      <!-- included from js-->
     </div>
 
 
@@ -26,15 +27,23 @@
           <h2 style="padding-bottom: 4%;">Edit Event:</h2>
           <form action="www.google.ro" id="edit_event_form">
             <label for="event_name">Event name:</label>
-            <input type="text" name="event_name" id="event_name" placeholder="What event do you want to measure?" required>
-            <input type="submit" value="Save Event"/>
-            <input type="button" value="Cancel" onclick="cancel()"/>
+            <input type="text" name="event_name" id="event_name" placeholder="What event do you want to measure?"
+              required>
+            <label for="event_status">Active:</label>
+            <select name="event_status" id="event_status">
+              <option value="true" id="true">Yes</option>
+              <option value="false" id="false">No</option>
+            </select>
+            <label for="event_id">Event id:</label>
+            <input type="text" name="event_id" id="event_id" disabled>
+            <input type="submit" value="Save Event" />
+            <input type="button" value="Cancel" onclick="cancel()" />
           </form>
         </div>
       </div>
     </div>
   </div>
-  <script src="/admin/CurrentDomain/Metrics/EditEvent.js"></script> 
+  <script src="/admin/CurrentDomain/Metrics/EditEvent.js"></script>
 </body>
 
 </html>

@@ -40,29 +40,29 @@
               </select>
 
               <fieldset class="dynamic_reward_type" id="reward_score">
-                <label for="score_value">Score:</label>
-                <input type="number" id="reward_score" name="score_value" min="0" default=" " required>
+                <label for="reward_score">Score:</label>
+                <input type="number" id="reward_score" name="value" min="0" default=" " required>
               </fieldset>
 
               <fieldset class="dynamic_reward_type" id="reward_achievement">
                 <label for="achievement_choice">Achievement: </label>
-                <select id="achievement_list" name="achievement_choice" required>
+                <select id="achievement_list" name="value" required>
                   <option selected value=""></option>
                   <!--Generat din JS in functie de valorile din baza de date-->
                 </select>
               </fieldset>
 
               <fieldset class="dynamic_reward_type" id="reward_rank-up">
-                <label for="rank_choice">Rank: </label>
-                <select name="rank_choice" class="rank_list" required>
+                <label for="rank_up_choice">Rank: </label>
+                <select id="rank_up_choice" name="value" class="rank_list" required>
                   <option selected value="0">--pick a rank--</option>
                   <!--Generat din JS in functie de valorile din baza de date-->
                 </select>
               </fieldset>
 
               <fieldset class="dynamic_reward_type" id="reward_rank-down">
-                <label for="rank_choice">Rank: </label>
-                <select name="rank_choice" class="rank_list" required>
+                <label for="rank_down_choice">Rank: </label>
+                <select id="rank_down_choice" name="value" class="rank_list" required>
                   <option selected value="">--pick a rank--</option>
                   <!--Generat din JS in functie de valorile din baza de date-->
                 </select>

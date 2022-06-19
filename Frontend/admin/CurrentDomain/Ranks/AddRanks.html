@@ -20,26 +20,26 @@
 
     <div class="main_content">
 
-      <h1>Manage Ranks</h1>
+      <h1>Manage Achievements</h1>
 
       <div class="flex-container ">
         <div class="flex-item flex-1">
-          <h2 style="padding-bottom: 4%;">Edit Menu:</h2>
-          <form action="www.google.ro" id="edit_rank_form">
+          <h2 style="padding-bottom: 4%;">New Ranks:</h2>
+          <form action="www.google.ro" id="add_rank_form">
             <label for="rank_name">Rank name:</label>
-            <input type="text" name="rank_name" id="rank_name" placeholder="insert a name for your rank" required>
+            <input type="text" name="rank_name" placeholder="insert a name for your rank" required>
             <label for="rank_score">Score:</label>
-            <input type="number" name="rank_score" id="rank_score" placeholder="insert a score for this rank">
+            <input type="number" name="rank_score" placeholder="insert a score for this rank" required>
             <label for="rankTo">Next rank:</label>
             <input type="text" name="rankTo" id="rankTo" value="default">
-            <input type="submit" value="Save Rank" />
+            <input type="submit" value="Save rank" />
             <input type="button" value="Cancel" onclick="cancel()" />
           </form>
         </div>
       </div>
     </div>
   </div>
-  <script src="/admin/CurrentDomain/Ranks/EditRanks.js"></script>
+  <script src="/admin/CurrentDomain/Ranks/AddRanks.js"></script>
 
 </body>
 

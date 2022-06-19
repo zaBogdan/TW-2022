@@ -1,3 +1,8 @@
+$(function(){
+  $("#nav").load("/admin/sidebar/sidebarCurrentDomain.html"); 
+});
+
+/*sidebar included*/
 // functie pentru extragerea unui parametru din URL
 function getParamFromUrl(parameter){
     let search = window.location.search;
@@ -5,10 +10,9 @@ function getParamFromUrl(parameter){
     return urlParams.get(parameter);
   }
   // url-urile de baza
-  var basePostURL="http://localhost:8085/achievement/domain/";
+  var basePostURL="http://localhost:8085/rank/domain/";
   // id-ul domeniului
-  let website_id = getParamFromUrl("domain");
-  let postURL = basePostURL+website_id;
+  let postURL = basePostURL+getParamFromUrl("domain");
   
   $(function(){
       $("#nav").load("/admin/sidebar/sidebarCurrentDomain.html"); 
@@ -41,10 +45,10 @@ function getParamFromUrl(parameter){
   
   // functions
   function cancel(){
-    window.location.href = "/admin/CurrentDomain/Achievements/index.html/?domain="+getParamFromUrl("domain");
+    window.location.href = "/admin/CurrentDomain/Ranks/index.html/?domain="+getParamFromUrl("domain");
   }
   
-  document.getElementById("add_achievement_form").addEventListener("submit",(e) => {
+  document.getElementById("add_rank_form").addEventListener("submit",(e) => {
     e.preventDefault();
     const data = new FormData(e.target);
     // get the form data
@@ -61,11 +65,10 @@ function getParamFromUrl(parameter){
         body : json,
         redirect: 'follow'
     };
-
       fetch(postURL, requestOptions)
         .then(response => response.json())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
-
-    window.location.href = "/admin/CurrentDomain/Achievements/index.html/?domain="+getParamFromUrl("domain");
+    console.log(json);
+    window.location.href = "/admin/CurrentDomain/Ranks/index.html/?domain="+getParamFromUrl("domain");
   });

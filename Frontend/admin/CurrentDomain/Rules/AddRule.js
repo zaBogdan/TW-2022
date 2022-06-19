@@ -104,6 +104,7 @@ function insert_new_rule_field(field_id){
     clone.classList.add("new_sub_rule");
     clone.style.display="block";
     clone.disabled = false;
+    clone.querySelector("#inpt_value").value=null;
     // the "Delete" icon
     let ic1 = document.createElement("i");
         ic1.className= "fas fa-trash";
@@ -194,17 +195,23 @@ document.getElementById("AddNewRule").addEventListener("submit",(e) => {
     var val = {};
     data.delete("having_a_value");
     data.delete("having_the_name");
-    data.delete("value");
-    data.forEach(function(v,key){
+    /*data.forEach(function(v,key){
         val[key]=v;
-    });
+    });*/
+    val["name"] = data.get("rule_name");
+
+    let reward = {};
+    reward["type"] = data.get("reward_type");
+    reward["name"] = data.get("value");
+    val["reward"] = reward;
+    val["match"] = data.get("Match");
     // get the <ul> entries and put them in an array
     var rules = [];
     var type = data.get("Match");
     const u = document.getElementsByClassName(type)[0].querySelectorAll(".new_sub_rule, .user_has_metric");
     for (let x=0; x<u.length; x++){
         let rule = {};
-        rule["action"] = u[x].querySelector("#actions_list").value;
+        rule["event"] = u[x].querySelector("#actions_list").value;
         rule["comparator"] = u[x].querySelector("#comparator_list").value;
         rule["value"] = u[x].querySelector("#inpt_value").value;
         rules.push(rule);

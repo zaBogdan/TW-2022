@@ -61,10 +61,8 @@ function getParamFromUrl(parameter){
     const data = new FormData(e.target);
     // get the form data
     var response = {};
-    data.forEach(function(v,key){
-        response[key]=v;
-    });
-    // get the <ul> entries and put them in an array
+    response["name"] = data.get("event_name");
+    response["active"] = data.get("event_status");
     var json = JSON.stringify(response);
     // sending data to the server
      // info needed for requests
@@ -78,7 +76,7 @@ function getParamFromUrl(parameter){
         .then(response => response.json())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
-    window.location.href = "/admin/CurrentDomain/Metrics/index.html/?domain="+getParamFromUrl("domain");
+     window.location.href = "/admin/CurrentDomain/Metrics/index.html/?domain="+getParamFromUrl("domain");
   });
 
 
@@ -89,4 +87,7 @@ function getParamFromUrl(parameter){
   var event_info = getFromApi(getURL, requestOptions);
   event_info.then(response =>{
     document.getElementById("event_name").value = response.data.event["name"];
+    let status = response.data.event["active"];
+    document.getElementById("event_status").value = status;
+    document.getElementById("event_id").value = response.data.event["_id"];
   })
