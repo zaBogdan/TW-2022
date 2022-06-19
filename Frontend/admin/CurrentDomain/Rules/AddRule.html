@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +13,8 @@
 <body>
   <div class="wrapper">
 
-    <div id="nav">  <!-- included from js-->
+    <div id="nav">
+      <!-- included from js-->
     </div>
 
     <div class="main_content">
@@ -25,7 +25,8 @@
           <form id="AddNewRule" action="http://www.foo.com" method="POST">
 
             <label for="rule_name">Rule name:</label>
-            <input type="text" name="rule_name" id="rule_name" placeholder="Insert the name of your new rule" required> <br>
+            <input type="text" name="rule_name" id="rule_name" placeholder="Insert the name of your new rule" required>
+            <br>
 
             <fieldset id="rule_reward">
               <h3>Reward information:</h3>
@@ -49,7 +50,7 @@
                   <option selected value=""></option>
                   <!--Generat din JS in functie de valorile din baza de date-->
                 </select>
-             </fieldset>
+              </fieldset>
 
               <fieldset class="dynamic_reward_type" id="reward_rank-up">
                 <label for="rank_choice">Rank: </label>
@@ -78,7 +79,7 @@
                 <option value="any">Any of the following rules</option>
               </select>
 
-              <fieldset class="dynamic_rule_type" id="user_has_metric">
+              <fieldset class="dynamic_rule_type base_rule" id="user_has_metric">
                 <label for="having_the_name">Having the name:</label>
                 <select name="having_the_name" id="actions_list" required>
                   <option value="" selected>--Select an action--</option>
@@ -95,27 +96,29 @@
                   <option value="gte">greater than or equal to</option>
                 </select>
                 <label for="value"></label>
-                <input name="value" type="number" placeholder="write a numeric value" min="0" required>
+                <input name="value" type="number" id="inpt_value" placeholder="write a numeric value" min="0" required>
                 <i></i>
               </fieldset>
 
               <fieldset class="dynamic_rule_type" id="all_rules">
-                <button class="add_rule_button" type="button" onclick="insert_new_rule_field('all_rules')">add rule</button>
+                <button class="add_rule_button" type="button" onclick="insert_new_rule_field('all_rules')">add
+                  rule</button>
               </fieldset>
 
               <fieldset class="dynamic_rule_type" id="any_rule">
-                <button class="add_rule_button" type="button" onclick="insert_new_rule_field('any_rule')">add rule</button>
+                <button class="add_rule_button" type="button" onclick="insert_new_rule_field('any_rule')">add
+                  rule</button>
               </fieldset>
             </fieldset>
             <input type="submit" value="Submit">
             <input type="button" value="Cancel" id="cancel_rule">
-          </form> 
-          </div>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
 
-<script src="/admin/CurrentDomain/Rules/index.js"></script>
-<script src="/admin/CurrentDomain/Rules/AddRule.js"></script>
+    <script src="/admin/CurrentDomain/Rules/index.js"></script>
+    <script src="/admin/CurrentDomain/Rules/AddRule.js"></script>
 </body>
 
 </html>

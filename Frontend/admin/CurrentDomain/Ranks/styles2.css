@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 @import '../../sidebar/sidebar.css';
 
-
 body {
   background-color: #2e3e3f;
 }
@@ -11,11 +10,12 @@ body {
   position: relative;
 }
 
-.wrapper .sidebar ul :nth-child(6) a {
+
+.wrapper .sidebar ul :nth-child(3) a {
   color: white;
 }
 
-.wrapper .sidebar ul :nth-child(6) {
+.wrapper .sidebar ul :nth-child(3) {
   background-color: #acc8c9;
 }
 
@@ -30,8 +30,7 @@ body {
 }
 
 .wrapper .main_content h1{
-  text-align: left;
-  align-items: left;
+  text-align: center;
   color: #acc8c9;
 }
 
@@ -40,141 +39,90 @@ body {
   padding-bottom: 10px;
 }
 
-
 .flex-container {
-  display: flex;
   padding-top: 3%;
-  list-style:none;
-}
-
-.main_content .flex-container .flex-item h1{
-  padding-top: 3%;
-  font-size: 40px;
-  color: black;
 }
 
 .flex-item {
+  padding-top: 3%;
+  list-style:none;
   display: flex;
   background: #acc8c9;
   color: #385170;
   width: 60vw;
-  min-width: 400px;
   height: 72vh;
   border: 2px solid rgba(211, 245, 250, 0.3);
   border-radius: 28px;
   flex-direction: column;
   padding-left: 5%;
-  align-items: left;
+}
+
+ .flex-item h2{
+  font-size: 2vw;
+  color: #2e3e3f;
+  padding-top: 3%;
+  text-align: left;
+}
+
+.flex-item input{
+  margin-top:1%;
+  width:40%;
+  height: 4vh;
 }
 
 
-
-select::-ms-expand {
-display: none;
-}
-
-.selectdiv {
-  position: relative;
-  width: 200px;
-}
-
-.selectdiv:after {
-  content: '<>';
-  font: 17px "Consolas", monospace;
-  color: #333;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-  right:-45%;
-  top: 18px;
-  padding: 0 0 2px;
-  border-bottom: 1px solid #999;
-  position: absolute;
-  pointer-events: none;
-}
-
-.selectdiv select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+.Achievements_list{
   width: 350px;
-  min-width: 200px;
-  height: 50px;
-  float:left;
-  margin: 5px 0px;
-  padding: 0px 24px;
-  font-size: 16px;
-  line-height: 1.75;
-  color: #333;
-  background-color: #ffffff;
-  background-image: none;
-  border: 1px solid #cccccc;
-  -ms-word-break: normal;
-  word-break: normal;
-  margin-bottom: 15%;
+  height: 140px;
+  padding-right: 5px;
+  margin-top: 2%;
 }
 
-.Reward_list{
-  width: 350px;
-  height: 200px;
-  overflow-y: auto;
-}
-
-.Reward_list a{
+.Achievements_list p{
   background-color: #eee;
   color: black;
   display: block;
   padding: 12px;
-  text-decoration: none;
   border-bottom: 1px solid #5c7879;
-
 }
 
-.Reward_list i:first-of-type{
- margin-left: 20%;
- padding:5px;
+.Achievements_list .fas:first-child{
+ padding-left: 8%;
+ padding-right: 1%;
+}
+
+.AddAchievement button{
+ height:33px;
+ width: 100px;
 }
 
 .Addbutton{
-  margin-top: 2%;
+  margin-bottom: 4%;
   width: 200px;
   height: 50px;
   border:none;
   color: white;
   background-color: #2e3e3f;
   border-radius: 4px;
-  font-size: 1rem;
-  outline: none;
+  font-size: 1rem;      
 }
 
-.submit_reward{
-  display: flex;
-  flex-direction: column;
-  top:4%;
-  align-items:flex-end;
-  justify-content: flex-start;
-  margin-right: 10%;
-}
-
-.reward{
-  line-height: 25px;
-  text-align:center;
-  width:200px;
-  height:25px;
-  background-color: white;
-}
 
 .Addbutton:hover{
-  background-color:#01858f
+  background-color:#01858f;
+}
+.Achievements_list .fas:hover{
+  color:#01858f;
 }
 
 
+/*
 @media (max-width: 1060px) {
   .flex-container {
     flex-wrap: wrap;
   }
 }
+*/
 
 .sidebar .fa-solid{
   display: none;

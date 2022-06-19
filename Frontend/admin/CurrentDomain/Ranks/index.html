@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Gammification</title>
+  <link rel="stylesheet" href="/admin/CurrentDomain/Ranks/styles.css" />
+  <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="nav">
+      <!-- included from js-->
+    </div>
+
+    <div class="main_content">
+      <h1>Manage Ranks</h1>
+      <h2>
+        Here, you can manage the ranks for your website.
+      </h2>
+
+      <div class="flex-container">
+        <div class="flex-item flex-1">
+          <div class="rank_list">
+            <h3>Ranks List</h3>
+            <div class="input_icon">
+              <i class="fas fa-search"></i>
+              <input type="text" id="myInput" onkeyup="search()" placeholder="Search for ranks..">
+            </div>
+
+            <ul id="rankList">
+              <!-- SE GENERAZA DIN JS -->
+            </ul>
+          </div>
+          <button class="Addbutton" id="Addbutton" onclick="redirect()">
+            Add Achievement <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/admin/CurrentDomain/Ranks/index.js"></script>
+</body>
+
+</html>

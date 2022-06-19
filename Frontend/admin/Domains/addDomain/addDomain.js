@@ -100,7 +100,7 @@ window.addEventListener('load', () => {
       
     })
     
-    // after saving changes - redirect to domains page
+    // Post-ing new entry
     document.getElementById("add_domain_form").addEventListener("submit",(e) => {
             e.preventDefault();
             const data = new FormData(e.target);
@@ -129,7 +129,7 @@ window.addEventListener('load', () => {
                 .then(result => console.log(result))
                 .catch(error => console.log('error', error));
             // redirect to domains home page
-            //window.location.href = "/admin/Domains/index.html";
+            window.location.href = "/admin/Domains/index.html";
     });
 
     // daca se decide la renuntare => optiunea "cancel"
