@@ -22,7 +22,8 @@ const production = {
     USER: 'http://User:3104',
     DOMAIN_USER: 'http://DomainUser:3105',
     ACHIEVEMENTS: 'http://Achievements:3106',
-    RULES: 'http://Rules:3107',
+    RANKS: `http://Ranks:3107`,
+    RULES: 'http://Rules:3108',
 }
 
 module.exports = (process.env.NODE_ENV === 'prod' ? production : development);
