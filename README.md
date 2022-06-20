@@ -14,7 +14,7 @@ Bogdan Zavadovschi  <br />
     Design: https://www.figma.com/file/yeu68MeiYidnejPOQfXZx5/WEB?node-id=0%3A1
     Diagram: https://github.com/zaBogdan/TW-2022/blob/main/Ux/diagram.jpg
     Documentation: https://github.com/zaBogdan/TW-2022/tree/main/documentation
-    Api documentation : https://documenter.getpostman.com/view/6561230/UzBiNU3a
+    Api documentation: https://documenter.getpostman.com/view/6561230/UzBiNU3a
  </p>
     
   
