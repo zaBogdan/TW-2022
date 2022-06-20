@@ -2,9 +2,9 @@ const { Schema, model } = require('mongoose');
 
 const EventSchema = new Schema({
   latest: {
-    type: Date,
+    type: Number,
     required: true,
-    default: new Date()
+    default: (new Date()).getTime()
   },
   data: [{
     type: Number
@@ -36,6 +36,10 @@ const domainUserSchema = new Schema({
   achievements: [{
     type: Schema.Types.ObjectId
   }],
+  latestMessage: {
+    type: String,
+    default: 'Success'
+  }
   //TODO: Add this when you get rank
   // rank: {
   //   type: Schema.Types.ObjectId,

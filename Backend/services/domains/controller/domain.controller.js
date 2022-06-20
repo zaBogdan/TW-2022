@@ -88,7 +88,7 @@ exports.createNewDomain = async (req, res,next) => {
 
 exports.triggerEventForDomain = async (req, res,next) => {
     try {
-        await domainService.getDomainInformation(req);
+        await domainService.triggerEventForDomain(req);
 
         return res.status(200).json({
             success: true,
