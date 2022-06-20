@@ -4,57 +4,59 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Gammification - Domains</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="/admin/assets/img/logo.svg">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="../../authGetPost.js"></script>
+  <script src="/admin/authGetPost.js"></script>
 </head>
 
 <body>
 
   <div class="wrapper">
-    <div id="nav">  <!-- included from js-->
+    <div id="nav">
+      <!-- included from js-->
     </div>
 
     <div class="main_content">
       <h1>Manage apps</h1>
       <h1>Adding a new domain</h1>
-      
+
       <div id="addDomainWindow">
-            <form id="add_domain_form" action="http://www.foof.com" method="POST">
-                <label for="name">Domain name:</label>
-                <input type="text" name="name" id="domain_name" placeholder="Insert the name of your domain" required> <br>
+        <form id="add_domain_form" action="http://www.foof.com" method="POST">
+          <label for="name">Domain name:</label>
+          <input type="text" name="name" id="domain_name" placeholder="Insert the name of your domain" required> <br>
 
-                <label for="domain_address">Domain URL:</label>
-                <input type="text" name="domain_address" id="domain_address" placeholder="Domain URL" required> <br>
+          <label for="domain_address">Domain URL:</label>
+          <input type="text" name="domain_address" id="domain_address" placeholder="Domain URL" required> <br>
 
 
-                <label for="domain_moderators">Domain administrators: <i class="fas fa-user-plus" onclick="showForm()" title="Add new user"></i></label>
-                <ul name="domain_moderators" id="domain_moderators_list">
-                    <!-- Generat in script -->
-                </ul>
+          <label for="domain_moderators">Domain administrators: <i class="fas fa-user-plus" onclick="showForm()"
+              title="Add new user"></i></label>
+          <ul name="domain_moderators" id="domain_moderators_list">
+            <!-- Generat in script -->
+          </ul>
 
-                <div id="username_form">
-                    <label  id="label_id" for="usernames[]">Moderator username:</label>
-                    <input type="text"  id="username" name="usernames[]" placeholder="username"/>
-                    <input type="button" id="add_new_user" value="Add">
-                    <input type="button" id="cancel_username" value="Cancel">
-                </div>
-               
+          <div id="username_form">
+            <label id="label_id" for="usernames[]">Moderator username:</label>
+            <input type="text" id="username" name="usernames[]" placeholder="username" />
+            <input type="button" id="add_new_user" value="Add">
+            <input type="button" id="cancel_username" value="Cancel">
+          </div>
 
-                <input type="submit" id="submitBtn" value="Add domain">
-                <input type="button" id="cancel_form" value="Cancel" onclick="history.back()">             
-                
-            </form>
-      </div>
+
+          <input type="submit" id="submitBtn" value="Add domain">
+          <input type="button" id="cancel_form" value="Cancel" onclick="history.back()">
+
+        </form>
       </div>
     </div>
+  </div>
 
   </div>
 
- 
+
   <script src="addDomain.js"></script>
 </body>
 
