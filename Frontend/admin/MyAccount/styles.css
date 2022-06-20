@@ -102,10 +102,10 @@ font-size: 70px;
 
 .BottomButtons{
   display: flex;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
-.BottomButtons button:nth-child(2){
+.BottomButtons button:nth-child(3){
   margin-left: 10px;
 }
 
