@@ -1,0 +1,85 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  Authentication:
+    build:
+      dockerfile: ./services/authentication/Dockerfile
+      context: .
+      args:
+        folder_name: authentication
+        api_port: 3100
+    image: abl/authentication-service
+    restart: always
+  Domains:
+    build:
+      dockerfile: ./deploy/Dockerfile
+      context: .
+      args:
+        folder_name: domains
+        api_port: 3101
+    image: abl/domains-service
+    restart: always
+  Events:
+    build:
+      dockerfile: ./deploy/Dockerfile
+      context: .
+      args:
+        folder_name: events
+        api_port: 3102
+    image: abl/events-service
+    restart: always
+  User:
+    build:
+      dockerfile: ./deploy/Dockerfile
+      context: .
+      args:
+        folder_name: user
+        api_port: 3104
+    image: abl/user-service
+    restart: always
+  DomainUser:
+    build:
+      dockerfile: ./deploy/Dockerfile
+      context: .
+      args:
+        folder_name: domain_users
+        api_port: 3105
+    image: abl/domain_users-service
+    restart: always
+  Achievements:
+    build:
+      dockerfile: ./deploy/Dockerfile
+      context: .
+      args:
+        folder_name: achievements
+        api_port: 3106
+    image: abl/acheivements-service
+    restart: always
+  Ranks:
+    build:
+      dockerfile: ./deploy/Dockerfile
+      context: .
+      args:
+        folder_name: ranks
+        api_port: 3107
+    image: abl/ranks-service
+    restart: always
+  Rules:
+    build:
+      dockerfile: ./deploy/Dockerfile
+      context: .
+      args:
+        folder_name: rules
+        api_port: 3108
+    image: abl/rules-service
+    restart: always
+  Gateway:
+    build:
+      dockerfile: ./deploy/Dockerfile
+      context: .
+      args:
+        folder_name: gateway
+        api_port: 3000
+    image: abl/gateway-service
+    restart: always
+    ports:
+      - '3000:3000'
