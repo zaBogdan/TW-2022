@@ -1,6 +1,7 @@
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Cache-Control: public, max-age=300
+Access-Control-Allow-Origin: *
 
 {
     "success": true,
@@ -8,16 +9,21 @@ Cache-Control: public, max-age=300
     "data": {
         "domain": {
             "_id": "c89fcd3a1d3c49e793a54c74ff906131",
+            "users":[
+                "JohnDoe",
+                "Anton",
+                "Bixby"
+                ],
             "userId": "e13d88872b6641cda866b27d1e0920b6",
             "name": "PGround",
             "activeUrl": [
                 "https://api.pground.io",
                 "https://pground.io",
-                "https://dashboard.pground.io",
+                "https://dashboard.pground.io"
             ],
-            "registeredAt": 1655052444,
+            "registeredAt": "1655052444",
             "active": true,
-            "apiKey": 800639d8106547d38e8ea97759179173
+            "apiKey": "800639d8106547d38e8ea97759179173"
         }
     }
 }

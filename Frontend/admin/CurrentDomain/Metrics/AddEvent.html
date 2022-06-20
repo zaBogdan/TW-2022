@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Gammification</title>
+  <link rel="stylesheet" href="/admin/CurrentDomain/Metrics/styles2.css">
+  <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../../authGetPost.js"></script>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <div id="nav">  <!-- included from js-->
+    </div>
+
+
+    <div class="main_content">
+
+      <h1>Add a new event</h1>
+      <div class="flex-container ">
+        <div class="flex-item flex-1">
+          <h2 style="padding-bottom: 4%;">New Event:</h2>
+          <form action="www.google.ro" id="add_event_form">
+            <label for="event_name">Event name:</label>
+            <input type="text" name="event_name" placeholder="What event do you want to measure?" required>
+            <input type="submit" value="Save Event"/>
+            <input type="button" value="Cancel" onclick="history.back()"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/admin/CurrentDomain/Metrics/AddEvent.js"></script> 
+</body>
+
+</html>

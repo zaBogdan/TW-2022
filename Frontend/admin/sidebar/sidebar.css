@@ -7,13 +7,16 @@
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
   }
-
-.wrapper .sidebar {
-    width: 200px;
+  
+.nav{
+  height: 100vh;
+}
+ .sidebar {
+    width: 100%;
+    min-width: 180px;
     height: 100%;
     background: #5c7879;
     padding: 30px 0px;
-    position: fixed;
   }
   
   .wrapper .sidebar h2 {
@@ -25,59 +28,59 @@
   
   
   
-  .wrapper .sidebar ul li {
+  .sidebar ul li {
     padding: 15px;
     border-bottom: 1px solid #5c7879;
   }
   
-  .wrapper .sidebar ul li a {
+ .sidebar ul li a {
     color: #c4cfd4;
     display: block;
   }
   
   
-  .wrapper .sidebar ul li a .fas {
+.sidebar ul li a .fas {
     width: 25px;
+    margin-right: 3px;
   }
   
-
-  
-  .wrapper .sidebar ul li:hover {
+.sidebar ul li:hover {
     background-color: #acc8c9;
   }
   
-  .wrapper .sidebar ul li:hover a {
+ .sidebar ul li:hover a {
     color: #fff;
   }
   
-  .wrapper .sidebar .social_media {
-    position: absolute;
+.sidebar .social_media {
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
     display: flex;
   }
   
-  .wrapper .sidebar .social_media a {
+.sidebar .social_media a {
     display: block;
     width: 40px;
     background: #c4cfd4;
     height: 40px;
     line-height: 45px;
     text-align: center;
-    margin: 0 5px;
+    margin: 0 auto;
+    align-self: center;
     color: #091826;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
   }
-  
+  .fa-bars{
+    position: absolute;
+    font-size: 0;
+  }
 
   @media (max-width: 1060px){
     .flex-container{
       flex-wrap: wrap;
     }
   }
-  
   
   
   .sidebar .fa-solid{
@@ -90,8 +93,8 @@
     .wrapper .sidebar ul li {
       display: block;
     }
-    .wrapper .nav .sidebar {
-      position: absolute;
+    .sidebar {
+      max-width: 200px;
       height: 100%;
       top: 0;
       left: -200px;
@@ -109,6 +112,9 @@
     .sidebar .fa-solid{
       margin-left: 80%;
    }
-   
+   .fa-bars{
+    position: absolute;
+    display: block;
+   }
   }
   

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../authGetPost.js"></script>
   <script src="index.js"></script>
 </head>
 
@@ -30,26 +31,24 @@
             <h2>Your profile</h2>
             <i class="fa-solid fa-user fa-8x"></i>
           </div>
-  
-
-  
-         <form class="RightSide">
-          <input type="text" id="Name" placeholder="Name">
-          <input type="text" id="Username" placeholder="Username">
-          <input type="text" id="Email" placeholder="Email">
+         <div class="RightSide">
+          <input type="text" id="firstName" placeholder="First name">
+          <input type="text" id="lastName" placeholder="Last name">
+          <input type="text" id="username" placeholder="Username">
+          <input type="date" id="dateOfBirth" placeholder="Date of birth">
           <button>Change Password <i class="fa-solid fa-key"></i></button>
 
             <div class="BottomButtons">
               <button>Update <i class="fa-solid fa-check"></i></button>
-              <button>Cancel <i class="fa-solid fa-x"></i></button>
+              <button onClick="window.location.reload()">Cancel <i class="fa-solid fa-x"></i></button>
             </div>
-         </form>
+          </div>
 
         </div>
       </div>
     </div>
+
     </div>
-    <script src="script.js"></script>
 </body>
 
 </html>

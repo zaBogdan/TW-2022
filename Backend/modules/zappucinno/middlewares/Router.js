@@ -17,6 +17,7 @@ routerModule.paths = {}
 
 routerModule.handle = async function(req, res, next) {
     debug('[ Zappucinno ][ Router ] Started handling request')
+    console.log(this.paths)
     let [path, query] = req.url.split('?');
     if(!path.endsWith('/')) {
         path += '/';

@@ -2,47 +2,49 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>Gammification</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
+  <link rel="stylesheet" href="/admin/CurrentDomain/Achievements/styles.css" />
+  <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="index.js"></script> 
+  <script src="../../authGetPost.js"></script>
 </head>
 
 <body>
-
   <div class="wrapper">
-
-    <div id="nav">  <!-- included from js-->
+    <div id="nav">
+      <!-- included from js-->
     </div>
 
     <div class="main_content">
-
       <h1>Manage Achievements</h1>
-      <h1>Here, you can manage the achievements categories for your *website*.</h1>
+      <h2>
+        Here, you can manage the achievements for your website.
+      </h2>
 
-      <div class="flex-container ">
+      <div class="flex-container">
         <div class="flex-item flex-1">
-          <h1>My Achievements:</h1>
           <div class="achievement_list">
-            <p>Number of likes received achievement<i class="fas fa-edit"></i><i class="fas fa-trash"></i></p>
-            <p>Number of comments posted achievement<i class="fas fa-edit"></i><i class="fas fa-trash"></i></p>
-            <p>Number of events achievement<i class="fas fa-edit"></i><i class="fas fa-trash"></i></p>
-            <p>Days since registered achievement<i class="fas fa-edit"></i><i class="fas fa-trash"></i></p>
-            <p>Has reached a certain level achievement<i class="fas fa-edit"></i><i class="fas fa-trash"></i></p>
-            <p>Number of likes given achievement<i class="fas fa-edit"></i><i class="fas fa-trash"></i></p>
+            <h3>Achievements List</h3>
+            <div class="input_icon">
+              <i class="fas fa-search"></i>
+              <input type="text" id="myInput" onkeyup="search()" placeholder="Search for achievements..">
+            </div>
+
+            <ul id="achievementList">
+              <!-- SE GENERAZA DIN JS -->
+            </ul>
           </div>
-          <a href="/admin/CurrentDomain/Achievements/AddAchievements.html">
-          <button class="Addbutton">Add Achievement <i class="fas fa-plus"></i></button>
-          </a>
+          <button class="Addbutton" id="Addbutton" onclick="redirect()">
+            Add Achievement <i class="fas fa-plus"></i>
+          </button>
         </div>
       </div>
     </div>
   </div>
 
-
+  <script src="/admin/CurrentDomain/Achievements/index.js"></script>
 </body>
 
 </html>

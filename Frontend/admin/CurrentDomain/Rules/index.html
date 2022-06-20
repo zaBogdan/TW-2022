@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  
+  <script src="../../authGetPost.js"></script>
 </head>
 
 <body>
@@ -27,9 +27,9 @@
         <div class="flex-item flex-1">
          <h1>My Rules</h1>
           <div class="select_rule">
-            <label>
-              <select>
-                <option selected> pick a rule </option>
+            <label for="rule_choices">
+              <select name="rule_choices" id="pick_rule">
+                <option selected>--pick a rule--</option>
                 <!-- Generat din JS-->
               </select>
             </label>
@@ -43,11 +43,9 @@
             <a href="#">Comments 500</a>
             <a href="#">Comments 500+</a>
           </div>
-          <a href="/admin/CurrentDomain/Rules/AddRule.html">
-            <button class="Addbutton">
+            <button class="Addbutton" onclick="redirect()">
               Add Rule <i class="fas fa-plus"></i>
             </button>
-          </a>
             </div>
           </div>
         </div>

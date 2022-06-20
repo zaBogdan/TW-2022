@@ -10,38 +10,47 @@ body {
   position: relative;
 }
 
-.wrapper .sidebar ul :nth-child(3) a {
+.sidebar ul :nth-child(3) a {
   color: white;
 }
 
-.wrapper .sidebar ul :nth-child(3) {
+.sidebar ul :nth-child(3) {
   background-color: #acc8c9;
 }
 
-.wrapper .main_content {
+.main_content {
   display: flex;
   width: 100%;
-  margin-left: 200px;
+  height: 100vh;
   padding: 40px 0px;
   align-items:center;
   justify-content:center;
   flex-direction: column;
 }
 
-.wrapper .main_content h1{
+h1{
   text-align: center;
   color: #acc8c9;
-}
-
-.main_content h1:first-of-type{
   font-size: 50px;
   padding-bottom: 10px;
 }
-
+h2{
+  text-align: center;
+  color: #acc8c9;
+  font-size: 25px;
+  padding-bottom: 10px;
+  max-width: 60vw;
+}
+h3{
+  font-size: 23px;
+  margin-bottom: 20px;
+}
 
 .flex-container {
-  padding-top: 3%;
+  padding-top: 1%;
+  height: 72vh;
   list-style:none;
+  width: 80%;
   
 }
 
@@ -51,52 +60,32 @@ body {
   display: flex;
   background: #acc8c9;
   color: #385170;
-  width: 60vw;
-  height: 72vh;
+  width: 100%;
+  height: 100%;
   border: 2px solid rgba(211, 245, 250, 0.3);
   border-radius: 28px;
   flex-direction: column;
   padding-left: 5%;
 }
 
-.flex-container .flex-item h1{
-  padding-top: 2%;
-  text-align: left;
-  font-size: 40px;
-  color: #2e3e3f;
-}
-
 .achievement_list{
-  width: 40%;
+  width: 90%;
   min-width: 150px;
   height: 280px;
   overflow-y: auto;
   margin-top: 8%;
 }
 
- .achievement_list p{
-  background-color: #eee;
-  color: black;
-  display: block;
-  padding: 12px;
-  text-decoration: none;
-  border-bottom: 1px solid #5c7879;
-}
-
-.achievement_list i:first-of-type{
-  margin-left: 3%;
-  padding:5px;
- }
-
- 
-.achievement_list .fas:hover{
-  color: #01858f;
+ .flex-container .flex-item h1{
+  text-align: left;
+  font-size: 40px;
+  color: #2e3e3f;
 }
 
 .Addbutton{
-  margin-top: 8%;
-  width: 200px;
-  height: 50px;
+  margin-top: 5%;
+  width: 30%;
+  height: 40px;
   border:none;
   color: white;
   background-color: #2e3e3f;
@@ -105,11 +94,84 @@ body {
   outline: none;
 }
 
-
+.achievement_list .fas:hover{
+  color: #01858f;
+}
 .Addbutton:hover{
-  background-color:#01858f;
+  background-color:#01858f
 }
 
+.id_achievement{
+  display:none;
+}
+
+#achievementList{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 280px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#achievementList li{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: 22px;
+}
+#achievementList li .fas:first-of-type{
+  margin-left: auto;
+  padding-right: 0;
+ }
+ .fas{
+  padding-left: 5px;
+ }
+
+.achievement_list p{
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  border-bottom: 1px solid #5c7879;
+}
+
+ 
+.achievement_list .fas:hover{
+  color: #01858f;
+}
+#nav  {
+  height: 100vh;
+  text-align: left;
+}
+
+
+
+
+/* FOrmatari pt meniul de search*/
+#myInput {
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+.input_icon i {
+  position: absolute;
+}
+
+.input_icon {
+  width: 90%;
+  margin-bottom: 10px;
+  position: relative;
+}
+.fa-search {
+  padding: 15px;
+  min-width: 40px;
+}
 
 @media (max-width: 1060px) {
   .flex-container {

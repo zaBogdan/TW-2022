@@ -1,0 +1,47 @@
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Gammification</title>
+  <link rel="stylesheet" href="/admin/CurrentDomain/Ranks/styles2.css">
+  <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../../authGetPost.js"></script>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <div id="nav">
+      <!-- included from js-->
+    </div>
+
+    <div class="main_content">
+
+      <h1>Manage Achievements</h1>
+
+      <div class="flex-container ">
+        <div class="flex-item flex-1">
+          <h2 style="padding-bottom: 4%;">New Ranks:</h2>
+          <form action="www.google.ro" id="add_rank_form">
+            <label for="rank_name">Rank name:</label>
+            <input type="text" name="rank_name" placeholder="insert a name for your rank" required>
+            <label for="rank_score">Score:</label>
+            <input type="number" name="rank_score" placeholder="insert a score for this rank" required>
+            <label for="rankTo">Next rank:</label>
+            <input type="text" name="rankTo" id="rankTo" value="default">
+            <input type="submit" value="Save rank" />
+            <input type="button" value="Cancel" onclick="history.back()" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/admin/CurrentDomain/Ranks/AddRanks.js"></script>
+
+</body>
+
+</html>

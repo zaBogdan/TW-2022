@@ -1,12 +1,13 @@
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Cache-Control: public, max-age=300
+Access-Control-Allow-Origin: *
 
 {
     "success": true,
     "message": "Successfully fetched domain",
     "data": {
-        "achievements": [
+        "ranks": [
             {
                 "_id": "35b2fa5fc6c442f89cb5880ca6f4da95",
                 "name": "Noobie",

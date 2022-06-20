@@ -5,17 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Gammification</title>
-  <link rel="stylesheet" href="styles2.css">
+  <link rel="stylesheet" href="/admin/CurrentDomain/Achievements/styles2.css">
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="index.js"></script> </head>
+  <script src="../../authGetPost.js"></script>
+</head>
+
 <body>
 
   <div class="wrapper">
 
-    <div id="nav">  <!-- included from js-->
+    <div id="nav">
+      <!-- included from js-->
     </div>
-    
+
     <div class="main_content">
 
       <h1>Manage Achievements</h1>
@@ -23,27 +26,21 @@
       <div class="flex-container ">
         <div class="flex-item flex-1">
           <h2 style="padding-bottom: 4%;">New Achievements:</h2>
-          <h2>Achievement category name</h2>
-          <input type="text" placeholder="insert category name">
-
-          
-            <h2>Achievements for this category</h2>
-            <div class="Achievements_list" style=" overflow: scroll;">
-              <p>First time liker<i class="fas fa-edit"></i><i class="fas fa-trash"></i></p>
-              <p>Mini liker<i class="fas fa-edit"></i><i class="fas fa-trash"></i></p>
-              <p>First comment<i class="fas fa-edit"></i><i class="fas fa-trash"></i></p>
-            </div>
-         
-          <div class="AddAchievement">
-            <input type="text" placeholder="Add new achievement">
-            <button class="Addbutton">Add</button>
-          </div>
-            <button class="Addbutton">Save Achievement</button>
+          <form action="www.google.ro" id="add_achievement_form">
+            <label for="achievement_name">Achievement name:</label>
+            <input type="text" name="achievement_name" placeholder="insert a name for your achievement" required>
+            <label for="achievement_score">Score:</label>
+            <input type="number" name="achievement_score" placeholder="insert a score for this achievement">
+            <!--  <label for="avatar">Image:</label>
+            <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" value="choose image">-->
+            <input type="submit" value="Save Achievement" />
+            <input type="button" value="Cancel" onclick="history.back()" />
+          </form>
         </div>
       </div>
     </div>
   </div>
-
+  <script src="/admin/CurrentDomain/Achievements/AddAchievements.js"></script>
 
 </body>
 

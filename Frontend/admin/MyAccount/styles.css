@@ -54,7 +54,6 @@ body {
 
 .flex-container {
   display: flex;
- 
   list-style:none;
 }
 
@@ -96,21 +95,21 @@ font-size: 70px;
 }
 
 .RightSide input{
-  height:30px;
+  height:40px;
   width:300px;
   margin-bottom: 5%;
 }
 
 .BottomButtons{
   display: flex;
-  margin-top: 25%;
+  margin-top: 20%;
 }
 
 .BottomButtons button:nth-child(2){
   margin-left: 10px;
 }
 
-.BottomButtons button:hover{
+.RightSide button:hover{
   background-color:#01858f
 }
 
