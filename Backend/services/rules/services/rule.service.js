@@ -29,7 +29,7 @@ exports.getRuleById = async (req) => {
     } else if(rule.reward.type === 'Achievements') {
         try {
             const data = await httpRequest(req, 'get', `${ACHIEVEMENTS}/achievement/${rule.reward.objectId}`)
-            rule.reward.name = data.data.achievement._id;
+            rule.reward.name = data.data.achievement.name;
             delete rule.reward.objectId;
             delete rule.reward.score;
         } catch(e) {

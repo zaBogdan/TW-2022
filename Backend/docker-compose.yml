@@ -83,12 +83,12 @@ services:
     restart: always
     ports:
       - '3000:3000'
-  RabbitMQ:
-    image: rabbitmq:3.10.5-management-alpine
-    container_name: 'rabbitmq'
-    ports:
-      - '5672:5672'
-      - '15672:15672'
-    volumes:
-      - ./deploy/rabbitmq/data/:/var/lib/rabbitmq/
-      - ./deploy/rabbitmq/log/:/var/log/rabbitmq
+  # RabbitMQ:
+  #   image: rabbitmq:3.10.5-management-alpine
+  #   container_name: 'rabbitmq'
+  #   ports:
+  #     - '5672:5672'
+  #     - '15672:15672'
+  #   volumes:
+  #     - ./deploy/rabbitmq/data/:/var/lib/rabbitmq/
+  #     - ./deploy/rabbitmq/log/:/var/log/rabbitmq
