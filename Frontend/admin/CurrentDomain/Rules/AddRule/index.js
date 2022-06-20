@@ -190,8 +190,7 @@ document.getElementById("AddNewRule").addEventListener("submit", (e) => {
   authPost("/rule/domain/" + getParamFromUrl("domain"), json).then(
     (response) => {
       window.location.href =
-        "/admin/CurrentDomain/Rules/index.html" +
-        "/?domain=" +
+        "/admin/CurrentDomain/Rules/index.html?domain=" +
         getParamFromUrl("domain");
     }
   );
@@ -199,7 +198,6 @@ document.getElementById("AddNewRule").addEventListener("submit", (e) => {
 
 const cnclBtn = (document.getElementById("cancel_rule").onclick = function () {
   location.href =
-    "/admin/CurrentDomain/Rules/index.html" +
-    "?domain=" +
+    "/admin/CurrentDomain/Rules/index.html?domain=" +
     getParamFromUrl("domain");
 });

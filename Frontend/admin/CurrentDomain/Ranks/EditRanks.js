@@ -20,7 +20,7 @@ achievement_info.then(response => {
 
 // functions
 function cancel() {
-  window.location.href = "/admin/CurrentDomain/Ranks/index.html/?domain=" + getParamFromUrl("domain");
+  window.location.href = "/admin/CurrentDomain/Ranks/index.html?domain=" + getParamFromUrl("domain");
 }
 
 document.getElementById("edit_rank_form").addEventListener("submit", (e) => {
@@ -35,7 +35,7 @@ document.getElementById("edit_rank_form").addEventListener("submit", (e) => {
   var json = JSON.stringify(response);
   console.log(json);
   authPut("/rank/" + getParamFromUrl("rank"), json).then(response => {
-    window.location.href = "/admin/CurrentDomain/Ranks/index.html/?domain=" + getParamFromUrl("domain");
+    window.location.href = "/admin/CurrentDomain/Ranks/index.html?domain=" + getParamFromUrl("domain");
   });
 
   

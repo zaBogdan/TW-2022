@@ -5,7 +5,7 @@ function getParamFromUrl(parameter) {
   return urlParams.get(parameter);
 }
 function redirect() {
-  window.location.href = "/admin/CurrentDomain/Metrics/AddEvent.html/?domain=" + getParamFromUrl("domain");
+  window.location.href = "/admin/CurrentDomain/Metrics/AddEvent.html?domain=" + getParamFromUrl("domain");
 }
 
 window.addEventListener('load', (event) => {
@@ -56,7 +56,7 @@ window.addEventListener('load', (event) => {
         // edit button functionality
         ic1.addEventListener('click', () => {
           // constructing the fetch url
-          let url = "/admin/CurrentDomain/Metrics/EditEvent.html/?" + "domain=" + getParamFromUrl("domain") + "&event=" + response.data.events[i]['_id'];
+          let url = "/admin/CurrentDomain/Metrics/EditEvent.html?" + "domain=" + getParamFromUrl("domain") + "&event=" + response.data.events[i]['_id'];
           // redirect to url
           location.href = url;
         })

@@ -37,7 +37,7 @@ document.getElementById("add_rank_form").addEventListener("submit", (e) => {
   // get the <ul> entries and put them in an array
   var json = JSON.stringify(response);
   authPost("/rank/domain/" + getParamFromUrl("domain"), json).then(response => {
-    window.location.href = "/admin/CurrentDomain/Ranks/index.html/?domain=" + getParamFromUrl("domain");
+    window.location.href = "/admin/CurrentDomain/Ranks/index.html?domain=" + getParamFromUrl("domain");
   });
 
 });

@@ -22,7 +22,7 @@ for (let i = 0; i < collection.length; i++) {
 
 // functions
 function cancel() {
-  window.location.href = "/admin/CurrentDomain/Metrics/index.html/?domain=" + getParamFromUrl("domain");
+  window.location.href = "/admin/CurrentDomain/Metrics/index.html?domain=" + getParamFromUrl("domain");
 }
 
 
@@ -38,7 +38,7 @@ document.getElementById("add_event_form").addEventListener("submit", (e) => {
   var json = JSON.stringify(response);
   console.log(json)
   authPost("/event/domain/" + getParamFromUrl("domain"), json).then(response => {
-     window.location.href = "/admin/CurrentDomain/Metrics/index.html/?domain=" + getParamFromUrl("domain");
+     window.location.href = "/admin/CurrentDomain/Metrics/index.html?domain=" + getParamFromUrl("domain");
   });
 
 });

@@ -275,13 +275,12 @@ document.getElementById("AddNewRule").addEventListener("submit", (e) => {
   val.rules = rules;
   const json = JSON.stringify(val);
   authPut("/rule/" + getParamFromUrl("rule"), json).then((response) => {
-    window.location.href = "/admin/CurrentDomain/Rules/index.html"+"/?domain=" + getParamFromUrl("domain");
+    window.location.href = "/admin/CurrentDomain/Rules/index.html?domain=" + getParamFromUrl("domain");
   });
 });
 
 const cnclBtn = (document.getElementById("cancel_rule").onclick = function () {
   location.href =
-    "/admin/CurrentDomain/Rules/index.html" +
-    "?domain=" +
+    "/admin/CurrentDomain/Rules/index.html?domain=" +
     getParamFromUrl("domain");
 });

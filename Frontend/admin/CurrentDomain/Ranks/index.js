@@ -6,7 +6,7 @@ function getParamFromUrl(parameter) {
 }
   
 function redirect() {
-  window.location.href = "/admin/CurrentDomain/Ranks/AddRanks.html/?domain=" + getParamFromUrl("domain");
+  window.location.href = "/admin/CurrentDomain/Ranks/AddRanks.html?domain=" + getParamFromUrl("domain");
 }
 // functia de search
 function search() {
@@ -84,7 +84,7 @@ window.addEventListener('load', (event) => {
         // edit button functionality
         ic1.addEventListener('click', () => {
           // constructing the fetch url
-          let url = "/admin/CurrentDomain/Ranks/EditRanks.html/?" + "domain=" +getParamFromUrl("domain") + "&rank=" + response.data.ranks[i]['_id'];
+          let url = "/admin/CurrentDomain/Ranks/EditRanks.html?" + "domain=" +getParamFromUrl("domain") + "&rank=" + response.data.ranks[i]['_id'];
           // redirect to url
           location.href = url;
         })

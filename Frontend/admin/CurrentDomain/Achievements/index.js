@@ -6,7 +6,7 @@ function getParamFromUrl(parameter) {
 }
 
 function redirect() {
-  window.location.href = "/admin/CurrentDomain/Achievements/AddAchievements.html/?domain=" + getParamFromUrl("domain");
+  window.location.href = "/admin/CurrentDomain/Achievements/AddAchievements.html?domain=" + getParamFromUrl("domain");
 }
 
 
@@ -64,7 +64,7 @@ window.addEventListener('load', (event) => {
         // edit button functionality
         ic1.addEventListener('click', () => {
           // constructing the fetch url
-          let url = "/admin/CurrentDomain/Achievements/EditAchievements.html/?" + "domain=" + getParamFromUrl("domain") + "&achievement=" + response.data.achievements[i]['_id'];
+          let url = "/admin/CurrentDomain/Achievements/EditAchievements.html?" + "domain=" + getParamFromUrl("domain") + "&achievement=" + response.data.achievements[i]['_id'];
           // redirect to url
           location.href = url;
         })

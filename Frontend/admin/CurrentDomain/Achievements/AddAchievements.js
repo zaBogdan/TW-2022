@@ -30,7 +30,7 @@ document.getElementById("add_achievement_form").addEventListener("submit", (e) =
  
     console.log(response);
   authPost("/achievement/domain/" + getParamFromUrl("domain"), json).then(response => {
-  window.location.href = "/admin/CurrentDomain/Achievements/index.html/?domain=" + getParamFromUrl("domain");
+  window.location.href = "/admin/CurrentDomain/Achievements/index.html?domain=" + getParamFromUrl("domain");
   });
 
 });

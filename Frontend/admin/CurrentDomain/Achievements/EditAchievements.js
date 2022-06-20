@@ -19,7 +19,7 @@ achievement_info.then(response => {
 
 // functions
 function cancel() {
-  window.location.href = "/admin/CurrentDomain/Achievements/index.html/?domain=" + getParamFromUrl("domain");
+  window.location.href = "/admin/CurrentDomain/Achievements/index.html?domain=" + getParamFromUrl("domain");
 }
 
 document.getElementById("edit_achievement_form").addEventListener("submit", (e) => {
@@ -35,7 +35,7 @@ document.getElementById("edit_achievement_form").addEventListener("submit", (e) 
   // info needed for requests
   console.log(json);
   authPut("/achievement/" + getParamFromUrl("achievement"), json).then(response => {
-    window.location.href = "/admin/CurrentDomain/Achievements/index.html/?domain=" + getParamFromUrl("domain");
+    window.location.href = "/admin/CurrentDomain/Achievements/index.html?domain=" + getParamFromUrl("domain");
   });
 
 });

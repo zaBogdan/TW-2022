@@ -30,7 +30,7 @@ document.getElementById("edit_event_form").addEventListener("submit", (e) => {
   var json = JSON.stringify(response);
   console.log(json);
   authPut("/event/" + getParamFromUrl("event"), json).then(response => {
-    window.location.href = "/admin/CurrentDomain/Metrics/index.html/?domain=" + getParamFromUrl("domain");
+    window.location.href = "/admin/CurrentDomain/Metrics/index.html?domain=" + getParamFromUrl("domain");
   });
 });
 
