@@ -15,7 +15,7 @@ async function refreshToken() {
         else {    // != 200 .. n-are dreptul la alt refreshToken
             localStorage.removeItem('accessToken');
             localStorage.removeItem('refreshToken');
-            window.location.replace(url + "/login.html");   //probabil de modificat redirectul
+            window.location.replace("/login.html");   //probabil de modificat redirectul
         }
         console.log(localStorage);
 
