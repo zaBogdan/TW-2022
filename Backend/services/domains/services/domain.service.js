@@ -99,6 +99,10 @@ exports.createNewDomain = async (req) => {
     if(domainExists !== null) {
         throw new StatusCodeException(`Domain with name ${name} already exists. Try to be more creative`, 400)
     }
+
+    if(users.length > 3) {
+        throw new StatusCodeException('You can have up to 3 administrators in a domain.', 400);
+    }
     for(const user of users) {
         let data;
         try {
