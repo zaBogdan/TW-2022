@@ -21,7 +21,6 @@ Bogdan Zavadovschi  <br />
   </a>
 </p>
 
-<p>
 
   </div>
   
