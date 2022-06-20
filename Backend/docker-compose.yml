@@ -18,6 +18,8 @@ services:
         api_port: 3101
     image: abl/domains-service
     restart: always
+    depends_on:
+      - RabbitMQ
   Events:
     build:
       dockerfile: ./deploy/Dockerfile
@@ -72,6 +74,17 @@ services:
         api_port: 3108
     image: abl/rules-service
     restart: always
+  Evaluator:
+    build:
+      dockerfile: ./deploy/Dockerfile
+      context: .
+      args:
+        folder_name: evaluator
+        api_port: 3109
+    image: abl/evaluator-service
+    restart: always
+    depends_on:
+      - RabbitMQ
   Gateway:
     build:
       dockerfile: ./deploy/Dockerfile
@@ -83,12 +96,8 @@ services:
     restart: always
     ports:
       - '3000:3000'
-  # RabbitMQ:
-  #   image: rabbitmq:3.10.5-management-alpine
-  #   container_name: 'rabbitmq'
-  #   ports:
-  #     - '5672:5672'
-  #     - '15672:15672'
-  #   volumes:
-  #     - ./deploy/rabbitmq/data/:/var/lib/rabbitmq/
-  #     - ./deploy/rabbitmq/log/:/var/log/rabbitmq
+  RabbitMQ:
+    image: rabbitmq:3.10.5-management-alpine
+    ports:
+      - '5672:5672'
+      - '15672:15672'

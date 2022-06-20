@@ -109,6 +109,7 @@ exports.addRuleToDomain = async (req) => {
                 domain: domainId,
                 name: reward.name
             })
+            reward.score = data.data.achievement.score;
             reward.objectId = data.data.achievement._id;
             delete reward.name;
         } catch(e) {
@@ -121,6 +122,7 @@ exports.addRuleToDomain = async (req) => {
                 domain: domainId,
                 name: reward.name
             })
+            reward.score = data.data.rank.score;
             reward.objectId = data.data.rank._id;
             delete reward.name;
         } catch(e) {
@@ -186,7 +188,7 @@ exports.updateRuleById = async (req) => {
     const { name, match, reward, rules } = req.body;
 
     if(name) {
-        if(await req.db.Rule.countDocuments({ activeDomain: domainId, name }) !== 0) {
+        if(name !== ruleDB.name && await req.db.Rule.countDocuments({ activeDomain: domainId, name }) !== 0) {
             throw new StatusCodeException('This rule already exists.', 400);
         }
         ruleDB.name = name ?? ruleDB.name;
@@ -202,6 +204,7 @@ exports.updateRuleById = async (req) => {
                     name: reward.name
                 })
                 reward.objectId = data.data.achievement._id;
+                reward.score = data.data.achievement.score;
                 delete reward.name;
             } catch(e) {
                 debug('[addRuleToDomain - Achievements] Something didn\'t work', e);
@@ -214,6 +217,7 @@ exports.updateRuleById = async (req) => {
                     name: reward.name
                 })
                 reward.objectId = data.data.rank._id;
+                reward.score = data.data.rank.score;
                 delete reward.name;
             } catch(e) {
                 debug('[addRuleToDomain - Rank] Something didn\'t work', e);

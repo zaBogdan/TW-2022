@@ -3,11 +3,13 @@ const { CHANNELS } = require("shared").config.amqp;
 const { debug, log } = require("shared").utils.logging;
 
 const { config, executeChain } = require("./modules");
+log('Starting evaluator service');
 
-amqp.connect(config.RABBITMQ_URI, function (err, connection) {
+amqp.connect('amqp://guest:guest@RabbitMQ:5672/', function (err, connection) {
   if (err) {
     throw err;
   }
+  log('Connection created successfully')
   connection.createChannel(function (err1, channel) {
     if (err1) {
       throw err1;

@@ -1,3 +1,5 @@
+const { debug } = require("shared").utils.logging;
+
 const retrieveUser = require('./retrieveUser');
 const addEventToUser = require('./addEventToUser');
 const updateDomainUser = require('./updateDomainUser');
@@ -9,15 +11,15 @@ exports.executeChain = async (message) => {
     const chain = [
         retrieveUser,
         addEventToUser,
-        // updateDomainUser,
+        updateDomainUser,
         getRulesThatContainEvent,
         evaluateRules,
-        addLatestMessage
+        updateDomainUser,
     ];
 
     message.processingMessage = 'Success';
 
-    console.log('To execute chain', message)
+    debug('To execute chain', message)
 
     try {
         for(const cmd of chain) {
@@ -28,5 +30,6 @@ exports.executeChain = async (message) => {
         message.processingMessage = e.message;
         await addLatestMessage.execute(message);
     }
-    console.log('Final message is: ', message);
+    delete message.rules;
+    debug('Final message is: ', message);
 }
