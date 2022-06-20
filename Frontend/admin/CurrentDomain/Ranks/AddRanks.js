@@ -9,10 +9,6 @@ function getParamFromUrl(parameter) {
   const urlParams = new URLSearchParams(search);
   return urlParams.get(parameter);
 }
-// url-urile de baza
-var basePostURL = url + "/rank/domain/";
-// id-ul domeniului
-//let postURL = basePostURL + getParamFromUrl("domain");
 
 $(function () {
   $("#nav").load("/admin/sidebar/sidebarCurrentDomain.html");
@@ -35,27 +31,13 @@ document.getElementById("add_rank_form").addEventListener("submit", (e) => {
   const data = new FormData(e.target);
   // get the form data
   var response = {};
-  data.forEach(function (v, key) {
-    response[key] = v;
-  });
+  response["name"] = data.get("rank_name");
+  response["score"] = data.get("rank_score");
+  response["rankTo"] = data.get("rankTo");
   // get the <ul> entries and put them in an array
   var json = JSON.stringify(response);
-  // sending data to the server
-  // info needed for requests
+  authPost("/rank/domain/" + getParamFromUrl("domain"), json).then(response => {
+    window.location.href = "/admin/CurrentDomain/Ranks/index.html/?domain=" + getParamFromUrl("domain");
+  });
 
-  /*
-  var requestOptions = {
-    method: 'POST',
-    body: json,
-    redirect: 'follow'
-  };
-  fetch(postURL, requestOptions)
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-*/
-  authPost("/rank/domain/" + getParamFromUrl("domain"), json);
-
-  console.log(json);
-  window.location.href = "/admin/CurrentDomain/Ranks/index.html/?domain=" + getParamFromUrl("domain");
 });

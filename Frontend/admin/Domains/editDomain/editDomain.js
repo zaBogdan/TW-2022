@@ -172,9 +172,9 @@ window.addEventListener('load', () => {
             const data = new FormData(e.target);
             // get the form data
             let val = {};
-            data.forEach(function (v, key) {
-                val[key] = v;
-            });
+            val["name"] = data.get("domain_name");
+            val["active"] = true;
+            val["activeUrl"] = [data.get("domain_address")];
             // get the <ul> entries and put them in an array
             let users = [];
             const u = document.getElementsByClassName("text");
@@ -184,27 +184,12 @@ window.addEventListener('load', () => {
             val["users"] = users;
             // stringify
             let json = JSON.stringify(val);
-            // sending data to the server
-
-            /*
-            let requestOptions = {
-                method: 'PUT',
-                body: json,
-                redirect: 'follow',
-
-            };
-            fetch(putURL, requestOptions)
-                .then(response => response.json())
-                .then(result => console.log(result))
-                .catch(error => console.log('error', error));
-            */
-
-            authPost("/domain/" + website_id, json);
-
-
-
-            // redirect to domains home page
-            window.location.href = "/admin/Domains/index.html";
+            console.log(json);
+            authPut("/domain/" + website_id, json).then(response => {
+                // redirect to domains home page
+                window.location.href = "/admin/Domains/index.html";
+            });
+            
         });
         const cnclBtn = document.getElementById("cancel_form").onclick = function () {
             location.href = "/admin/Domains/index.html";
