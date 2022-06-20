@@ -17,7 +17,6 @@ routerModule.paths = {}
 
 routerModule.handle = async function(req, res, next) {
     debug('[ Zappucinno ][ Router ] Started handling request')
-    console.log(this.paths)
     let [path, query] = req.url.split('?');
     if(!path.endsWith('/')) {
         path += '/';
@@ -47,7 +46,7 @@ routerModule.handle = async function(req, res, next) {
         if(func === null || func === undefined) break;
     }
     if(func === undefined) {
-        throw new Error('Failed to find specified path');
+        throw new Error(`Failed to find '${path}' path`);
     }
 
     let response = undefined;
@@ -63,7 +62,7 @@ routerModule.handle = async function(req, res, next) {
     if(response === undefined) {
         const method = req.method.toLowerCase();
         if(func[method] === undefined) {
-            throw new Error(`Method ${req.method} is not supported for this route!`);
+            throw new Error(`Method ${req.method} is not supported for '${path}' route!`);
         }
         response = await func[req.method.toLowerCase()](req, res, next);
     }

@@ -70,7 +70,7 @@ module.exports = function(options) {
 
         const method = configureMethod(req);
         if(method !== null) {
-            res.setHeader('Access-Control-Allow-Methods',  method);
+            res.setHeader('Access-Control-Allow-Methods',  '*');
         }
         // res.setHeader('Access-Control-Allow-Headers', defaultOptions.headers);
         res.setHeader('Access-Control-Allow-Headers', '*');
