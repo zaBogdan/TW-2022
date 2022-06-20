@@ -12,12 +12,13 @@ Bogdan Zavadovschi  <br />
    The product being developed is an API that allows customers to integrate gamification into their own platforms, be it web or mobile applications. The main benefit of this API is the ease with which one can define the rules that underly such a system. Our application allows the user to specify what metrics are being counted (such as the number of consecutive logins, or number of comments posted), what awards are given (i.e. Badges, Achievements, Credits, etc) and most importantly, it allows the user to customize the rules specifying how these awards are distribuited (what milestones need to be achieved for an award to be granted). The intended target audience are web applications with large numbers of registered users, who look at ways to increase user engagement and retention.  <br />
     
     Design: https://www.figma.com/file/yeu68MeiYidnejPOQfXZx5/WEB?node-id=0%3A1
+    Diagram: https://github.com/zaBogdan/TW-2022/blob/main/Ux/diagram.jpg
  </p>
     
   
 <p>
-  <a href="https://github.com/zaBogdan/TW-2022/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/zaBogdan/TW-2022" alt="contributors" />
+ <a href="https://github.com/DeliTrbat/EMa_Estate-Web-Manager/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/DeliTrbat/EMa_Estate-Web-Manager" alt="contributors" />
   </a>
 </p>
 
