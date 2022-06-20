@@ -22,7 +22,7 @@ body {
 .main_content {
   display: flex;
   width: 100%;
-  margin-left: 200px;
+  justify-content: center;
   padding: 40px 0px;
   align-items:center;
   flex-direction: column;
@@ -134,8 +134,3 @@ body {
   }
 }
 
-@media (max-width: 1060px) {
-  .wrapper .main_content {
-    margin-left: 100px;
-  }
-}

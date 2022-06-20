@@ -22,8 +22,7 @@ body {
 .main_content {
   display: flex;
   width: 100%;
-  margin-left: 200px;
-  padding: 40px 0px;
+  padding: 30px 0px;
   align-items:center;
   flex-direction: column;
 }
@@ -40,7 +39,6 @@ body {
 }
 
 #editDomainWindow{
-  display: flex;
   width: 65vw;
   height: 80vh;
   background: #acc8c9;
@@ -66,6 +64,11 @@ body {
 }
 
 
+#add_domain_form input{
+  height: 45px;
+  width: 180px;
+}
+
 #edit_domain_form Button{
   margin-top: 6%;
   width: 140px;
@@ -77,9 +80,22 @@ body {
   font-size: 1rem;
   outline: none;
 }
+
+
 #username_form{
   display: none;
 }
+#add_new_user,#cancel_username{
+  height: 35px;
+  width: 60px;
+  border:none;
+  color: white;
+  background-color: #2e3e3f;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+}
+
 #username_form button{
   height: 36px;
   width: 80px;

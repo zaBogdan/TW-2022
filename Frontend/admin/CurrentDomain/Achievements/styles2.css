@@ -21,7 +21,6 @@ body {
 .wrapper .main_content {
   display: flex;
   width: 100%;
-  margin-left: 200px;
   padding: 40px 0px;
   align-items:center;
   justify-content:center;
@@ -47,7 +46,7 @@ body {
   list-style:none;
   display: flex;
   background: #acc8c9;
-  color: #385170;
+  color:#2e3e3f;
   width: 60vw;
   height: 72vh;
   border: 2px solid rgba(211, 245, 250, 0.3);
@@ -57,10 +56,11 @@ body {
 }
 
  .flex-item h2{
-  font-size: 2vw;
+  font-size: 2.5vw;
   color: #2e3e3f;
   padding-top: 3%;
   text-align: left;
+  padding-bottom: 4%;
 }
 
 .flex-item input{
@@ -75,6 +75,22 @@ body {
   height: 140px;
   padding-right: 5px;
   margin-top: 2%;
+}
+
+.flex-item label{
+  font-size:larger;
+  font-weight: bold;
+}
+
+#butoane{
+  width: 30%;
+  height: 40px;
+  border:none;
+  color: white;
+  background-color: #2e3e3f;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
 }
 
 .Achievements_list p{
@@ -95,33 +111,16 @@ body {
  width: 100px;
 }
 
-.Addbutton{
-  margin-bottom: 4%;
-  width: 200px;
-  height: 50px;
-  border:none;
-  color: white;
-  background-color: #2e3e3f;
-  border-radius: 4px;
-  font-size: 1rem;      
-}
 
 
-.Addbutton:hover{
+#butoane:hover{
   background-color:#01858f;
 }
+
 .Achievements_list .fas:hover{
   color:#01858f;
 }
 
-
-/*
-@media (max-width: 1060px) {
-  .flex-container {
-    flex-wrap: wrap;
-  }
-}
-*/
 
 .sidebar .fa-solid{
   display: none;

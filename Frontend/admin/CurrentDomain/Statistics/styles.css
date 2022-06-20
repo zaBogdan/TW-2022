@@ -19,13 +19,6 @@ color: white;
   background-color: #acc8c9;
 }
 
-
-.wrapper .main_content{
-  width: 100%;
-  margin-left: 200px;
-  padding: 100px 100px;
-}
-
 .wrapper .main_content h1{
   text-align: center;
   color: #acc8c9;
@@ -35,6 +28,14 @@ color: white;
   padding-bottom: 1%;
   font-size: 50px;
 }
+
+.main_content{
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 .flex-container {
   display: flex;
@@ -54,8 +55,10 @@ color: white;
   font-weight: bold;
   font-size: 1.5em;
   text-align: center;
-  width: 200px;
+  width: 320px;
+  min-width: 210px;
   height: 200px;
+  min-height: 180px;
   padding-left: 0px;
   border: 2px solid rgba(211, 245, 250, 0.3);
   border-radius: 28px;
@@ -69,11 +72,6 @@ color: white;
 
 }
 
-@media (max-width: 1060px){
-.wrapper .main_content{
-  margin-left: 100px;
-}
-}
 
 .sidebar .fa-solid {
   display: none;

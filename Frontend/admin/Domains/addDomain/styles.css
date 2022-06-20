@@ -37,7 +37,6 @@ body {
 .main_content {
   display: flex;
   width: 100%;
-  margin-left: 200px;
   padding: 30px 0px;
   align-items:center;
   flex-direction: column;
@@ -45,7 +44,6 @@ body {
 
 
 #addDomainWindow{
-  display: flex;
   width: 65vw;
   height: 70vh;
   background: #acc8c9;
@@ -53,7 +51,7 @@ body {
   color: #2e3e3f;
   font-weight: bold;
   font-size: 2em;
-  padding-left: 15%;
+  padding-left: 3%;
   border: 2px solid rgba(211, 245, 250, 0.3);
   border-radius: 28px;
   flex-direction: column;
@@ -62,9 +60,7 @@ body {
 #add_domain_form{
   margin-top: 4%;
 }
-form .input{
-  height: 50;
-}
+
 
 #username{
   height:35px;
@@ -92,10 +88,16 @@ form .input{
   display: none;
 }
 
-#add_domain_form Button{
+#add_domain_form input{
+  height: 45px;
+  width: 180px;
+}
+
+
+#submitBtn,#cancel_form{
   margin-top: 6%;
-  width: 140px;
-  height: 50px;
+  width: 200px;
+  height: 55px;
   border:none;
   color: white;
   background-color: #2e3e3f;
@@ -104,20 +106,13 @@ form .input{
   outline: none;
 }
 
-#add_domain_form input{
-  height: 35px;
-  width: 180px;
-}
 
 #add_domain_form Button:hover{
   background-color:#01858f;
 
 }
 
-#username_form button{
-  height: 35px;
-  width: 65px;
-}
+
 
 #add_domain_form .fas:hover{
   color:#01858f;
