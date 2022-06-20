@@ -1,4 +1,3 @@
-
 const url = "https://tw-api.pground.io";
 
 async function refreshToken() {
@@ -123,9 +122,3 @@ async function authDelete(path) {
         console.error("Could not fetch from API! : " + error);
     }
 }
-
-
-
-
-
-

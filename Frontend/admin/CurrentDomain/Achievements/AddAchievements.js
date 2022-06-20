@@ -40,18 +40,6 @@ document.getElementById("add_achievement_form").addEventListener("submit", (e) =
   // sending data to the server
   // info needed for requests
 
-  /*
-  var requestOptions = {
-    method: 'POST',
-    body: json,
-    redirect: 'follow'
-  };
-
-  fetch(postURL, requestOptions)
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-    */
 
   authPost("/achievement/domain/" + website_id, json);
 

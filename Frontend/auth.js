@@ -55,6 +55,14 @@ async function register() {
     })
     let data = await response.json();
 
+    if (response.status === 200) {
+      window.location.replace("/login.html");
+      alert("registered Successfully");
+    }
+    else {
+      alert(data.message);
+    }
+
     return data;
   } catch (err) {
     return "Error on registering, error type = " + err;

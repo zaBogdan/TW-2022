@@ -121,18 +121,6 @@ window.addEventListener('load', () => {
         var json = JSON.stringify(val);
         // sending data to the server
 
-        /*
-        let requestOptions = {
-            method: 'POST',
-            body: json,
-            redirect: 'follow'
-        };
-        fetch(postURL, requestOptions)
-            .then(response => response.json())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-
-        */
 
         authPost(url + "/domain/self", json);
 
