@@ -13,12 +13,13 @@ Bogdan Zavadovschi  <br />
     
     Design: https://www.figma.com/file/yeu68MeiYidnejPOQfXZx5/WEB?node-id=0%3A1
     Diagram: https://github.com/zaBogdan/TW-2022/blob/main/Ux/diagram.jpg
+    Documentation: https://github.com/zaBogdan/TW-2022/tree/main/documentation
  </p>
     
   
 <p>
- <a href="https://github.com/DeliTrbat/EMa_Estate-Web-Manager/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/DeliTrbat/EMa_Estate-Web-Manager" alt="contributors" />
+ <a href="https://github.com/zaBogdan/TW-2022/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/zaBogdan/TW-2022" alt="contributors" />
   </a>
 </p>
 
