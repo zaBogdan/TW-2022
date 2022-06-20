@@ -1,0 +1,9 @@
+services:
+  Frontend:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    image: abl/frontend-static
+    restart: always
+    ports:
+      - "3001:80"
