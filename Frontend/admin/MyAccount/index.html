@@ -32,14 +32,14 @@
             <i class="fa-solid fa-user fa-8x"></i>
           </div>
          <div class="RightSide">
-          <input type="text" id="firstName" placeholder="First name">
-          <input type="text" id="lastName" placeholder="Last name">
-          <input type="text" id="username" placeholder="Username">
-          <input type="date" id="dateOfBirth" placeholder="Date of birth">
+          <input type="text" id="firstName" placeholder="First name" required>
+          <input type="text" id="lastName" placeholder="Last name" required>
+          <input type="text" id="username" placeholder="Username" required>
+          <input type="date" id="dateOfBirth" placeholder="Date of birth" required>
           <button>Change Password <i class="fa-solid fa-key"></i></button>
 
             <div class="BottomButtons">
-              <button>Update <i class="fa-solid fa-check"></i></button>
+              <button type="submit" onclick="post()">Update <i class="fa-solid fa-check"></i></button>
               <button onClick="window.location.reload()">Cancel <i class="fa-solid fa-x"></i></button>
             </div>
           </div>

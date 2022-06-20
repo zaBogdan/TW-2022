@@ -12,7 +12,7 @@ function getParamFromUrl(parameter) {
 }
 // se extrage din URL id-ul unic al unui domeniu, a.i sa se poata construi corect URL-ul pentru API
 let website_id = getParamFromUrl("domain");
-let baseURL = url + "/domain/";
+let baseURL = "/domain/";
 let getOneURL = baseURL + website_id;
 
 //let putURL = baseURL + website_id;
@@ -35,7 +35,7 @@ function hideForm() {
 
 
 window.addEventListener('load', () => {
-    // se face fetch-ul
+    // se face auth-ul
     var domain_info = authGet(getOneURL, requestOptions);
 
     domain_info.then(response => {

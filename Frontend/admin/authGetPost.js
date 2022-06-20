@@ -15,7 +15,7 @@ async function refreshToken() {
         else {    // != 200 .. n-are dreptul la alt refreshToken
             localStorage.removeItem('accessToken');
             localStorage.removeItem('refreshToken');
-            window.location.replace(url + "/login.html");   //probabil de modificat redirectul
+            window.location.replace("/login.html");   //probabil de modificat redirectul
         }
         console.log(localStorage);
 
@@ -101,6 +101,28 @@ async function authPut(path, body) {  //puteam sa nu repet.. dar e mai frumos nu
     }
 }
 
+
+async function authDelete(path) {
+    try {
+        let response = await fetch(url + path, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('refreshToken')}`
+            },
+            method: 'DELETE',
+            redirect: 'follow'
+        })
+
+        let data = await response.json();
+        if (response.status === 403) {  //forbidden
+            refreshToken();
+        }
+        console.log(data); //testing
+        return data;
+    }
+    catch (error) {
+        console.error("Could not fetch from API! : " + error);
+    }
+}
 
 
 

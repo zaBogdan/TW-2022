@@ -8,24 +8,24 @@ $(function () {
 async function getInputData() {
   window.firstNameInput = document.getElementById("firstName").value;
   window.lastNameInput = document.getElementById("lastName").value;
-  window.usernameInput = document.getElementById("userName").value;
+  window.usernameInput = document.getElementById("username").value;
   window.dateOfBirthInput = document.getElementById("dateOfBirth").value;
+
+
+  window.body = JSON.stringify({
+    "firstName": firstNameInput,
+    "lastName": lastNameInput,
+    "username": usernameInput,
+    "dateOfBirth": dateOfBirthInput,
+  })
 }
 
 
-var body = JSON.stringify({
-  "type": 1,
-  "firstName": firstNameInput,
-  "lastName": lastNameInput,
-  "username": usernameInput,
-  "dateOfBirth": dateOfBirthInput,
-  //"email": emailInput  //TODO?
-})
 
 
-async function update() {    //update dar de fapt e post.. 
+async function post() {    //update dar de fapt e post.. 
   await getInputData();
-  authPost("user/profile/", body);
+  await authPost("user/profile/", body);
 }
 
 
