@@ -2,6 +2,8 @@ const { debug } = require('shared').utils.logging;
 const { v4: uuid } = require('uuid');
 const StatusCodeException = require('shared').exceptions.StatusCodeException;
 const { domainSchema } = require('../validation');
+const httpRequest = require('shared').modules.internal_comm.http.request;
+const { USER } = require('shared').config.services;
 
 exports.getDomainById = async (req) => {
     const domains = await req.db.Domain.findOne({
@@ -33,14 +35,32 @@ exports.putDomainById = async (req) => {
     domain.name = name ?? domain.name;
     domain.activeUrl = activeUrl ?? domain.activeUrl; 
     domain.active = active ?? domain.active;
-    if(domain.users.length > 3) {
-        throw new StatusCodeException('You can add up to 3 users to a domain.', 400)
+
+    if(domain.users) {
+        if(domain.users.length > 3) {
+            throw new StatusCodeException('You can add up to 3 users to a domain.', 400)
+        }
+
+        for(const user of domain.users) {
+            let data;
+            try {
+                data = await httpRequest(req, 'post', `${USER}/internal/user/find`, {
+                    name: user
+                })
+            } catch(e) {
+                throw new StatusCodeException(`User with username ${user} doesn't exists.`, 400)
+            }
+            if(data?.data?.user?.userId === req.locals.token.userId) {
+                throw new StatusCodeException(`You can\'t add yourself to a domain.`, 400)
+    
+            }
+        }
+        domain.users = users ?? domain.users;
     }
-    domain.users = users ?? domain.users;
 
     await domain.save();
 
-    return '';
+    return domain;
 }
 
 exports.deleteDomainById = async (req) => {
@@ -48,7 +68,7 @@ exports.deleteDomainById = async (req) => {
         _id: req?.params?.id,
         userId: req.locals.token.userId
     })
-    return null;
+    return domain;
 }
 
 exports.getAllDomains = async (req) => {
@@ -69,7 +89,7 @@ exports.getAllDomains = async (req) => {
 exports.createNewDomain = async (req) => {
     await domainSchema.createDomain.validateAsync(req.body)
 
-    const { name, activeUrl } = req.body
+    const { name, activeUrl, users, active } = req.body
 
     const domainExists = await req.db.Domain.findOne({
         name,
@@ -79,17 +99,32 @@ exports.createNewDomain = async (req) => {
     if(domainExists !== null) {
         throw new StatusCodeException(`Domain with name ${name} already exists. Try to be more creative`, 400)
     }
+    for(const user of users) {
+        let data;
+        try {
+            data = await httpRequest(req, 'post', `${USER}/internal/user/find`, {
+                name: user
+            })
+        } catch(e) {
+            throw new StatusCodeException(`User with username ${user} doesn't exists.`, 400)
+        }
+        if(data?.data?.user?.userId === req.locals.token.userId) {
+            throw new StatusCodeException(`You can\'t add yourself to a domain.`, 400)
+
+        }
+    }
+
     const domain = new req.db.Domain({
         userId: req.locals.token.userId,
         name,
-        users: [],
+        users: users,
         activeUrl,
         registeredAt: new Date(),
-        active: req?.body?.active ? req.body.active : true,
+        active: active ? active : true,
         apiKey: uuid().replace(/-/gi, ''),
     })
 
-    await domain.save();
+    // await domain.save();
     return domain;
 }
 
