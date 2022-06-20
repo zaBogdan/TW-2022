@@ -17,7 +17,7 @@ Bogdan Zavadovschi  <br />
     <!-- Badges -->
 <p>
   <a href="https://github.com/zaBogdan/TW-2022/graphs/contributors">
-    <img src="https://github.com/zaBogdan/TW-2022" alt="contributors" />
+    <img src=""https://img.shields.io/github/contributors/zaBogdan/TW-2022" alt="contributors" />
   </a>
 </p>
 
