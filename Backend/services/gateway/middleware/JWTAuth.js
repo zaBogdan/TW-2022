@@ -13,10 +13,18 @@ exports.JWTAuth = async (req, res, next) => {
     const headers = req.headers
 
     // checking if we have a public route here
-    if(setup.OPEN_ROUTES.includes(path)) {
-        debug(`Path '${path}' doesn't require JWT authentication`);
-        return;
+    for(const _path of setup.OPEN_ROUTES) {
+        if(_path.endsWith('/*')) {
+            if(path.startsWith(_path.replace('/*', ''))) {
+                return;
+            }
+        }else {
+            if(path === _path) {
+                return;
+            }
+        }
     }
+
     if(headers?.authorization === undefined) {
         return res.status(403).json({
             success: false,

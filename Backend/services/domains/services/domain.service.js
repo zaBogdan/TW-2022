@@ -20,7 +20,6 @@ exports.getDomainById = async (req) => {
 }
 
 exports.putDomainById = async (req) => {
-    await domainSchema.updateDomain.validateAsync(req.body)
 
     const domain = await req.db.Domain.findOne({
         _id: req.params.id,
@@ -31,6 +30,7 @@ exports.putDomainById = async (req) => {
         throw new StatusCodeException('Domain with specified id doesn\'t exists.', 404)
     }
 
+    await domainSchema.updateDomain.validateAsync(req.body)
     const { name, activeUrl, active, users } = req.body
     domain.name = name ?? domain.name;
     domain.activeUrl = activeUrl ?? domain.activeUrl; 
@@ -133,8 +133,36 @@ exports.createNewDomain = async (req) => {
 }
 
 exports.triggerEventForDomain = async (req) => {
-    console.log('Ids: ', req.params)
-    console.log('JWToken data is: ', req.locals.tokens);
+    const { domainId } = req.params; 
+    const apiKey = req.headers['x-gameify-key'];
+
+    if(apiKey === undefined || apiKey === null) {
+        throw new StatusCodeException('You need to provide an api key to use this route.', 403);
+    }
+
+    const domain = await req.db.Domain.findOne({
+        _id: domainId,
+        apiKey
+    })
+    if(domain === null) {
+        throw new StatusCodeException('Invalid API Key or Domain id.', 404)
+    }
+
+    if(domain.active === false) {
+        throw new StatusCodeException('Domain is not active.', 400)
+    }
+
+    await domainSchema.triggerEvent.validateAsync(req.body)
+
+    const { event, listenerId } = req.body;
+
+    const messageBody = {
+        domainId,
+        event,
+        listenerId
+    }
+
+    console.log(messageBody)
     // TODO implement this later
     return null;
 }
