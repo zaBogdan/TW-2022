@@ -8,13 +8,12 @@
   <link rel="stylesheet" href="/admin/CurrentDomain/Achievements/styles2.css">
   <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="../../authGetPost.js"></script>
+  <script src="/admin/authGetPost.js"></script>
 </head>
 
 <body>
 
   <div class="wrapper">
-
     <div id="nav">
       <!-- included from js-->
     </div>
@@ -30,7 +29,7 @@
             <label for="achievement_name">Achievement name:</label>
             <input type="text" name="achievement_name" placeholder="insert a name for your achievement" required>
             <label for="achievement_score">Score:</label>
-            <input type="number" name="achievement_score" placeholder="insert a score for this achievement">
+            <input type="number" name="achievement_score" placeholder="insert a score for this achievement" min="0">
             <!--  <label for="avatar">Image:</label>
             <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" value="choose image">-->
             <input type="submit" value="Save Achievement" />

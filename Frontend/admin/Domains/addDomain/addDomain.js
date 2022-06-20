@@ -107,9 +107,9 @@ window.addEventListener('load', () => {
         const data = new FormData(e.target);
         // get the form data
         var val = {};
-        data.forEach(function (v, key) {
-            val[key] = v;
-        });
+        val["name"] = data.get("name");
+        val["active"] = true;
+        val["activeUrl"] = [data.get("domain_address")];
         // get the <ul> entries and put them in an array
         var users = [];
         const u = document.getElementsByClassName("text");
@@ -120,25 +120,12 @@ window.addEventListener('load', () => {
         // stringify
         var json = JSON.stringify(val);
         // sending data to the server
-
-        /*
-        let requestOptions = {
-            method: 'POST',
-            body: json,
-            redirect: 'follow'
-        };
-        fetch(postURL, requestOptions)
-            .then(response => response.json())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-
-        */
-
-        authPost(url + "/domain/self", json);
-
-
+        console.log(json);
+        authPost("/domain/self", json).then(response => {
+            
         // redirect to domains home page
         window.location.href = "/admin/Domains/index.html";
+        });
     });
 
     // daca se decide la renuntare => optiunea "cancel"

@@ -1,4 +1,3 @@
-
 const url = "https://tw-api.pground.io";
 
 async function refreshToken() {
@@ -15,7 +14,7 @@ async function refreshToken() {
         else {    // != 200 .. n-are dreptul la alt refreshToken
             localStorage.removeItem('accessToken');
             localStorage.removeItem('refreshToken');
-            window.location.replace(url + "/login.html");   //probabil de modificat redirectul
+            window.location.replace("/login.html");   //probabil de modificat redirectul
         }
         console.log(localStorage);
 
@@ -26,7 +25,7 @@ async function refreshToken() {
 
 var requestOptions = {
     headers: {
-        Authorization: `Bearer ${localStorage.getItem('refreshToken')}`    // aici trebuie verificat daca exista sau nu tokenul cu ? :  
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`    // aici trebuie verificat daca exista sau nu tokenul cu ? :  
     },
     method: 'GET',
     redirect: 'follow'
@@ -39,7 +38,7 @@ async function authPost(path, body) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${localStorage.getItem('refreshToken')}`    // aici trebuie verificat daca exista sau nu tokenul cu ? :  
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`    // aici trebuie verificat daca exista sau nu tokenul cu ? :  
             },
             body: body,
             redirect: 'follow'
@@ -83,7 +82,7 @@ async function authPut(path, body) {  //puteam sa nu repet.. dar e mai frumos nu
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${localStorage.getItem('refreshToken')}`    // aici trebuie verificat daca exista sau nu tokenul cu ? :  
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`    // aici trebuie verificat daca exista sau nu tokenul cu ? :  
             },
             body: body,
             redirect: 'follow'
@@ -106,7 +105,7 @@ async function authDelete(path) {
     try {
         let response = await fetch(url + path, {
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('refreshToken')}`
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
             method: 'DELETE',
             redirect: 'follow'
@@ -123,9 +122,3 @@ async function authDelete(path) {
         console.error("Could not fetch from API! : " + error);
     }
 }
-
-
-
-
-
-

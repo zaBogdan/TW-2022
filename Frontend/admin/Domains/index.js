@@ -1,11 +1,8 @@
-
-$(function () {
-  $("#nav").load("../sidebar/sidebar.html");
-});   /*sidebar included*/
-
-
-
-// Construirea dinamica a listei in functie de ce primim din baza de date
+window.addEventListener('load', (event) => {
+  $(function () {
+    $("#nav").load("../sidebar/sidebar.html");
+  });   /*sidebar included*/
+  // Construirea dinamica a listei in functie de ce primim din baza de date
 // versiunea initiala, needitata
 var domenii = document.getElementById("domainList");
 var domains = authGet("/domain/self", requestOptions);
@@ -69,4 +66,9 @@ domains.then(response => {
     }
   }
 });
+
+
+});
+
+
 

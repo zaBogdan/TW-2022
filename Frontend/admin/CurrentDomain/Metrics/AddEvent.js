@@ -26,43 +26,19 @@ function cancel() {
 }
 
 
-// url-urile de baza
-var baseGetURL = url + "/event/domain/";
-var baseDeleteURL = url + "/event/";
-var basePostURL = url + "/event/domain/";
-// id-ul domeniului
-let website_id = getParamFromUrl("domain");
-let GetURL = baseGetURL + website_id;
-let DeleteURL = baseDeleteURL + website_id;
-let PostURL = basePostURL + website_id;
-
 
 document.getElementById("add_event_form").addEventListener("submit", (e) => {
   e.preventDefault();
   const data = new FormData(e.target);
   // get the form data
   var response = {};
-  data.forEach(function (v, key) {
-    response[key] = v;
-  });
+  response["name"] = data.get("event_name");
+  response["active"] = true;
   // get the <ul> entries and put them in an array
   var json = JSON.stringify(response);
-  // sending data to the server
-  // info needed for requests
+  console.log(json)
+  authPost("/event/domain/" + getParamFromUrl("domain"), json).then(response => {
+     window.location.href = "/admin/CurrentDomain/Metrics/index.html/?domain=" + getParamFromUrl("domain");
+  });
 
-  /*
-  var requestOptions = {
-    method: 'POST',
-    body: json,
-    redirect: 'follow'
-  };
-
-  fetch(PostURL, requestOptions)
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-  */
-  authPost("/event/domain/" + website_id, json);
-
-  window.location.href = "/admin/CurrentDomain/Achievements/index.html/?domain=" + getParamFromUrl("domain");
 });

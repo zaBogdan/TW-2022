@@ -4,13 +4,6 @@ function getParamFromUrl(parameter) {
   const urlParams = new URLSearchParams(search);
   return urlParams.get(parameter);
 }
-// url-urile de baza
-var basePutURL = url + "/rank/self/";
-var baseGetURL = url + "/rank/self/"
-// id-ul domeniului
-let achievement_id = getParamFromUrl("achievement");
-//let putURL = basePutURL + achievement_id;
-let getURL = baseGetURL + achievement_id;
 
 $(function () {
   $("#nav").load("/admin/sidebar/sidebarCurrentDomain.html");
@@ -18,21 +11,11 @@ $(function () {
 /*sidebar included*/
 
 
-/// functie pentru a face display la numele fisierului ales
-/*
-var upload =  document.getElementById( 'avatar' );
-var infoArea = document.getElementById( 'file_upload_filename' );
-upload.addEventListener( 'change', showFileName );
-function showFileName( event ) {
-  var input = event.srcElement;
-  var fileName = input.files[0].name;
-  infoArea.textContent = 'File name: ' + fileName;
-}*/
-
-var achievement_info = getFromApi(getURL, requestOptions);   // postToApi 
+var achievement_info = authGet("/rank/"+getParamFromUrl("rank"), requestOptions);   // postToApi 
 achievement_info.then(response => {
   document.getElementById("rank_name").value = response.data.rank["name"];
   document.getElementById("rank_score").value = response.data.rank["score"];
+  document.getElementById("rankTo").value = response.data.rank["rankTo"];
 })
 
 // functions
@@ -45,27 +28,15 @@ document.getElementById("edit_rank_form").addEventListener("submit", (e) => {
   const data = new FormData(e.target);
   // get the form data
   var response = {};
-  data.forEach(function (v, key) {
-    response[key] = v;
-  });
+  response["name"] = data.get("rank_name");
+  response["score"] = data.get("rank_score");
+  response["rankTo"] = data.get("rankTo");
   // get the <ul> entries and put them in an array
   var json = JSON.stringify(response);
-  // sending data to the server
-  // info needed for requests
-  /*
-  var requestOptions = {
-    method: 'PUT',
-    body: json,
-    redirect: 'follow'
-  };
+  console.log(json);
+  authPut("/rank/" + getParamFromUrl("rank"), json).then(response => {
+    window.location.href = "/admin/CurrentDomain/Ranks/index.html/?domain=" + getParamFromUrl("domain");
+  });
 
-  fetch(putURL, requestOptions)
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-    */
-
-  authPut("/rank/self/" + achievement_id, json);
-
-  window.location.href = "/admin/CurrentDomain/Ranks/index.html/?domain=" + getParamFromUrl("domain");
+  
 });
