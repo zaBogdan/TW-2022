@@ -4,6 +4,7 @@ const StatusCodeException = require('shared').exceptions.StatusCodeException;
 const { domainSchema } = require('../validation');
 const httpRequest = require('shared').modules.internal_comm.http.request;
 const { USER } = require('shared').config.services;
+const { amqp } = require('../modules');
 
 exports.getDomainById = async (req) => {
     const domains = await req.db.Domain.findOne({
@@ -162,7 +163,6 @@ exports.triggerEventForDomain = async (req) => {
         listenerId
     }
 
-    console.log(messageBody)
-    // TODO implement this later
+    await amqp.publisher(messageBody);
     return null;
 }
