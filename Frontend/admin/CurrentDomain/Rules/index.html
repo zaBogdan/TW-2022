@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Gammification</title>
+    <link rel="stylesheet" href="/admin/CurrentDomain/Rules/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/img/logo.svg" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/admin/authGetPost.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="nav">
+        </div>
+
+        <div class="main_content">
+            <h1>Manage Rules</h1>
+            <h2>
+                Here, you can manage the rules for your website.
+            </h2>
+
+            <div class="flex-container">
+                <div class="flex-item flex-1">
+                    <div class="rule_list">
+                        <h3>Rules List</h3>
+                        <div class="input_icon">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="myInput" onkeyup="search()" placeholder="Search for rules..">
+                        </div>
+
+                        <ul id="ruleList">
+                        </ul>
+                    </div>
+                    <button class="Addbutton" id="Addbutton" onclick="redirect()">
+                        Add Rule <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/admin/CurrentDomain/Rules/index.js"></script>
+</body>
+
+</html>
