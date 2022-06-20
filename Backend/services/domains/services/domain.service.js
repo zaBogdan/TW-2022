@@ -128,7 +128,7 @@ exports.createNewDomain = async (req) => {
         apiKey: uuid().replace(/-/gi, ''),
     })
 
-    // await domain.save();
+    await domain.save();
     return domain;
 }
 
