@@ -56,11 +56,11 @@ exports.getDomainUserByListenerId = async (req) => {
         response = await httpRequest({}, 'get', `${ACHIEVEMENTS}/internal/achievement/${domain._id}/${achievement}`);
         achievements.push(response.data.achievement)
     }
-    if(domainUser.rank !== 'default'){
-        response = await httpRequest({}, 'get', `${RANKS}/rank/${domainUser.rank}`);
-        const { rank } = response.data;
-        domainUser.rank = rank.name;
-    } 
+    // if(domainUser.rank !== 'default'){
+    //     response = await httpRequest({}, 'get', `${RANKS}/rank/${domainUser.rank}`);
+    //     const { rank } = response.data;
+    //     domainUser.rank = rank.name;
+    // } 
     domainUser.achievements = achievements;
     delete domainUser.events
     return domainUser;
