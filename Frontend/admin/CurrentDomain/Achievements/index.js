@@ -8,13 +8,32 @@ function getParamFromUrl(parameter) {
 function redirect() {
   window.location.href = "/admin/CurrentDomain/Achievements/AddAchievements.html?domain=" + getParamFromUrl("domain");
 }
+// functia de search
+function search() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("achievementList");
+  li = ul.getElementsByTagName('li');
+  console.log(li);
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
 
+    a = li[i].getElementsByClassName("name_in_list")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
 
 window.addEventListener('load', (event) => {
   $(function () {
     $("#nav").load("/admin/sidebar/sidebarCurrentDomain.html");
   });
-  
   /*sidebar included*/
   
 
@@ -83,28 +102,6 @@ window.addEventListener('load', (event) => {
       }
     }
   });
-  
-  // functia de search
-  function search() {
-    // Declare variables
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById('myInput');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("achievementList");
-    li = ul.getElementsByTagName('li');
-    console.log(li);
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-  
-      a = li[i].getElementsByClassName("name_in_list")[0];
-      txtValue = a.textContent || a.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        li[i].style.display = "";
-      } else {
-        li[i].style.display = "none";
-      }
-    }
-  }
   
   //
 });
