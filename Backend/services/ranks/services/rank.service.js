@@ -104,7 +104,7 @@ exports.updateRankById = async (req) => {
     await rankSchema.updateRank.validateAsync(req.body);
     const { name, score, rankTo } = req.body;
 
-    if(name) {
+    if(name && name !== rank.name) {
         const rankExists = await req.db.Rank.countDocuments({
             name,
             activeDomain: rank.activeDomain
@@ -119,7 +119,7 @@ exports.updateRankById = async (req) => {
         rank.score = score;
     }
 
-    if(rankTo) {
+    if(rankTo && rankTo !== 'default') {
         const rankExists = await req.db.Rank.countDocuments({
             name: rankTo,
             activeDomain: rank.activeDomain

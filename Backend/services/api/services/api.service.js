@@ -3,7 +3,7 @@ const StatusCodeException = require('shared').exceptions.StatusCodeException;
 const { apiSchema } = require('../validation');
 const { amqp } = require('../modules');
 const httpRequest = require('shared').modules.internal_comm.http.request;
-const { DOMAIN,DOMAIN_USER,ACHIEVEMENTS, EVENT } = require('shared').config.services;
+const { DOMAIN,DOMAIN_USER,ACHIEVEMENTS, EVENT,RANKS } = require('shared').config.services;
 
 exports.listenForDomainEvents = async (req) => {
     const {domainId} = req.params;
@@ -56,6 +56,11 @@ exports.getDomainUserByListenerId = async (req) => {
         response = await httpRequest({}, 'get', `${ACHIEVEMENTS}/internal/achievement/${domain._id}/${achievement}`);
         achievements.push(response.data.achievement)
     }
+    if(domainUser.rank !== 'default'){
+        response = await httpRequest({}, 'get', `${RANKS}/rank/${domainUser.rank}`);
+        const { rank } = response.data;
+        domainUser.rank = rank.name;
+    } 
     domainUser.achievements = achievements;
     delete domainUser.events
     return domainUser;
