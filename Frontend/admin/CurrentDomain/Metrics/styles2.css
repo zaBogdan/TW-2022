@@ -87,7 +87,7 @@ body {
   font-size: 1rem;      
 }
 
-#butoane{
+.butoane{
   width: 30%;
   height: 40px;
   border:none;
@@ -98,7 +98,7 @@ body {
   outline: none;
 }
 
-#butoane:hover{
+.butoane:hover{
   background-color:#01858f;
 }
 

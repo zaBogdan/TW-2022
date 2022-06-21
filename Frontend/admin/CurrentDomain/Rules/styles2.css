@@ -154,7 +154,7 @@ select::-ms-expand {
   color: #2e3e3f;
 }
 
-#butoane{
+.butoane{
   margin-top: 2%;
   width: 30%;
   height: 40px;
@@ -166,7 +166,7 @@ select::-ms-expand {
   outline: none;
 }
 
-#butoane:hover{
+.butoane:hover{
   background-color:#01858f;
 }
 
