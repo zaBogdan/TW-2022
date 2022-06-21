@@ -95,8 +95,9 @@ font-size: 70px;
 
 .RightSide input{
   height:40px;
-  width:300px;
+  width: 80%;
   margin-bottom: 5%;
+  min-width: 120px;
 }
 
 .BottomButtons{
