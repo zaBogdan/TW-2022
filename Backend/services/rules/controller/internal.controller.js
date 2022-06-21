@@ -2,13 +2,13 @@ const { internalService } = require('../services');
 
 exports.getRulesByContainingEvent = async (req, res, next) => {
     try {
-        const rule = await internalService.getRulesByContainingEvent(req);
+        const rules = await internalService.getRulesByContainingEvent(req);
 
         return res.status(200).json({
             success: true,
             message: 'Successfully fetched rule',
             data: {
-                rule
+                rules
             } 
         });
     }catch(e) {
