@@ -113,7 +113,7 @@ exports.getAllDomains = async (req) => {
 exports.createNewDomain = async (req) => {
     await domainSchema.createDomain.validateAsync(req.body)
 
-    const { name, activeUrl, users, active } = req.body
+    let { name, activeUrl, users, active } = req.body
 
     const domainExists = await req.db.Domain.findOne({
         name,
@@ -124,22 +124,25 @@ exports.createNewDomain = async (req) => {
         throw new StatusCodeException(`Domain with name ${name} already exists. Try to be more creative`, 400)
     }
 
-    if(users.length > 3) {
-        throw new StatusCodeException('You can have up to 3 administrators in a domain.', 400);
-    }
-    for(const user of users) {
-        let data;
-        try {
-            data = await httpRequest(req, 'post', `${USER}/internal/user/find`, {
-                name: user
-            })
-        } catch(e) {
-            throw new StatusCodeException(`User with username ${user} doesn't exists.`, 400)
-        }
-        if(data?.data?.user?.userId === req.locals.token.userId) {
-            throw new StatusCodeException(`You can\'t add yourself to a domain.`, 400)
-
-        }
+    if(users) {
+        if(users.length > 3) 
+            throw new StatusCodeException('You can have up to 3 administrators in a domain.', 400);
+            for(const user of users) {
+                let data;
+                try {
+                    data = await httpRequest(req, 'post', `${USER}/internal/user/find`, {
+                        name: user
+                    })
+                } catch(e) {
+                    throw new StatusCodeException(`User with username ${user} doesn't exists.`, 400)
+                }
+                if(data?.data?.user?.userId === req.locals.token.userId) {
+                    throw new StatusCodeException(`You can\'t add yourself to a domain.`, 400)
+        
+                }
+            }
+    } else {
+        users = []
     }
 
     const domain = new req.db.Domain({
