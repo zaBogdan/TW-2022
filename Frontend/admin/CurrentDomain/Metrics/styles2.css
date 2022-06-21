@@ -102,7 +102,9 @@ body {
   background-color:#01858f;
 }
 
-
+.newline{
+  display: block;
+}
 
 .Addbutton:hover{
   background-color:#01858f;

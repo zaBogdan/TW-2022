@@ -126,6 +126,10 @@ body {
   display: none;
 }
 
+.newline{
+  display: block;
+}
+
 
 @media(max-width:650px) {
 
