@@ -33,9 +33,14 @@ exports.getStatsForDomain = async (req) => {
         throw new StatusCodeException('Domain doesn\'t exists.', 404)
     }
 
-    
-
-    return null;
+    return {
+        achievements: 10,
+        ranks: 2,
+        domain_users: 120,
+        events: 500,
+        rules: 15,
+        registeredAt: domains.registeredAt
+    };
 }
 
 exports.putDomainById = async (req) => {
