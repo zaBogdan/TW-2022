@@ -113,22 +113,35 @@ body {
 }
 
 
-
 #add_domain_form .fas:hover{
   color:#01858f;
   font-size: 40px;
 }
 
 
+/*nu merge fara copy paste, aiae */
+@media(max-width:650px) {
 
-@media (max-width: 1060px) {
-  .flex-container {
-    flex-wrap: wrap;
+  .wrapper .nav .sidebar {
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    left: -200px;
+    text-align: left;
+    z-index: 2;
+    transition: 1s;
   }
-}
 
-@media (max-width: 1060px) {
-  .wrapper .main_content {
-    margin-left: 100px;
+  .nav .fa-solid {
+    display: block;
+    color: #fff;
+    font-size: 22px;
+    margin: 15px;
+    cursor: pointer;
+  }
+
+  .sidebar .fa-solid {
+    margin-left: 80%;
+    padding-bottom: 10%;
   }
 }
