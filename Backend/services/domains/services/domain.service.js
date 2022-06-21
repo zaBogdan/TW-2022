@@ -19,6 +19,25 @@ exports.getDomainById = async (req) => {
     return domains;
 }
 
+exports.getStatsForDomain = async (req) => {
+    const { id } = req.params;
+
+    const domains = await req.db.Domain.findOne({
+        _id: req?.params?.id,
+        userId: req.locals.token.userId
+    }, {
+        __v: 0
+    })
+    
+    if(domains === null) {
+        throw new StatusCodeException('Domain doesn\'t exists.', 404)
+    }
+
+    
+
+    return null;
+}
+
 exports.putDomainById = async (req) => {
 
     const domain = await req.db.Domain.findOne({
