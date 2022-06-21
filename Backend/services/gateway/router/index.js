@@ -8,6 +8,7 @@ const {
     rankController,
     userController,
     ruleController,
+    apiController
 } = require('../controller');
 
 router.use('/achievement/*', achievementController.forwardToAchievementService);
@@ -18,5 +19,6 @@ router.use('/event/*', eventController.forwardToEventService);
 router.use('/rank/*', rankController.forwardToRankService);
 router.use('/rule/*', ruleController.forwardToRuleService);
 router.use('/user/*', userController.forwardToUserService);
+router.use('/api/*', apiController.forwardToAPIService);
 
 module.exports = router;

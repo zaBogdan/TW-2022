@@ -4,7 +4,6 @@ const StatusCodeException = require('shared').exceptions.StatusCodeException;
 const { domainSchema } = require('../validation');
 const httpRequest = require('shared').modules.internal_comm.http.request;
 const { USER } = require('shared').config.services;
-const { amqp } = require('../modules');
 
 exports.getDomainById = async (req) => {
     const domains = await req.db.Domain.findOne({
@@ -131,38 +130,4 @@ exports.createNewDomain = async (req) => {
 
     await domain.save();
     return domain;
-}
-
-exports.triggerEventForDomain = async (req) => {
-    const { domainId } = req.params; 
-    const apiKey = req.headers['x-gameify-key'];
-
-    if(apiKey === undefined || apiKey === null) {
-        throw new StatusCodeException('You need to provide an api key to use this route.', 403);
-    }
-
-    const domain = await req.db.Domain.findOne({
-        _id: domainId,
-        apiKey
-    })
-    if(domain === null) {
-        throw new StatusCodeException('Invalid API Key or Domain id.', 404)
-    }
-
-    if(domain.active === false) {
-        throw new StatusCodeException('Domain is not active.', 400)
-    }
-
-    await domainSchema.triggerEvent.validateAsync(req.body)
-
-    const { event, listenerId } = req.body;
-
-    const messageBody = {
-        domainId,
-        event,
-        listenerId
-    }
-
-    await amqp.publisher(messageBody);
-    return null;
 }

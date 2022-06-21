@@ -13,8 +13,3 @@ exports.createDomain = Joi.object({
     activeUrl: Joi.array().items(Joi.string()).required(),
     users: Joi.array().items(Joi.string())
 })
-
-exports.triggerEvent = Joi.object({
-    event: Joi.string().required(),
-    listenerId: Joi.string().required()
-})
