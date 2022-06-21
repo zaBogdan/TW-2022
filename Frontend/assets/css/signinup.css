@@ -57,6 +57,9 @@
     background-color: #4CAF50;
     cursor: pointer;
 }
+.btn.submit:hover{
+    background-color: #4bd2b4;
+}
 
 .btn.register {
     text-decoration: none !important;
@@ -67,5 +70,5 @@
 
 .btn.register:hover {
     color: #fff;
-    background-color: #57B8FF;
+    background-color: #4bd2b4;
 }

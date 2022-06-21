@@ -14,11 +14,28 @@ $(function () {
 
     document.getElementsByName("firstName")[0].value = response.data.user.firstName;
     document.getElementsByName("lastName")[0].value = response.data.user.lastName;
+    document.getElementsByName("dateOfBirth")[0].value = formatDate(Date(response.data.user.dateOfBirth));
 
     username.style.display = "none"; // hide create button
     create.style.display = "none";
   }
 })();
+
+
+function formatDate(date) {  // no simpler solution.. date formats :/
+  var d = new Date(date),
+    month = '' + (d.getMonth() + 1),
+    day = '' + d.getDate(),
+    year = d.getFullYear();
+
+  if (month.length < 2)
+    month = '0' + month;
+  if (day.length < 2)
+    day = '0' + day;
+
+  return [year, month, day].join('-');
+}
+
 
 
 const getInputData = async (create) => {
@@ -53,12 +70,14 @@ const update = async () => {
   alert(mess.message);
 }
 
-const create =  async() => {
+const create = async () => {
   await getInputData(true);
   var mess = await authPost("/user/profile", window.body);
   alert(mess.message);
 }
 
+
+/*logic is good .. i think */
 const resetPassword = async () => {
   try {
     let response = await fetch(url + "/auth/change_password", {
