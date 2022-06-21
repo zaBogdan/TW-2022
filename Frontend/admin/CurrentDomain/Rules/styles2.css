@@ -22,7 +22,6 @@ body {
 .wrapper .main_content {
   display: flex;
   width: 100%;
-  margin-left: 200px;
   padding: 40px 0px;
   align-items: center;
   justify-content: center;
@@ -36,29 +35,30 @@ body {
 }
 
 .main_content h1:first-of-type {
-  font-size: 50px;
-  padding-bottom: 10px;
+  font-size: 60px;
 }
 
+.main_content h2{
+  font-size: 30px;
+  color: #acc8c9;
+}
 
 .flex-container {
   display: flex;
-  padding-top: 3%;
   list-style: none;
 }
 
 .flex-container .flex-item h1 {
-  padding-top: 3%;
-  margin-bottom: 3%;
   font-size: 30px;
   color: #2e3e3f;
 }
 
 .flex-item {
+  padding-top: 3%;
   display: flex;
   background: #acc8c9;
   color: #385170;
-  width: 60vw;
+  width: 64vw;
   min-width: 400px;
   height: 130vh;
   min-height: 800px;
@@ -136,6 +136,40 @@ select::-ms-expand {
   padding: 5px;
 }
 
+.flex-item label{
+  font-size:larger;
+  font-weight: bold;
+  color: #2e3e3f;
+}
+
+#nextext{
+  font-size:23px;
+  font-weight: bold;
+  color: #2e3e3f;
+}
+
+.flex-item h3{
+  font-size:23px;
+  font-weight: bold;
+  color: #2e3e3f;
+}
+
+#butoane{
+  margin-top: 2%;
+  width: 30%;
+  height: 40px;
+  border:none;
+  color: white;
+  background-color: #2e3e3f;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+}
+
+#butoane:hover{
+  background-color:#01858f;
+}
+
 .Addbutton {
   margin-top: 2%;
   width: 200px;
@@ -184,6 +218,9 @@ select::-ms-expand {
   font-size: 130%;
 }
 
+.main_content .fa-solid:hover{
+  color: #01858f;
+}
 
 .Addbutton:hover {
   background-color: #01858f

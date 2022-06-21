@@ -9,7 +9,6 @@ body {
   display: flex;
   position: relative;
 }
-
 .sidebar ul :nth-child(6) a {
   color: white;
 }
@@ -31,23 +30,23 @@ body {
 h1{
   text-align: center;
   color: #acc8c9;
-  font-size: 50px;
+  font-size: 75px;
   padding-bottom: 10px;
 }
 h2{
   text-align: center;
   color: #acc8c9;
-  font-size: 25px;
+  font-size: 30px;
   padding-bottom: 10px;
   max-width: 60vw;
 }
 h3{
-  font-size: 23px;
+  font-size: 40px;
   margin-bottom: 20px;
+  color: #2e3e3f;
 }
 
 .flex-container {
-  padding-top: 1%;
   height: 72vh;
   list-style:none;
   width: 80%;
@@ -55,7 +54,6 @@ h3{
 }
 
 .flex-item {
-  padding-top: 3%;
   list-style:none;
   display: flex;
   background: #acc8c9;
@@ -120,7 +118,8 @@ h3{
   flex-direction: row;
   justify-content: flex-start;
   text-align: left;
-  font-size: 22px;
+  font-size: 25px;
+  color: #2e3e3f;
 }
 #ruleList li .fas:first-of-type{
   margin-left: auto;

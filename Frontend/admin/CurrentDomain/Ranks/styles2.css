@@ -22,7 +22,6 @@ body {
 .main_content {
   display: flex;
   width: 100%;
-  margin-left: 200px;
   padding: 40px 0px;
   align-items:center;
   justify-content:center;
@@ -91,9 +90,27 @@ body {
  padding-right: 1%;
 }
 
+.flex-item label{
+  font-size:larger;
+  font-weight: bold;
+  color: #2e3e3f;
+}
+
+
 .AddRank button{
  height:33px;
  width: 100px;
+}
+
+#butoane{
+  width: 30%;
+  height: 40px;
+  border:none;
+  color: white;
+  background-color: #2e3e3f;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
 }
 
 .Addbutton{
@@ -107,6 +124,9 @@ body {
   font-size: 1rem;      
 }
 
+#butoane:hover{
+  background-color:#01858f;
+}
 
 .Addbutton:hover{
   background-color:#01858f;
@@ -115,14 +135,6 @@ body {
   color:#01858f;
 }
 
-
-/*
-@media (max-width: 1060px) {
-  .flex-container {
-    flex-wrap: wrap;
-  }
-}
-*/
 
 .sidebar .fa-solid{
   display: none;

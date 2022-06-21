@@ -42,12 +42,12 @@ h2{
   max-width: 60vw;
 }
 h3{
-  font-size: 23px;
+  font-size:48px;
   margin-bottom: 20px;
+  color: #2e3e3f;
 }
 
 .flex-container {
-  padding-top: 1%;
   height: 72vh;
   list-style:none;
   width: 80%;
@@ -55,7 +55,6 @@ h3{
 }
 
 .flex-item {
-  padding-top: 3%;
   list-style:none;
   display: flex;
   background: #acc8c9;
@@ -74,7 +73,10 @@ h3{
   height: 280px;
   overflow-y: auto;
   margin-top: 8%;
+  color: #2e3e3f;
 }
+
+
 
 .flex-container .flex-item h1{
   text-align: left;
@@ -119,7 +121,7 @@ h3{
   flex-direction: row;
   justify-content: flex-start;
   text-align: left;
-  font-size: 22px;
+  font-size: 25px;
 }
 #eventList li .fas:first-of-type{
   margin-left: auto;

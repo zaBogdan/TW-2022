@@ -21,16 +21,16 @@ body {
 .wrapper .main_content {
   display: flex;
   width: 100%;
-  margin-left: 200px;
   padding: 40px 0px;
   align-items:center;
   justify-content:center;
   flex-direction: column;
 }
 
-.wrapper .main_content h1{
+.wrapper .main_content h1:first-of-type{
   text-align: center;
   color: #acc8c9;
+  font-size: 350%;
 }
 
 .main_content h1:first-of-type{
@@ -57,7 +57,7 @@ body {
 }
 
  .flex-item h2{
-  font-size: 180%;
+  font-size: 250%;
   color: #2e3e3f;
   padding-top: 3%;
   text-align: left;
@@ -69,6 +69,11 @@ body {
   height: 4vh;
 }
 
+.flex-item label{
+  font-size:larger;
+  font-weight: bold;
+  color: #2e3e3f;
+}
 
 .Addbutton{
   margin-bottom: 4%;
@@ -82,6 +87,22 @@ body {
   font-size: 1rem;      
 }
 
+#butoane{
+  width: 30%;
+  height: 40px;
+  border:none;
+  color: white;
+  background-color: #2e3e3f;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+}
+
+#butoane:hover{
+  background-color:#01858f;
+}
+
+
 
 .Addbutton:hover{
   background-color:#01858f;
@@ -91,13 +112,7 @@ body {
 }
 
 
-/*
-@media (max-width: 1060px) {
-  .flex-container {
-    flex-wrap: wrap;
-  }
-}
-*/
+
 
 .sidebar .fa-solid{
   display: none;
