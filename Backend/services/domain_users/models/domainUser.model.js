@@ -36,15 +36,19 @@ const domainUserSchema = new Schema({
   achievements: [{
     type: Schema.Types.ObjectId
   }],
+  active: {
+    default: true,
+    type: Boolean,
+  },
   latestMessage: {
     type: String,
     default: 'Success'
+  },
+  rank: {
+    type: String,
+    default: 'default',
+    required: true
   }
-  //TODO: Add this when you get rank
-  // rank: {
-  //   type: Schema.Types.ObjectId,
-  //   required: true
-  // }
 }, { collection: 'domain_users' });
 
 module.exports = model('domain_users', domainUserSchema);
