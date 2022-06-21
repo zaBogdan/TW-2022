@@ -66,7 +66,7 @@ color: white;
   padding-left: 0px;
   border: 2px solid rgba(211, 245, 250, 0.3);
   border-radius: 28px;
-  font-size: 30px;
+  font-size: 20px;
   padding-top: 3%;
   padding-bottom: 3%;
 }
@@ -75,6 +75,12 @@ color: white;
   display: list-item;
   list-style-type: decimal;
 }
+
+.flex-item ol li{
+  display: list-item;
+  list-style-type: decimal;
+}
+
 @media (max-width: 1060px){
   .flex-container{
     flex-wrap: wrap;

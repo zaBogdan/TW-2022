@@ -33,7 +33,8 @@ async function show() {
   for (let i = 0; i < mess.data.domainUsers.length; i++) {
 
     const entry = document.createElement('li');
-    entry.appendChild(document.createTextNode(mess.data.domainUsers[i].activeDomain));
+    //console.log(mess.data.domainUsers[i].activeDomain);
+    entry.appendChild(document.createTextNode((mess.data.domainUsers[i].activeDomain)));
     list.appendChild(entry);
   }
 
