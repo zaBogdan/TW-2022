@@ -51,7 +51,7 @@ exports.getLeaderboardForDomain = async (req, res, next) => {
 }
 exports.updateDomainUserByListenerId = async (req, res, next) => {
     try {
-        await apiService.listenForDomainEvents(req);
+        await apiService.updateDomainUserByListenerId(req);
         return res.status(200).json({
             success: true,
             message: 'Successfully updated domain user',

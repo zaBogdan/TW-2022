@@ -76,6 +76,22 @@ exports.getLeaderboardForDomain = async (req) => {
 }
 
 exports.updateDomainUserByListenerId = async (req) => {
+    const { listenerId } = req.params;
+    const apiKey = req.headers['x-gameify-key'];
+    if(apiKey === undefined || apiKey === null) {
+        throw new StatusCodeException('You need to provide an api key to use this route.', 403);
+    }
+    
+    let response = await httpRequest(req, 'get', `${DOMAIN}/internal/domain/byAPIKey/${apiKey}`);
+    const domain = response.data.domain
+
+    await apiSchema.updateDomainUser.validateAsync(req.body);
+    const { active } = req.body;
+
+    response = await httpRequest({}, 'put', `${DOMAIN_USER}/internal/domain/user/${domain._id}/${listenerId}`, {
+        active
+    });
+
     return null;
 }
 

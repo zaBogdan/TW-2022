@@ -31,8 +31,6 @@ exports.createDomainUser = async (req) => {
 exports.updateDomainUser = async (req) => {
     const { listenerId, domainId } = req.params
 
-    console.log(listenerId, domainId)
-    
     const domainUserExists = await req.db.DomainUser.findOne({
         activeDomain: domainId,
         listenerId
@@ -42,8 +40,12 @@ exports.updateDomainUser = async (req) => {
         throw new StatusCodeException('Domain user does not exist', 404);
     }
 
-    const { score, events, achievements, latestMessage } = req.body;
+    const { score, events, achievements, latestMessage, active } = req.body;
 
+    if(active !== undefined) {
+        domainUserExists.active = active;
+    }
+    
     if(latestMessage) {
         domainUserExists.latestMessage = latestMessage;
     }
