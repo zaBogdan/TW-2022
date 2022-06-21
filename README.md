@@ -15,6 +15,7 @@ Bogdan Zavadovschi  <br />
     Diagram: https://github.com/zaBogdan/TW-2022/blob/main/Ux/diagram.jpg
     Documentation: https://github.com/zaBogdan/TW-2022/tree/main/documentation
     Api documentation: https://documenter.getpostman.com/view/6561230/UzBiNU3a
+    Demo video : https://youtu.be/vE3PAeB9F3A
  </p>
     
   
