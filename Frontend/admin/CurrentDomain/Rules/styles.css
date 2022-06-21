@@ -125,10 +125,13 @@ h3{
   margin-left: auto;
   padding-right: 0;
  }
- .fas{
-  padding-left: 5px;
+ .fa-edit, .fa-trash{
+  padding-left: 10px;
+  padding-right: 10px;
  }
-
+.fa-trash{
+  margin-right: 10px;
+}
 .rule_list p{
   background-color: #eee;
   color: black;
