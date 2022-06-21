@@ -5,7 +5,7 @@ const { debug, log } = require("shared").utils.logging;
 const { config, executeChain } = require("./modules");
 log('Starting evaluator service');
 
-amqp.connect('amqp://guest:guest@RabbitMQ:5672/', function (err, connection) {
+amqp.connect('amqp://guest:guest@127.0.0.1:5672/', function (err, connection) {
   if (err) {
     throw err;
   }
