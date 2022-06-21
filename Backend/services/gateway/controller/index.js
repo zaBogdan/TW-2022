@@ -6,6 +6,7 @@ const eventController = require('./event.controller');
 const rankController = require('./rank.controller');
 const ruleController = require('./rule.controller');
 const userController = require('./user.controller');
+const apiController = require('./api.controller');
 
 module.exports = {
     achievementController,
@@ -16,4 +17,5 @@ module.exports = {
     rankController,
     userController,
     ruleController,
+    apiController,
 };
