@@ -26,3 +26,20 @@ exports.getAchievementByName = async (req) => {
 
     return achievement;
 }
+
+exports.getAchievementById = async (req) => {
+    const { achievementId, domainId } = req.params
+
+    const achievement = await req.db.Achievement.findOne({
+        _id: achievementId,
+        activeDomain: domainId
+    }, {
+        __v: 0,
+    })
+
+    if(achievement ===  null) {
+        throw new StatusCodeException('This achievement doesn\'t exists.', 404);
+    }
+    
+    return achievement;
+}

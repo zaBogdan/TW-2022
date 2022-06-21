@@ -34,3 +34,22 @@ exports.updateDomainUser = async (req, res, next) => {
         });
     }
 }
+
+exports.getLeaderboardForDomain = async (req, res, next) => {
+    try {
+        const leaderboard = await internalService.getLeaderboardForDomain(req);
+        return res.status(200).json({
+            success: true,
+            message: 'Successfully got leaderboard for domain',
+            data: {
+                leaderboard
+            }
+        });
+    }catch(e) {
+        console.error(e)
+        return res.status(e?.statusCode || 500).json({
+            success: false,
+            message: 'Failed to update domain user. Error: ' + e?.message || 'Internal server error', 
+        });
+    }
+}

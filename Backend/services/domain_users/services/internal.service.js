@@ -31,8 +31,6 @@ exports.createDomainUser = async (req) => {
 exports.updateDomainUser = async (req) => {
     const { listenerId, domainId } = req.params
 
-    console.log(listenerId, domainId)
-    
     const domainUserExists = await req.db.DomainUser.findOne({
         activeDomain: domainId,
         listenerId
@@ -42,8 +40,12 @@ exports.updateDomainUser = async (req) => {
         throw new StatusCodeException('Domain user does not exist', 404);
     }
 
-    const { score, events, achievements, latestMessage } = req.body;
+    const { score, events, achievements, latestMessage, active } = req.body;
 
+    if(active !== undefined) {
+        domainUserExists.active = active;
+    }
+    
     if(latestMessage) {
         domainUserExists.latestMessage = latestMessage;
     }
@@ -63,4 +65,19 @@ exports.updateDomainUser = async (req) => {
     await domainUserExists.save();
 
     return domainUserExists
+}
+
+exports.getLeaderboardForDomain = async (req) => {
+    const { domainId } = req.params;
+    const domainUser = await req.db.DomainUser.find({
+        activeDomain: domainId,
+    }, {
+        __v: 0,
+        events: 0,
+        achievements: 0,
+    }).sort({'score': -1}).limit(100);
+    if(domainUser.length === 0) {
+        throw new StatusCodeException('You don\'t have any users yet', 404);
+    }
+    return domainUser
 }

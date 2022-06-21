@@ -20,3 +20,17 @@ exports.getEventByName = async (req) => {
 
     return event;
 }
+
+exports.getEventMapping = async (req) => {
+    const { domainId } = req.params;
+    const events = await req.db.Event.find({
+        activeDomain: domainId
+    }, {
+        __v: 0
+    })
+    if(events === null) {
+        throw new StatusCodeException('No events found', 404);
+    }
+
+    return events;
+}
