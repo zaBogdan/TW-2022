@@ -85,3 +85,23 @@ exports.createNewDomain = async (req, res,next) => {
         });
     }
 }
+
+exports.createNewDomain = async (req, res,next) => {
+    try {
+        const statistics = await domainService.getStatsForDomain(req);
+
+        return res.status(200).json({
+            success: true,
+            message: `Successfully fetched statistics for domain with id '${domain?.id}'`,
+            data: {
+                statistics
+            }
+        });
+    }catch(e) {
+        return res.status(e?.statusCode || 500).json({
+            success: false,
+            message: 'Failed to add a new domain. Error: ' + e?.message || 'Internal server error', 
+        });
+    }
+}
+

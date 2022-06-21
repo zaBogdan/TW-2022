@@ -74,6 +74,15 @@ services:
         api_port: 3108
     image: abl/rules-service
     restart: always
+  Api:
+    build:
+      dockerfile: ./deploy/Dockerfile
+      context: .
+      args:
+        folder_name: api
+        api_port: 3110
+    image: abl/api-service
+    restart: always
   Evaluator:
     build:
       dockerfile: ./deploy/Dockerfile
