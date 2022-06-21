@@ -22,7 +22,7 @@
       <h1>Set Rules</h1>
       <h2>
         add a new desired rule.
-     </h2>
+      </h2>
       <div class="flex-container ">
         <h2></h2>
         <div class="flex-item flex-1">
@@ -80,24 +80,29 @@
 
               <fieldset class="has_metric">
                 <fieldset class="dynamic_rule_type user_has_metric " id="user_has_metric">
-                  <label for="having_the_name">Having the name:</label>
-                  <select name="having_the_name" id="actions_list" required>
-                    <option value="" selected>--Select an action--</option>
-                  </select>
-                  <label for="having_a_value">Having a value: </label>
-                  <select name="having_a_value" id="comparator_list" required>
-                    <option value="" selected>--select an operator--</option>
-                    <option value="eq">equal to</option>
-                    <option value="neq">not equal to</option>
-                    <option value="lt">less than</option>
-                    <option value="lte">less than or equal to</option>
-                    <option value="gt">greater than</option>
-                    <option value="gte">greater than or equal to</option>
-                  </select>
-                  <label for="value"></label>
-                  <input name="value" type="number" id="inpt_value" placeholder="write a numeric value" min="0"
-                    required>
-                  <i></i>
+                  <span class="newline">
+                    <label for="having_the_name">Having the name:</label>
+                    <select name="having_the_name" id="actions_list" required>
+                      <option value="" selected>--Select an action--</option>
+                    </select>
+                  </span>
+                  <span class="newline">
+                    <label for="having_a_value">Having a value: </label>
+                    <select name="having_a_value" id="comparator_list" required>
+                      <option value="" selected>--select an operator--</option>
+                      <option value="eq">equal to</option>
+                      <option value="neq">not equal to</option>
+                      <option value="lt">less than</option>
+                      <option value="lte">less than or equal to</option>
+                      <option value="gt">greater than</option>
+                      <option value="gte">greater than or equal to</option>
+                    </select>
+                  </span>
+                  <span class="newline">
+                    <label for="value">The number:</label>
+                    <input name="value" type="number" id="inpt_value" placeholder="write a numeric value" min="0"
+                      required>
+                  </span>
                 </fieldset>
               </fieldset>
               <fieldset class="dynamic_rule_type all" id="all_rules">
