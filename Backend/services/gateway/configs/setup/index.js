@@ -6,6 +6,6 @@ module.exports = {
         '/auth/refresh',
         '/auth/change_password',
         '/info',
-        '/domain/trigger/*'
+        '/api/*'
     ]
 }

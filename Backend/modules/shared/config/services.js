@@ -12,6 +12,7 @@ const development =  {
     ACHIEVEMENTS: `${basePath}:3106`,
     RANKS: `${basePath}:3107`,
     RULES: `${basePath}:3108`,
+    API: `${basePath}:3110`,
 }
 
 const production = {
@@ -24,6 +25,7 @@ const production = {
     ACHIEVEMENTS: 'http://Achievements:3106',
     RANKS: `http://Ranks:3107`,
     RULES: 'http://Rules:3108',
+    API: 'http://Api:3110',
 }
 
 module.exports = (process.env.NODE_ENV === 'prod' ? production : development);
