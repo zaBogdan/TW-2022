@@ -27,12 +27,19 @@
         <div class="flex-item flex-1">
           <h2 style="padding-bottom: 4%;">Edit Menu:</h2>
           <form action="www.google.ro" id="edit_rank_form">
-            <label for="rank_name">Rank name:</label>
-            <input type="text" name="rank_name" id="rank_name" placeholder="insert a name for your rank" required>
-            <label for="rank_score">Score:</label>
-            <input type="number" name="rank_score" id="rank_score" placeholder="insert a score for this rank">
-            <label for="rankTo">Next rank:</label>
-            <input type="text" name="rankTo" id="rankTo" value="default">
+            <span class="newline">
+              <label for="rank_name">Rank name:</label>
+              <input type="text" name="rank_name" id="rank_name" placeholder="insert a name for your rank" required>
+            </span>
+            <span class="newline">
+              <label for="rank_score">Score:</label>
+              <input type="number" name="rank_score" id="rank_score" placeholder="insert a score for this rank">
+            </span>
+            <span class="newline">
+              <label for="rankTo">Next rank:</label>
+              <input type="text" name="rankTo" id="rankTo" value="default">
+            </span>
+
             <input class="butoane" type="submit" value="Save Rank" />
             <input class="butoane" type="button" value="Cancel" onclick="history.back()" />
           </form>

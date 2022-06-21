@@ -24,14 +24,16 @@
 
       <div class="flex-container ">
         <div class="flex-item flex-1">
-          <h2 >New Achievements:</h2>
+          <h2>New Achievements:</h2>
           <form action="www.google.ro" id="add_achievement_form">
-            <label for="achievement_name">Achievement name:</label>
-            <input type="text" name="achievement_name" placeholder="insert a name for your achievement" required>
-            <label for="achievement_score">Score:</label>
-            <input type="number" name="achievement_score" placeholder="insert a score for this achievement" min="0">
-            <!--  <label for="avatar">Image:</label>
-            <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" value="choose image">-->
+            <span class="newline">
+              <label for="achievement_name">Achievement name:</label>
+              <input type="text" name="achievement_name" placeholder="insert a name for your achievement" required>
+            </span>
+            <span class="newline">
+              <label for="achievement_score">Score:</label>
+              <input type="number" name="achievement_score" placeholder="insert a score for this achievement" min="0">
+            </span>
             <input class="butoane" type="submit" value="Save Achievement" />
             <input class="butoane" type="button" value="Cancel" onclick="history.back()" />
           </form>

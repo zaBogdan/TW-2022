@@ -27,16 +27,23 @@
         <div class="flex-item flex-1">
           <h2 style="padding-bottom: 4%;">Edit Event:</h2>
           <form action="www.google.ro" id="edit_event_form">
-            <label for="event_name">Event name:</label>
-            <input type="text" name="event_name" id="event_name" placeholder="What event do you want to measure?"
-              required>
-            <label for="event_status">Active:</label>
-            <select name="event_status" id="event_status">
-              <option value="true" id="true">Yes</option>
-              <option value="false" id="false">No</option>
-            </select>
-            <label for="event_id">Event id:</label>
-            <input type="text" name="event_id" id="event_id" disabled>
+            <span class="newline">
+              <label for="event_name">Event name:</label>
+              <input type="text" name="event_name" id="event_name" placeholder="What event do you want to measure?"
+                required>
+            </span>
+            <span class="newline">
+              <label for="event_status">Active:</label>
+              <select name="event_status" id="event_status">
+                <option value="true" id="true">Yes</option>
+                <option value="false" id="false">No</option>
+              </select>
+            </span>
+            <span class="newline">
+              <label for="event_id">Event id:</label>
+              <input type="text" name="event_id" id="event_id" disabled>
+            </span>
+
             <input class="butoane" type="submit" value="Save Event" />
             <input class="butoane" type="button" value="Cancel" onclick="history.back()" />
           </form>
