@@ -54,12 +54,7 @@ domains.then(response => {
           redirect: 'follow'
         };
         let domain_id = response.data.domains[i]['_id'];
-        let delURL = url + "/domain/" + domain_id;
-        console.log(delURL);
-        fetch(delURL, requestOptions)
-          .then(response => response.json())
-          .then(result => console.log(result))
-          .catch(error => console.log('error', error));
+       authDelete("/domain/" + domain_id);
         // send PUT request to alter database
       })
 
