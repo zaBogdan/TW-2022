@@ -45,7 +45,7 @@ body {
 }
 
 .flex-container {
-  height: 72vh;
+  /* min-height: 72vh; */
   list-style:none;
   width: 80%;
   
@@ -63,6 +63,8 @@ body {
   border-radius: 28px;
   flex-direction: column;
   padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
 }
 
 .flex-item h1 {
