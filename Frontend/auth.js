@@ -27,7 +27,7 @@ async function login() {
       console.log(data.message);
       localStorage.setItem("accessToken", data.data.tokens.accessToken);
       localStorage.setItem("refreshToken", data.data.tokens.refreshToken);
-      window.location.replace("admin/Dashboard/index.html");
+      window.location.replace("admin/MyAccount/");
     }
     else {
       console.log(data.message);
