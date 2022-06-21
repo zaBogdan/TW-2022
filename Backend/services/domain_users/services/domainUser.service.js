@@ -1,4 +1,4 @@
-const { debug } = require('shared').utils.logging;
+ const { debug } = require('shared').utils.logging;
 const { v4: uuid } = require('uuid');
 const StatusCodeException = require('shared').exceptions.StatusCodeException;
 const httpRequest = require('shared').modules.internal_comm.http.request;

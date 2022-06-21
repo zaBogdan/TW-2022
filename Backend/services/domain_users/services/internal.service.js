@@ -22,7 +22,7 @@ exports.createDomainUser = async (req) => {
         score: 0,
         events: {},
         achievements: [],
-        rank: ''
+        rank: 'default'
     })
     await domainUser.save();
     return domainUser;
@@ -40,7 +40,7 @@ exports.updateDomainUser = async (req) => {
         throw new StatusCodeException('Domain user does not exist', 404);
     }
 
-    const { score, events, achievements, latestMessage, active } = req.body;
+    const { score, events, achievements, latestMessage, active, rank } = req.body;
 
     if(active !== undefined) {
         domainUserExists.active = active;
@@ -58,9 +58,13 @@ exports.updateDomainUser = async (req) => {
         domainUserExists.events = events;
     }
 
-    if(achievements) [
+    if(achievements) {
         domainUserExists.achievements = achievements
-    ]
+    }
+
+    if(rank) {
+        domainUserExists.rank = rank
+    }
 
     await domainUserExists.save();
 
