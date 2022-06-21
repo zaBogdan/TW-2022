@@ -64,3 +64,18 @@ exports.updateDomainUser = async (req) => {
 
     return domainUserExists
 }
+
+exports.getLeaderboardForDomain = async (req) => {
+    const { domainId } = req.params;
+    const domainUser = await req.db.DomainUser.find({
+        activeDomain: domainId,
+    }, {
+        __v: 0,
+        events: 0,
+        achievements: 0,
+    }).sort({'score': -1}).limit(100);
+    if(domainUser.length === 0) {
+        throw new StatusCodeException('You don\'t have any users yet', 404);
+    }
+    return domainUser
+}
