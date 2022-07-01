@@ -56,7 +56,7 @@ With this service you will be able to evaluate the complex logic of each and eve
     "_id": "3a8929d213da4ce0a85afe4e1f7b9f7d",
     "userId": "e13d88872b6641cda866b27d1e0920b6",
     "type": 1,
-    "email": "bzavadovschi@bitdefender.biz",
+    "email": "bzavadovschi@pground.io",
     "password": "$2a$12$yYKC2ej7AWkZnKfXTSHy3eVINZ7HA.CWVZU00ZXwendRnjRtlBKSC",
     "active": true,
     "suspended": false
